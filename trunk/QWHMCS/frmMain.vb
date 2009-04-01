@@ -1,4 +1,4 @@
-﻿Public Class Form1
+﻿Public Class frmMain
     Dim AcikTicketSayisi As Long
     Dim KapaliTicketSayisi As Long
     Dim CevaplananTicketSayisi As Long
@@ -19,13 +19,23 @@
         Dim objIniFile As IniFile
         Dim aPath As String
         aPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location)
+        If DosyaVarmıYokmu(aPath & "\settings.ini") = False Then
+            SetupDurumu = False
+            Dim frmSetup As New frmSetup
+            frmSetup.ShowDialog()
+        End If
         objIniFile = New IniFile(aPath & "\settings.ini")
+        If objIniFile.GetString("Settings", "Setup", "0") = "0" Then
+            SetupDurumu = True
+            Dim frmSetup As New frmSetup
+            frmSetup.ShowDialog()
+        End If
         WHMCSAddress = objIniFile.GetString("WHMCS", "Address", "")
         ConStrSirket = String.Format("DRIVER={{MySQL ODBC 3.51 Driver}};SERVER={0};UID={1};PWD={2};DATABASE={3};OPTION=16427", objIniFile.GetString("Server", "Hostname", ""), objIniFile.GetString("Server", "Username", ""), objIniFile.GetString("Server", "Password", ""), objIniFile.GetString("Server", "Database", ""))
         BaglantiSirket = New Odbc.OdbcConnection
         BaglantiSirket.ConnectionString = ConStrSirket
         If objIniFile.GetString("Settings", "AboutBox", "true") = "true" Then
-            Dim frmabout As New AboutBox1
+            Dim frmabout As New frmAbout
             frmabout.ShowDialog()
         End If
         LOpenTicket = objIniFile.GetString("Language", "LOpenTicket", "Open Ticket")
@@ -36,6 +46,7 @@
         LcmdClose = objIniFile.GetString("Language", "LcmdClose", "Close")
         LcmdHide = objIniFile.GetString("Language", "LcmdHide", "Hide")
         LcmdRefresh = objIniFile.GetString("Language", "LcmdRefresh", "Refresh")
+        LcmdSettings = objIniFile.GetString("Language", "LcmdSettings", "Settings")
         LColDate = objIniFile.GetString("Language", "LColDate", "Date")
         LColDepartment = objIniFile.GetString("Language", "LColDepartment", "Department")
         LColName = objIniFile.GetString("Language", "LColName", "Name")
@@ -53,6 +64,7 @@
         cmdKapat.Text = LcmdClose
         cmdRefresh.Text = LcmdRefresh
         cmdHide.Text = LcmdHide
+        cmdSettings.Text = LcmdSettings
         coldate.Caption = LColDate
         cold_name.Caption = LColDepartment
         colu_name.Caption = LColName
@@ -67,6 +79,9 @@
         Me.Opacity = Transparency / 100
         Zaman = RefreshRate
         Doldur(True)
+        Timer1.Enabled = True
+        Timer2.Enabled = True
+        Shell(aPath & "\qupdate.exe /Tray /TimerIntro /TimerFinal")
     End Sub
     Public Function Doldur(Optional ByVal Ilk As Boolean = False) As Boolean
         Try
@@ -146,7 +161,7 @@
 
     Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
         Zaman = Zaman - 1
-        Me.Text = "QWHMCS - WHMCS Ticket Track System - " & Zaman
+        Me.Text = "QWHMCS - WHMCS Ticket Track System - " & Application.ProductVersion & " - " & Zaman
     End Sub
 
     Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdRefresh.Click
@@ -189,5 +204,11 @@
     Private Sub SimpleButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdHide.Click
         Me.Hide()
         Gorunuyormu = False
+    End Sub
+
+    Private Sub cmdSettings_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles cmdSettings.Click
+        SetupDurumu = True
+        Dim frmsetup As New frmSetup
+        frmsetup.ShowDialog()
     End Sub
 End Class

@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Form1
-    Inherits System.Windows.Forms.Form
+Partial Class frmMain
+    Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -23,9 +23,10 @@ Partial Class Form1
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
         Me.Ds1 = New QWHMCS.ds1
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
+        Me.cmdSettings = New DevExpress.XtraEditors.SimpleButton
         Me.cmdHide = New DevExpress.XtraEditors.SimpleButton
         Me.cmdAc = New DevExpress.XtraEditors.SimpleButton
         Me.cmdKapat = New DevExpress.XtraEditors.SimpleButton
@@ -56,8 +57,9 @@ Partial Class Form1
         Me.EmptySpaceItem1 = New DevExpress.XtraLayout.EmptySpaceItem
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.ni1 = New System.Windows.Forms.NotifyIcon(Me.components)
@@ -74,8 +76,9 @@ Partial Class Form1
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Ds1
@@ -85,6 +88,7 @@ Partial Class Form1
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.cmdSettings)
         Me.LayoutControl1.Controls.Add(Me.cmdHide)
         Me.LayoutControl1.Controls.Add(Me.cmdAc)
         Me.LayoutControl1.Controls.Add(Me.cmdKapat)
@@ -99,12 +103,22 @@ Partial Class Form1
         Me.LayoutControl1.TabIndex = 2
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'cmdSettings
+        '
+        Me.cmdSettings.Image = Global.QWHMCS.My.Resources.Resources.confg_16
+        Me.cmdSettings.Location = New System.Drawing.Point(466, 7)
+        Me.cmdSettings.Name = "cmdSettings"
+        Me.cmdSettings.Size = New System.Drawing.Size(93, 24)
+        Me.cmdSettings.StyleController = Me.LayoutControl1
+        Me.cmdSettings.TabIndex = 7
+        Me.cmdSettings.Text = "Ayarlar"
+        '
         'cmdHide
         '
         Me.cmdHide.Image = Global.QWHMCS.My.Resources.Resources.confg_16
-        Me.cmdHide.Location = New System.Drawing.Point(462, 42)
+        Me.cmdHide.Location = New System.Drawing.Point(570, 42)
         Me.cmdHide.Name = "cmdHide"
-        Me.cmdHide.Size = New System.Drawing.Size(97, 24)
+        Me.cmdHide.Size = New System.Drawing.Size(98, 24)
         Me.cmdHide.StyleController = Me.LayoutControl1
         Me.cmdHide.TabIndex = 6
         Me.cmdHide.Text = "Gizle"
@@ -112,7 +126,7 @@ Partial Class Form1
         'cmdAc
         '
         Me.cmdAc.Image = Global.QWHMCS.My.Resources.Resources.ntwrk_16
-        Me.cmdAc.Location = New System.Drawing.Point(462, 7)
+        Me.cmdAc.Location = New System.Drawing.Point(358, 7)
         Me.cmdAc.Name = "cmdAc"
         Me.cmdAc.Size = New System.Drawing.Size(97, 24)
         Me.cmdAc.StyleController = Me.LayoutControl1
@@ -143,9 +157,9 @@ Partial Class Form1
         'cmdRefresh
         '
         Me.cmdRefresh.Image = Global.QWHMCS.My.Resources.Resources.ref_16
-        Me.cmdRefresh.Location = New System.Drawing.Point(570, 42)
+        Me.cmdRefresh.Location = New System.Drawing.Point(466, 42)
         Me.cmdRefresh.Name = "cmdRefresh"
-        Me.cmdRefresh.Size = New System.Drawing.Size(98, 24)
+        Me.cmdRefresh.Size = New System.Drawing.Size(93, 24)
         Me.cmdRefresh.StyleController = Me.LayoutControl1
         Me.cmdRefresh.TabIndex = 5
         Me.cmdRefresh.Text = "Yenile"
@@ -302,7 +316,7 @@ Partial Class Form1
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.CustomizationFormText = "LayoutControlGroup1"
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem3, Me.EmptySpaceItem1, Me.LayoutControlItem5, Me.LayoutControlItem4, Me.LayoutControlItem2, Me.LayoutControlItem6})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem1, Me.LayoutControlItem3, Me.EmptySpaceItem1, Me.LayoutControlItem5, Me.LayoutControlItem4, Me.LayoutControlItem7, Me.LayoutControlItem6, Me.LayoutControlItem2})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
         Me.LayoutControlGroup1.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
@@ -348,7 +362,7 @@ Partial Class Form1
         Me.EmptySpaceItem1.Location = New System.Drawing.Point(283, 0)
         Me.EmptySpaceItem1.Name = "EmptySpaceItem1"
         Me.EmptySpaceItem1.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.EmptySpaceItem1.Size = New System.Drawing.Size(172, 70)
+        Me.EmptySpaceItem1.Size = New System.Drawing.Size(68, 70)
         Me.EmptySpaceItem1.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.EmptySpaceItem1.Text = "EmptySpaceItem1"
         Me.EmptySpaceItem1.TextSize = New System.Drawing.Size(0, 0)
@@ -357,12 +371,12 @@ Partial Class Form1
         '
         Me.LayoutControlItem5.Control = Me.cmdAc
         Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(455, 0)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(351, 0)
         Me.LayoutControlItem5.MaxSize = New System.Drawing.Size(108, 35)
         Me.LayoutControlItem5.MinSize = New System.Drawing.Size(108, 35)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
         Me.LayoutControlItem5.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(108, 35)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(108, 70)
         Me.LayoutControlItem5.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem5.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem5.Text = "LayoutControlItem5"
@@ -387,16 +401,44 @@ Partial Class Form1
         Me.LayoutControlItem4.TextToControlDistance = 0
         Me.LayoutControlItem4.TextVisible = False
         '
+        'LayoutControlItem7
+        '
+        Me.LayoutControlItem7.Control = Me.cmdSettings
+        Me.LayoutControlItem7.CustomizationFormText = "LayoutControlItem7"
+        Me.LayoutControlItem7.Location = New System.Drawing.Point(459, 0)
+        Me.LayoutControlItem7.Name = "LayoutControlItem7"
+        Me.LayoutControlItem7.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(104, 35)
+        Me.LayoutControlItem7.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.LayoutControlItem7.Text = "LayoutControlItem7"
+        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem7.TextToControlDistance = 0
+        Me.LayoutControlItem7.TextVisible = False
+        '
+        'LayoutControlItem6
+        '
+        Me.LayoutControlItem6.Control = Me.cmdHide
+        Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(563, 35)
+        Me.LayoutControlItem6.Name = "LayoutControlItem6"
+        Me.LayoutControlItem6.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(109, 35)
+        Me.LayoutControlItem6.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.LayoutControlItem6.Text = "LayoutControlItem6"
+        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem6.TextToControlDistance = 0
+        Me.LayoutControlItem6.TextVisible = False
+        '
         'LayoutControlItem2
         '
         Me.LayoutControlItem2.Control = Me.cmdRefresh
         Me.LayoutControlItem2.CustomizationFormText = "LayoutControlItem2"
-        Me.LayoutControlItem2.Location = New System.Drawing.Point(563, 35)
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(459, 35)
         Me.LayoutControlItem2.MaxSize = New System.Drawing.Size(0, 35)
         Me.LayoutControlItem2.MinSize = New System.Drawing.Size(100, 35)
         Me.LayoutControlItem2.Name = "LayoutControlItem2"
         Me.LayoutControlItem2.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem2.Size = New System.Drawing.Size(109, 35)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(104, 35)
         Me.LayoutControlItem2.SizeConstraintsType = DevExpress.XtraLayout.SizeConstraintsType.Custom
         Me.LayoutControlItem2.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem2.Text = "LayoutControlItem2"
@@ -404,28 +446,12 @@ Partial Class Form1
         Me.LayoutControlItem2.TextToControlDistance = 0
         Me.LayoutControlItem2.TextVisible = False
         '
-        'LayoutControlItem6
-        '
-        Me.LayoutControlItem6.Control = Me.cmdHide
-        Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
-        Me.LayoutControlItem6.Location = New System.Drawing.Point(455, 35)
-        Me.LayoutControlItem6.Name = "LayoutControlItem6"
-        Me.LayoutControlItem6.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem6.Size = New System.Drawing.Size(108, 35)
-        Me.LayoutControlItem6.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlItem6.Text = "LayoutControlItem6"
-        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem6.TextToControlDistance = 0
-        Me.LayoutControlItem6.TextVisible = False
-        '
         'Timer1
         '
-        Me.Timer1.Enabled = True
         Me.Timer1.Interval = 30000
         '
         'Timer2
         '
-        Me.Timer2.Enabled = True
         Me.Timer2.Interval = 1000
         '
         'ni1
@@ -434,14 +460,14 @@ Partial Class Form1
         Me.ni1.Text = "QWHMCS - WHMCS Ticket Takip Sistemi"
         Me.ni1.Visible = True
         '
-        'Form1
+        'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(674, 340)
         Me.Controls.Add(Me.LayoutControl1)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.Name = "Form1"
+        Me.Name = "frmMain"
         Me.Opacity = 0.9
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "QWHMCS - WHMCS Ticket Takip Sistemi"
@@ -458,8 +484,9 @@ Partial Class Form1
         CType(Me.EmptySpaceItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -500,5 +527,7 @@ Partial Class Form1
     Friend WithEvents ni1 As System.Windows.Forms.NotifyIcon
     Friend WithEvents cmdHide As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents cmdSettings As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents LayoutControlItem7 As DevExpress.XtraLayout.LayoutControlItem
 
 End Class
