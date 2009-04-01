@@ -6,6 +6,7 @@
     End Enum
     Public ConStrSirket As String
     Public BaglantiSirket As Odbc.OdbcConnection
+    Public SetupDurumu As Boolean = False
     'Language
     Public LOpenTicket As String
     Public LClosedTicket As String
@@ -15,6 +16,7 @@
     Public LcmdClose As String
     Public LcmdHide As String
     Public LcmdRefresh As String
+    Public LcmdSettings As String
     Public LColDate As String
     Public LColDepartment As String
     Public LColName As String
