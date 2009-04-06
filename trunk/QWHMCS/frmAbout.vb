@@ -12,7 +12,7 @@
         Me.LabelVersion.Text = String.Format("Version {0}", My.Application.Info.Version.ToString)
         Me.LabelCopyright.Text = My.Application.Info.Copyright
         Me.LabelCompanyName.Text = My.Application.Info.CompanyName
-        Me.TextBoxDescription.Text = My.Application.Info.Description
+        Me.TextBoxDescription.Text = "This Software Developed by Muzaffer AKYIL." & vbCrLf & "Please tell the program to address support@qtechnics.net bugs." & vbCrLf & "This program is completely free. Can not be sold." & vbCrLf & "Please visit Donate and Help this software http://www.qtechnics.net/QWHMCS"
     End Sub
 
     Private Sub OKButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OKButton.Click

@@ -28,6 +28,9 @@
             txtRefreshRate.EditValue = objIniFile.GetString("Settings", "RefreshRate", 30)
             txtTransparent.Value = objIniFile.GetString("Settings", "Transparency", 90)
             txtWHMCSAddress.EditValue = objIniFile.GetString("WHMCS", "Address", "")
+            txtAPIAddress.EditValue = objIniFile.GetString("WHMCS", "APIAddress", "")
+            txtAPIUsername.EditValue = objIniFile.GetString("WHMCS", "APIUsername", "")
+            txtAPIPassword.EditValue = objIniFile.GetString("WHMCS", "APIPassword", "")
             txtHostname.EditValue = objIniFile.GetString("Server", "Hostname", "")
             txtUsername.EditValue = objIniFile.GetString("Server", "Username", "")
             txtPassword.EditValue = objIniFile.GetString("Server", "Password", "")
@@ -61,11 +64,14 @@
             txtErrorDatabase.EditValue = "Database Connection Problem !"
             txtRefreshRate.EditValue = 30
             txtTransparent.Value = 90
-            txtWHMCSAddress.EditValue = ""
-            txtHostname.EditValue = ""
-            txtUsername.EditValue = ""
-            txtPassword.EditValue = ""
-            txtDatabase.EditValue = ""
+            txtWHMCSAddress.EditValue = Nothing
+            txtHostname.EditValue = Nothing
+            txtUsername.EditValue = Nothing
+            txtPassword.EditValue = Nothing
+            txtDatabase.EditValue = Nothing
+            txtAPIAddress.EditValue = Nothing
+            txtAPIUsername.EditValue = Nothing
+            txtAPIPassword.EditValue = Nothing
             radioAbout.EditValue = True
         End If
     End Sub
@@ -110,6 +116,9 @@
         objIniFile.WriteString("Settings", "RefreshRate", txtRefreshRate.EditValue)
         objIniFile.WriteString("Settings", "Transparency", txtTransparent.Value)
         objIniFile.WriteString("WHMCS", "Address", txtWHMCSAddress.EditValue)
+        objIniFile.WriteString("WHMCS", "APIAddress", txtAPIAddress.EditValue)
+        objIniFile.WriteString("WHMCS", "APIUsername", txtAPIUsername.EditValue)
+        objIniFile.WriteString("WHMCS", "APIPassword", txtAPIPassword.EditValue)
         objIniFile.WriteString("Server", "Hostname", txtHostname.EditValue)
         objIniFile.WriteString("Server", "Username", txtUsername.EditValue)
         objIniFile.WriteString("Server", "Password", txtPassword.EditValue)

@@ -1,0 +1,13 @@
+D:\Projeler\VB\QWHMCS\QWHMCS\obj\Release\ResolveAssemblyReference.cache
+D:\Projeler\VB\QWHMCS\QWHMCS\obj\Release\QWHMCS.vbproj.GenerateResource.Cache
+D:\Projeler\VB\QWHMCS\QWHMCS\bin\Release\QWHMCS.exe
+D:\Projeler\VB\QWHMCS\QWHMCS\bin\Release\QWHMCS.pdb
+D:\Projeler\VB\QWHMCS\QWHMCS\bin\Release\QWHMCS.xml
+D:\Projeler\VB\QWHMCS\QWHMCS\obj\Release\QWHMCS.Resources.resources
+D:\Projeler\VB\QWHMCS\QWHMCS\obj\Release\QWHMCS.exe.licenses
+D:\Projeler\VB\QWHMCS\QWHMCS\obj\Release\QWHMCS.exe
+D:\Projeler\VB\QWHMCS\QWHMCS\obj\Release\QWHMCS.xml
+D:\Projeler\VB\QWHMCS\QWHMCS\obj\Release\QWHMCS.pdb
+D:\Projeler\VB\QWHMCS\QWHMCS\obj\Release\QWHMCS.frmAbout.resources
+D:\Projeler\VB\QWHMCS\QWHMCS\obj\Release\QWHMCS.frmMain.resources
+D:\Projeler\VB\QWHMCS\QWHMCS\obj\Release\QWHMCS.frmSetup.resources

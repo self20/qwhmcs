@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <UsingTask TaskName="BuildTasks.IncrementBuildNumber" AssemblyFile="BuildTask.dll" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -14,19 +15,36 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <OptionExplicit>On</OptionExplicit>
-    <OptionCompare>Binary</OptionCompare>
+    <OptionCompare>Text</OptionCompare>
     <OptionStrict>Off</OptionStrict>
     <OptionInfer>On</OptionInfer>
     <ApplicationIcon>group_32.ico</ApplicationIcon>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>QWHMCS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -36,15 +54,18 @@
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>QWHMCS.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v7.2, Version=7.2.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
     <Reference Include="DevExpress.Utils.v7.2, Version=7.2.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
+    <Reference Include="DevExpress.XtraBars.v7.2, Version=7.2.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
     <Reference Include="DevExpress.XtraEditors.v7.2, Version=7.2.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
     <Reference Include="DevExpress.XtraGrid.v7.2, Version=7.2.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
     <Reference Include="DevExpress.XtraLayout.v7.2, Version=7.2.2.0, Culture=neutral, PublicKeyToken=9b171c9fd64da1d1" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -102,6 +123,12 @@
     <Compile Include="frmSetup.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmEditor.Designer.vb">
+      <DependentUpon>frmEditor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditor.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmAbout.resx">
@@ -123,6 +150,19 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEditor.resx">
+      <DependentUpon>frmEditor.vb</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="obj\Debug\QWHMCS.frmAbout.resources" />
+    <EmbeddedResource Include="obj\Debug\QWHMCS.frmEditor.resources" />
+    <EmbeddedResource Include="obj\Debug\QWHMCS.frmMain.resources" />
+    <EmbeddedResource Include="obj\Debug\QWHMCS.frmSetup.resources" />
+    <EmbeddedResource Include="obj\Debug\QWHMCS.Resources.resources" />
+    <EmbeddedResource Include="obj\Release\QWHMCS.frmAbout.resources" />
+    <EmbeddedResource Include="obj\Release\QWHMCS.frmMain.resources" />
+    <EmbeddedResource Include="obj\Release\QWHMCS.frmSetup.resources" />
+    <EmbeddedResource Include="obj\Release\QWHMCS.Resources.resources" />
   </ItemGroup>
   <ItemGroup>
     <None Include="DataSet1.xsc">
@@ -159,9 +199,67 @@
     <None Include="Resources\confg_16.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\Release\alarm.wav" />
+    <Content Include="bin\Release\QUpdate.exe" />
+    <Content Include="bin\Release\QWHMCS.exe" />
+    <Content Include="bin\Release\QWHMCS.pdb" />
+    <Content Include="bin\Release\QWHMCS.vshost.exe" />
+    <Content Include="bin\Release\QWHMCS.xml" />
+    <Content Include="BuildTask.dll" />
     <Content Include="group_32.ico" />
+    <Content Include="obj\Debug\QWHMCS.exe" />
+    <Content Include="obj\Debug\qwhmcs.exe.licenses" />
+    <Content Include="obj\Debug\QWHMCS.pdb" />
+    <Content Include="obj\Debug\QWHMCS.vbproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\QWHMCS.xml" />
+    <Content Include="obj\Debug\TempPE\DataSet1.Designer.vb.dll" />
+    <Content Include="obj\Debug\TempPE\My Project.Resources.Designer.vb.dll" />
+    <Content Include="obj\Release\QWHMCS.exe" />
+    <Content Include="obj\Release\qwhmcs.exe.licenses" />
+    <Content Include="obj\Release\QWHMCS.pdb" />
+    <Content Include="obj\Release\QWHMCS.vbproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\QWHMCS.xml" />
+    <Content Include="obj\Release\TempPE\DataSet1.Designer.vb.dll" />
+    <Content Include="obj\Release\TempPE\My Project.Resources.Designer.vb.dll" />
+    <None Include="My Project\app.manifest" />
+    <None Include="obj\Debug\QWHMCS.vbproj.GenerateResource.Cache" />
+    <None Include="obj\Debug\ResolveAssemblyReference.cache" />
+    <None Include="obj\Release\QWHMCS.vbproj.GenerateResource.Cache" />
+    <None Include="obj\Release\ResolveAssemblyReference.cache" />
+    <None Include="Resources\exp_16.png" />
+    <None Include="Resources\lock_16.png" />
+    <None Include="Resources\hist_16.png" />
+    <None Include="Resources\play_16.png" />
+    <None Include="Resources\cancl_16.png" />
+    <None Include="Resources\about_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 2.0 %28x86%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.0">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.0 %28x86%29</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Debug\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Target Name="BeforeBuild">
+    <IncrementBuildNumber AssemblyFileLocation="$(MSBuildProjectDirectory)\My Project\AssemblyInfo.vb">
+    </IncrementBuildNumber>
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
