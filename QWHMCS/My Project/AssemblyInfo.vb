@@ -1,4 +1,4 @@
-﻿Imports System
+Imports System
 Imports System.Reflection
 Imports System.Runtime.InteropServices
 
@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("QWHMCS - WHMCS Ticket Trace System")> 
+<Assembly: AssemblyTitle("QWHMCS - WHMCS Ticket Track System")> 
 <Assembly: AssemblyDescription("This Software Developed by Muzaffer AKYIL. Please bugs sent to support@qtechnics.net. This Software is Full Freeware ! Don't Sell ! Please visit Donate and Help this software http://www.qtechnics.net/wiki/index.php/QWHMCS")> 
 <Assembly: AssemblyCompany("QTechnics Ltd.Şti.")> 
-<Assembly: AssemblyProduct("QWHMCS - WHMCS Ticket Trace System")> 
+<Assembly: AssemblyProduct("QWHMCS - WHMCS Ticket Track System")> 
 <Assembly: AssemblyCopyright("Copyright © QTechnics Ltd.Şti. 2008")> 
 <Assembly: AssemblyTrademark("http://www.qtechnics.net")> 
 
@@ -31,5 +31,5 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("1.2.0.0")> 
-<Assembly: AssemblyFileVersion("1.2.0.0")> 
+<Assembly: AssemblyVersion("1.3.122.34")> 
+<Assembly: AssemblyFileVersion("1.3.122.34")> 
