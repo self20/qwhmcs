@@ -1,14 +1,26 @@
 ﻿Public Class frmSetup
     Public objIniFile As IniFile
     Public aPath As String
+    Public qClose As Boolean
+    Private Sub frmSetup_FormClosing(ByVal sender As Object, ByVal e As System.Windows.Forms.FormClosingEventArgs) Handles Me.FormClosing
+        If qClose = True Then
+            End
+        End If
+    End Sub
     Private Sub frmSetup_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         aPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location)
+        objIniFile = New IniFile(aPath & "\settings.ini")
+        If objIniFile.GetString("Settings", "Setup", "0") = "0" Then
+            qClose = True
+        Else
+            qClose = False
+        End If
         If SetupDurumu = True Then
             objIniFile = New IniFile(aPath & "\settings.ini")
-            txtOpenTicket.EditValue = objIniFile.GetString("Language", "LOpenTicket", "Open Ticket")
-            txtClosedTicket.EditValue = objIniFile.GetString("Language", "LClosedTicket", "Closed Ticket")
-            txtAnswered.EditValue = objIniFile.GetString("Language", "LAnswered", "Answered Ticket")
-            txtCusAnswered.EditValue = objIniFile.GetString("Language", "LCusAnswered", "Customer-Answered")
+            txtOpenTicket.EditValue = objIniFile.GetString("Language", "LOpenTicket", "Open Tickets")
+            txtClosedTicket.EditValue = objIniFile.GetString("Language", "LClosedTicket", "Closed Tickets")
+            txtAnswered.EditValue = objIniFile.GetString("Language", "LAnswered", "Answered Tickets")
+            txtCusAnswered.EditValue = objIniFile.GetString("Language", "LCusAnswered", "Customer Replied")
             txtcmdOpen.EditValue = objIniFile.GetString("Language", "LcmdOpen", "Open Ticket")
             txtcmdClose.EditValue = objIniFile.GetString("Language", "LcmdClose", "Close")
             txtcmdHide.EditValue = objIniFile.GetString("Language", "LcmdHide", "Hide")
@@ -17,35 +29,27 @@
             txtcolDate.EditValue = objIniFile.GetString("Language", "LColDate", "Date")
             txtcolDepartment.EditValue = objIniFile.GetString("Language", "LColDepartment", "Department")
             txtcolName.EditValue = objIniFile.GetString("Language", "LColName", "Name")
-            txtcolSubName.EditValue = objIniFile.GetString("Language", "LColSubName", "Subname")
+            txtcolSubName.EditValue = objIniFile.GetString("Language", "LColSubName", "Surname")
             txtcolTitle.EditValue = objIniFile.GetString("Language", "LColTitle", "Title")
             txtcolStatus.EditValue = objIniFile.GetString("Language", "LColStatus", "Status")
             txtcolUrgency.EditValue = objIniFile.GetString("Language", "LColUrgency", "Urgency")
             txtBaloonCaption.EditValue = objIniFile.GetString("Language", "LBaloonCaption", "New Ticket/Answer")
             txtBaloonNewTicket.EditValue = objIniFile.GetString("Language", "LBaloonNewTicket", "A new support ticket has been opened.")
             txtBaloonNewAnswer.EditValue = objIniFile.GetString("Language", "LBaloonNewAnswer", "A new support ticket response has been made.")
-            txtErrorDatabase.EditValue = objIniFile.GetString("Language", "LBaloonNewAnswer", "Database Connection Problem !")
+            txtErrorDatabase.EditValue = objIniFile.GetString("Language", "LErrorDatabase", "Database Connection Problem !")
             txtRefreshRate.EditValue = objIniFile.GetString("Settings", "RefreshRate", 30)
             txtTransparent.Value = objIniFile.GetString("Settings", "Transparency", 90)
+            ComboBoxEdit1.Text = objIniFile.GetString("Settings", "Skin", "Blue")
             txtWHMCSAddress.EditValue = objIniFile.GetString("WHMCS", "Address", "")
             txtAPIAddress.EditValue = objIniFile.GetString("WHMCS", "APIAddress", "")
             txtAPIUsername.EditValue = objIniFile.GetString("WHMCS", "APIUsername", "")
             txtAPIPassword.EditValue = objIniFile.GetString("WHMCS", "APIPassword", "")
-            txtHostname.EditValue = objIniFile.GetString("Server", "Hostname", "")
-            txtUsername.EditValue = objIniFile.GetString("Server", "Username", "")
-            txtPassword.EditValue = objIniFile.GetString("Server", "Password", "")
-            txtDatabase.EditValue = objIniFile.GetString("Server", "Database", "")
-            If objIniFile.GetString("Settings", "AboutBox", "True") = True Then
-                radioAbout.EditValue = True
-            Else
-                radioAbout.EditValue = False
-            End If
         Else
             objIniFile = New IniFile(aPath & "\settings.ini")
-            txtOpenTicket.EditValue = "Open Ticket"
-            txtClosedTicket.EditValue = "Closed Ticket"
-            txtAnswered.EditValue = "Answered Ticket"
-            txtCusAnswered.EditValue = "Customer-Answered"
+            txtOpenTicket.EditValue = "Open Tickets"
+            txtClosedTicket.EditValue = "Closed Tickets"
+            txtAnswered.EditValue = "Answered Tickets"
+            txtCusAnswered.EditValue = "Customer Replied"
             txtcmdOpen.EditValue = "Open Ticket"
             txtcmdClose.EditValue = "Close"
             txtcmdHide.EditValue = "Hide"
@@ -54,25 +58,21 @@
             txtcolDate.EditValue = "Date"
             txtcolDepartment.EditValue = "Department"
             txtcolName.EditValue = "Name"
-            txtcolSubName.EditValue = "Subname"
+            txtcolSubName.EditValue = "Surname"
             txtcolTitle.EditValue = "Title"
             txtcolStatus.EditValue = "Status"
             txtcolUrgency.EditValue = "Urgency"
             txtBaloonCaption.EditValue = "New Ticket/Answer"
             txtBaloonNewTicket.EditValue = "A new support ticket has been opened."
             txtBaloonNewAnswer.EditValue = "A new support ticket response has been made."
-            txtErrorDatabase.EditValue = "Database Connection Problem !"
+            txtErrorDatabase.EditValue = "QWHMCS API Connection Error !"
             txtRefreshRate.EditValue = 30
             txtTransparent.Value = 90
-            txtWHMCSAddress.EditValue = Nothing
-            txtHostname.EditValue = Nothing
-            txtUsername.EditValue = Nothing
-            txtPassword.EditValue = Nothing
-            txtDatabase.EditValue = Nothing
-            txtAPIAddress.EditValue = Nothing
+            ComboBoxEdit1.Text = "Blue"
+            txtWHMCSAddress.EditValue = "http://www.example.com/whmcs/admin"
+            txtAPIAddress.EditValue = "http://www.example.com/whmcs/includes"
             txtAPIUsername.EditValue = Nothing
             txtAPIPassword.EditValue = Nothing
-            radioAbout.EditValue = True
         End If
     End Sub
 
@@ -89,8 +89,8 @@
     End Sub
 
     Private Sub SimpleButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SimpleButton1.Click
-        If Len(txtHostname.EditValue) = 0 Or Len(txtDatabase.EditValue) = 0 Or Len(txtWHMCSAddress.EditValue) = 0 Or Len(txtUsername.EditValue) = 0 Or Len(txtPassword.EditValue) = 0 Then
-            MsgBox("Database Settings or WHMCS Address is Empty. Please enter and try again.", MsgBoxStyle.Critical, "QWHMCS")
+        If Len(txtWHMCSAddress.EditValue) = 0 Or Len(txtAPIAddress.EditValue) = 0 Or Len(txtAPIUsername.EditValue) = 0 Or Len(txtAPIPassword.EditValue) = 0 Then
+            MsgBox("WHMCS Address or API Address is Empty. Please enter and try again.", MsgBoxStyle.Critical, "QWHMCS")
             Exit Sub
         End If
         objIniFile.WriteString("Language", "LOpenTicket", txtOpenTicket.EditValue)
@@ -112,26 +112,23 @@
         objIniFile.WriteString("Language", "LBaloonCaption", txtBaloonCaption.EditValue)
         objIniFile.WriteString("Language", "LBaloonNewTicket", txtBaloonNewTicket.EditValue)
         objIniFile.WriteString("Language", "LBaloonNewAnswer", txtBaloonNewAnswer.EditValue)
-        objIniFile.WriteString("Language", "LBaloonNewAnswer", txtErrorDatabase.EditValue)
+        objIniFile.WriteString("Language", "LErrorDatabase", txtErrorDatabase.EditValue)
         objIniFile.WriteString("Settings", "RefreshRate", txtRefreshRate.EditValue)
         objIniFile.WriteString("Settings", "Transparency", txtTransparent.Value)
+        objIniFile.WriteString("Settings", "Skin", ComboBoxEdit1.Text)
         objIniFile.WriteString("WHMCS", "Address", txtWHMCSAddress.EditValue)
         objIniFile.WriteString("WHMCS", "APIAddress", txtAPIAddress.EditValue)
         objIniFile.WriteString("WHMCS", "APIUsername", txtAPIUsername.EditValue)
         objIniFile.WriteString("WHMCS", "APIPassword", txtAPIPassword.EditValue)
-        objIniFile.WriteString("Server", "Hostname", txtHostname.EditValue)
-        objIniFile.WriteString("Server", "Username", txtUsername.EditValue)
-        objIniFile.WriteString("Server", "Password", txtPassword.EditValue)
-        objIniFile.WriteString("Server", "Database", txtDatabase.EditValue)
-        If radioAbout.EditValue = True Then
-            objIniFile.WriteString("Settings", "AboutBox", "True")
-        Else
-            objIniFile.WriteString("Settings", "AboutBox", "False")
-        End If
         objIniFile.WriteString("Settings", "Setup", "1")
         If Len(LColDepartment) <> 0 Then
             MsgBox("Settings are applied to the program must be restarted.", MsgBoxStyle.Information, "QWHMCS")
         End If
+        qClose = False
         Me.Close()
+    End Sub
+
+    Private Sub ComboBoxEdit1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBoxEdit1.SelectedIndexChanged
+        frmMain.DefaultLookAndFeel1.LookAndFeel.SkinName = ComboBoxEdit1.Text
     End Sub
 End Class

@@ -24,10 +24,44 @@ Partial Class frmMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMain))
-        Me.Ds1 = New QWHMCS.ds1
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
+        Me.GridControl6 = New DevExpress.XtraGrid.GridControl
+        Me.GridView6 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.GridColumn42 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn43 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn44 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn46 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn47 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn49 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn50 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.coldate6 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.cold_name6 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colu_name6 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colu_subname6 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.coltitle6 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn56 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colstatus6 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colurgency6 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn59 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridControl5 = New DevExpress.XtraGrid.GridControl
+        Me.GridView5 = New DevExpress.XtraGrid.Views.Grid.GridView
+        Me.GridColumn8 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn9 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn10 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn11 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn12 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn14 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn15 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.coldate5 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.cold_name5 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colu_name5 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colu_subname5 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.coltitle5 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn30 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colstatus5 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.colurgency5 = New DevExpress.XtraGrid.Columns.GridColumn
+        Me.GridColumn41 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridControl4 = New DevExpress.XtraGrid.GridControl
-        Me.Ds1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GridView4 = New DevExpress.XtraGrid.Views.Grid.GridView
         Me.GridColumn33 = New DevExpress.XtraGrid.Columns.GridColumn
         Me.GridColumn34 = New DevExpress.XtraGrid.Columns.GridColumn
@@ -107,8 +141,13 @@ Partial Class frmMain
         Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
         Me.tabAnswered = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.tabInProgress = New DevExpress.XtraLayout.LayoutControlGroup
+        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.tabOnHold = New DevExpress.XtraLayout.LayoutControlGroup
+        Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem
         Me.tabClosed = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.Ds1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
         Me.ni1 = New System.Windows.Forms.NotifyIcon(Me.components)
@@ -121,18 +160,19 @@ Partial Class frmMain
         Me.cmdAbout = New DevExpress.XtraBars.BarButtonItem
         Me.Bar3 = New DevExpress.XtraBars.Bar
         Me.lbStatus = New DevExpress.XtraBars.BarStaticItem
-        Me.lbRefreshTime = New DevExpress.XtraBars.BarStaticItem
         Me.cmdYenile = New DevExpress.XtraBars.BarButtonItem
         Me.barDockControlTop = New DevExpress.XtraBars.BarDockControl
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl
         Me.DefaultLookAndFeel1 = New DevExpress.LookAndFeel.DefaultLookAndFeel(Me.components)
-        CType(Me.Ds1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.GridControl6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView6, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridControl5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GridView5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridControl4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.Ds1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridControl3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GridView3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -148,19 +188,21 @@ Partial Class frmMain
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tabAnswered, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tabInProgress, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tabOnHold, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tabClosed, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.Ds1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'Ds1
-        '
-        Me.Ds1.DataSetName = "ds1"
-        Me.Ds1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'LayoutControl1
         '
         Me.LayoutControl1.AllowCustomizationMenu = False
+        Me.LayoutControl1.Controls.Add(Me.GridControl6)
+        Me.LayoutControl1.Controls.Add(Me.GridControl5)
         Me.LayoutControl1.Controls.Add(Me.GridControl4)
         Me.LayoutControl1.Controls.Add(Me.GridControl3)
         Me.LayoutControl1.Controls.Add(Me.GridControl2)
@@ -173,10 +215,296 @@ Partial Class frmMain
         Me.LayoutControl1.TabIndex = 2
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'GridControl6
+        '
+        Me.GridControl6.EmbeddedNavigator.Name = ""
+        Me.GridControl6.Location = New System.Drawing.Point(6, 27)
+        Me.GridControl6.MainView = Me.GridView6
+        Me.GridControl6.Name = "GridControl6"
+        Me.GridControl6.Size = New System.Drawing.Size(660, 253)
+        Me.GridControl6.TabIndex = 6
+        Me.GridControl6.Tag = "9"
+        Me.GridControl6.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView6})
+        '
+        'GridView6
+        '
+        Me.GridView6.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn42, Me.GridColumn43, Me.GridColumn44, Me.GridColumn46, Me.GridColumn47, Me.GridColumn49, Me.GridColumn50, Me.coldate6, Me.cold_name6, Me.colu_name6, Me.colu_subname6, Me.coltitle6, Me.GridColumn56, Me.colstatus6, Me.colurgency6, Me.GridColumn59})
+        Me.GridView6.GridControl = Me.GridControl6
+        Me.GridView6.Name = "GridView6"
+        Me.GridView6.OptionsBehavior.Editable = False
+        Me.GridView6.OptionsMenu.EnableColumnMenu = False
+        Me.GridView6.OptionsMenu.EnableFooterMenu = False
+        Me.GridView6.OptionsMenu.EnableGroupPanelMenu = False
+        Me.GridView6.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView6.OptionsView.ShowFooter = True
+        Me.GridView6.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn42
+        '
+        Me.GridColumn42.Caption = "id"
+        Me.GridColumn42.FieldName = "id"
+        Me.GridColumn42.Name = "GridColumn42"
+        '
+        'GridColumn43
+        '
+        Me.GridColumn43.Caption = "tid"
+        Me.GridColumn43.FieldName = "tid"
+        Me.GridColumn43.Name = "GridColumn43"
+        '
+        'GridColumn44
+        '
+        Me.GridColumn44.Caption = "did"
+        Me.GridColumn44.FieldName = "did"
+        Me.GridColumn44.Name = "GridColumn44"
+        '
+        'GridColumn46
+        '
+        Me.GridColumn46.Caption = "userid"
+        Me.GridColumn46.FieldName = "userid"
+        Me.GridColumn46.Name = "GridColumn46"
+        '
+        'GridColumn47
+        '
+        Me.GridColumn47.Caption = "name"
+        Me.GridColumn47.FieldName = "name"
+        Me.GridColumn47.Name = "GridColumn47"
+        '
+        'GridColumn49
+        '
+        Me.GridColumn49.Caption = "email"
+        Me.GridColumn49.FieldName = "email"
+        Me.GridColumn49.Name = "GridColumn49"
+        '
+        'GridColumn50
+        '
+        Me.GridColumn50.Caption = "c"
+        Me.GridColumn50.FieldName = "c"
+        Me.GridColumn50.Name = "GridColumn50"
+        '
+        'coldate6
+        '
+        Me.coldate6.Caption = "Tarih"
+        Me.coldate6.DisplayFormat.FormatString = "d"
+        Me.coldate6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.coldate6.FieldName = "date"
+        Me.coldate6.Name = "coldate6"
+        Me.coldate6.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
+        Me.coldate6.Visible = True
+        Me.coldate6.VisibleIndex = 0
+        Me.coldate6.Width = 106
+        '
+        'cold_name6
+        '
+        Me.cold_name6.Caption = "Bölüm"
+        Me.cold_name6.FieldName = "d_name"
+        Me.cold_name6.Name = "cold_name6"
+        Me.cold_name6.Visible = True
+        Me.cold_name6.VisibleIndex = 1
+        Me.cold_name6.Width = 87
+        '
+        'colu_name6
+        '
+        Me.colu_name6.Caption = "Adı"
+        Me.colu_name6.FieldName = "u_name"
+        Me.colu_name6.Name = "colu_name6"
+        Me.colu_name6.Visible = True
+        Me.colu_name6.VisibleIndex = 2
+        Me.colu_name6.Width = 87
+        '
+        'colu_subname6
+        '
+        Me.colu_subname6.Caption = "Soyadı"
+        Me.colu_subname6.FieldName = "u_subname"
+        Me.colu_subname6.Name = "colu_subname6"
+        Me.colu_subname6.Visible = True
+        Me.colu_subname6.VisibleIndex = 3
+        Me.colu_subname6.Width = 87
+        '
+        'coltitle6
+        '
+        Me.coltitle6.Caption = "Başlık"
+        Me.coltitle6.FieldName = "title"
+        Me.coltitle6.Name = "coltitle6"
+        Me.coltitle6.Visible = True
+        Me.coltitle6.VisibleIndex = 4
+        Me.coltitle6.Width = 137
+        '
+        'GridColumn56
+        '
+        Me.GridColumn56.Caption = "message"
+        Me.GridColumn56.FieldName = "message"
+        Me.GridColumn56.Name = "GridColumn56"
+        '
+        'colstatus6
+        '
+        Me.colstatus6.Caption = "Durum"
+        Me.colstatus6.FieldName = "status"
+        Me.colstatus6.Name = "colstatus6"
+        Me.colstatus6.Visible = True
+        Me.colstatus6.VisibleIndex = 5
+        Me.colstatus6.Width = 67
+        '
+        'colurgency6
+        '
+        Me.colurgency6.Caption = "Öncelik"
+        Me.colurgency6.FieldName = "urgency"
+        Me.colurgency6.Name = "colurgency6"
+        Me.colurgency6.Visible = True
+        Me.colurgency6.VisibleIndex = 6
+        Me.colurgency6.Width = 69
+        '
+        'GridColumn59
+        '
+        Me.GridColumn59.Caption = "lastreply"
+        Me.GridColumn59.FieldName = "lastreply"
+        Me.GridColumn59.Name = "GridColumn59"
+        '
+        'GridControl5
+        '
+        Me.GridControl5.EmbeddedNavigator.Name = ""
+        Me.GridControl5.Location = New System.Drawing.Point(6, 27)
+        Me.GridControl5.MainView = Me.GridView5
+        Me.GridControl5.Name = "GridControl5"
+        Me.GridControl5.Size = New System.Drawing.Size(660, 253)
+        Me.GridControl5.TabIndex = 6
+        Me.GridControl5.Tag = "8"
+        Me.GridControl5.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView5})
+        '
+        'GridView5
+        '
+        Me.GridView5.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.GridColumn8, Me.GridColumn9, Me.GridColumn10, Me.GridColumn11, Me.GridColumn12, Me.GridColumn14, Me.GridColumn15, Me.coldate5, Me.cold_name5, Me.colu_name5, Me.colu_subname5, Me.coltitle5, Me.GridColumn30, Me.colstatus5, Me.colurgency5, Me.GridColumn41})
+        Me.GridView5.GridControl = Me.GridControl5
+        Me.GridView5.Name = "GridView5"
+        Me.GridView5.OptionsBehavior.Editable = False
+        Me.GridView5.OptionsMenu.EnableColumnMenu = False
+        Me.GridView5.OptionsMenu.EnableFooterMenu = False
+        Me.GridView5.OptionsMenu.EnableGroupPanelMenu = False
+        Me.GridView5.OptionsSelection.EnableAppearanceFocusedCell = False
+        Me.GridView5.OptionsView.ShowFooter = True
+        Me.GridView5.OptionsView.ShowGroupPanel = False
+        '
+        'GridColumn8
+        '
+        Me.GridColumn8.Caption = "id"
+        Me.GridColumn8.FieldName = "id"
+        Me.GridColumn8.Name = "GridColumn8"
+        '
+        'GridColumn9
+        '
+        Me.GridColumn9.Caption = "tid"
+        Me.GridColumn9.FieldName = "tid"
+        Me.GridColumn9.Name = "GridColumn9"
+        '
+        'GridColumn10
+        '
+        Me.GridColumn10.Caption = "did"
+        Me.GridColumn10.FieldName = "did"
+        Me.GridColumn10.Name = "GridColumn10"
+        '
+        'GridColumn11
+        '
+        Me.GridColumn11.Caption = "userid"
+        Me.GridColumn11.FieldName = "userid"
+        Me.GridColumn11.Name = "GridColumn11"
+        '
+        'GridColumn12
+        '
+        Me.GridColumn12.Caption = "name"
+        Me.GridColumn12.FieldName = "name"
+        Me.GridColumn12.Name = "GridColumn12"
+        '
+        'GridColumn14
+        '
+        Me.GridColumn14.Caption = "email"
+        Me.GridColumn14.FieldName = "email"
+        Me.GridColumn14.Name = "GridColumn14"
+        '
+        'GridColumn15
+        '
+        Me.GridColumn15.Caption = "c"
+        Me.GridColumn15.FieldName = "c"
+        Me.GridColumn15.Name = "GridColumn15"
+        '
+        'coldate5
+        '
+        Me.coldate5.Caption = "Tarih"
+        Me.coldate5.DisplayFormat.FormatString = "d"
+        Me.coldate5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
+        Me.coldate5.FieldName = "date"
+        Me.coldate5.Name = "coldate5"
+        Me.coldate5.SummaryItem.SummaryType = DevExpress.Data.SummaryItemType.Count
+        Me.coldate5.Visible = True
+        Me.coldate5.VisibleIndex = 0
+        Me.coldate5.Width = 106
+        '
+        'cold_name5
+        '
+        Me.cold_name5.Caption = "Bölüm"
+        Me.cold_name5.FieldName = "d_name"
+        Me.cold_name5.Name = "cold_name5"
+        Me.cold_name5.Visible = True
+        Me.cold_name5.VisibleIndex = 1
+        Me.cold_name5.Width = 87
+        '
+        'colu_name5
+        '
+        Me.colu_name5.Caption = "Adı"
+        Me.colu_name5.FieldName = "u_name"
+        Me.colu_name5.Name = "colu_name5"
+        Me.colu_name5.Visible = True
+        Me.colu_name5.VisibleIndex = 2
+        Me.colu_name5.Width = 87
+        '
+        'colu_subname5
+        '
+        Me.colu_subname5.Caption = "Soyadı"
+        Me.colu_subname5.FieldName = "u_subname"
+        Me.colu_subname5.Name = "colu_subname5"
+        Me.colu_subname5.Visible = True
+        Me.colu_subname5.VisibleIndex = 3
+        Me.colu_subname5.Width = 87
+        '
+        'coltitle5
+        '
+        Me.coltitle5.Caption = "Başlık"
+        Me.coltitle5.FieldName = "title"
+        Me.coltitle5.Name = "coltitle5"
+        Me.coltitle5.Visible = True
+        Me.coltitle5.VisibleIndex = 4
+        Me.coltitle5.Width = 137
+        '
+        'GridColumn30
+        '
+        Me.GridColumn30.Caption = "message"
+        Me.GridColumn30.FieldName = "message"
+        Me.GridColumn30.Name = "GridColumn30"
+        '
+        'colstatus5
+        '
+        Me.colstatus5.Caption = "Durum"
+        Me.colstatus5.FieldName = "status"
+        Me.colstatus5.Name = "colstatus5"
+        Me.colstatus5.Visible = True
+        Me.colstatus5.VisibleIndex = 5
+        Me.colstatus5.Width = 67
+        '
+        'colurgency5
+        '
+        Me.colurgency5.Caption = "Öncelik"
+        Me.colurgency5.FieldName = "urgency"
+        Me.colurgency5.Name = "colurgency5"
+        Me.colurgency5.Visible = True
+        Me.colurgency5.VisibleIndex = 6
+        Me.colurgency5.Width = 69
+        '
+        'GridColumn41
+        '
+        Me.GridColumn41.Caption = "lastreply"
+        Me.GridColumn41.FieldName = "lastreply"
+        Me.GridColumn41.Name = "GridColumn41"
+        '
         'GridControl4
         '
-        Me.GridControl4.DataMember = "tbltickets"
-        Me.GridControl4.DataSource = Me.Ds1BindingSource
         Me.GridControl4.EmbeddedNavigator.Name = ""
         Me.GridControl4.Location = New System.Drawing.Point(6, 27)
         Me.GridControl4.MainView = Me.GridView4
@@ -184,11 +512,6 @@ Partial Class frmMain
         Me.GridControl4.Size = New System.Drawing.Size(660, 253)
         Me.GridControl4.TabIndex = 5
         Me.GridControl4.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView4})
-        '
-        'Ds1BindingSource
-        '
-        Me.Ds1BindingSource.DataSource = Me.Ds1
-        Me.Ds1BindingSource.Position = 0
         '
         'GridView4
         '
@@ -325,8 +648,6 @@ Partial Class frmMain
         '
         'GridControl3
         '
-        Me.GridControl3.DataMember = "tbltickets"
-        Me.GridControl3.DataSource = Me.Ds1BindingSource
         Me.GridControl3.EmbeddedNavigator.Name = ""
         Me.GridControl3.Location = New System.Drawing.Point(6, 27)
         Me.GridControl3.MainView = Me.GridView3
@@ -470,8 +791,6 @@ Partial Class frmMain
         '
         'GridControl2
         '
-        Me.GridControl2.DataMember = "tbltickets"
-        Me.GridControl2.DataSource = Me.Ds1BindingSource
         Me.GridControl2.EmbeddedNavigator.Name = ""
         Me.GridControl2.Location = New System.Drawing.Point(6, 27)
         Me.GridControl2.MainView = Me.GridView2
@@ -615,8 +934,6 @@ Partial Class frmMain
         '
         'GridControl1
         '
-        Me.GridControl1.DataMember = "tbltickets"
-        Me.GridControl1.DataSource = Me.Ds1BindingSource
         Me.GridControl1.EmbeddedNavigator.Name = ""
         Me.GridControl1.Location = New System.Drawing.Point(6, 27)
         Me.GridControl1.MainView = Me.GridView1
@@ -781,7 +1098,7 @@ Partial Class frmMain
         Me.TabbedControlGroup1.ShowInCustomizationForm = False
         Me.TabbedControlGroup1.Size = New System.Drawing.Size(672, 286)
         Me.TabbedControlGroup1.Spacing = New DevExpress.XtraLayout.Utils.Padding(1, 1, 1, 1)
-        Me.TabbedControlGroup1.TabPages.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.tabOpen, Me.tabCustomer_Reply, Me.tabAnswered, Me.tabClosed})
+        Me.TabbedControlGroup1.TabPages.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.tabOpen, Me.tabCustomer_Reply, Me.tabAnswered, Me.tabInProgress, Me.tabOnHold, Me.tabClosed})
         Me.TabbedControlGroup1.Text = "TabbedControlGroup1"
         '
         'tabOpen
@@ -794,7 +1111,8 @@ Partial Class frmMain
         Me.tabOpen.ShowInCustomizationForm = False
         Me.tabOpen.Size = New System.Drawing.Size(661, 254)
         Me.tabOpen.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
-        Me.tabOpen.Text = "Açık Ticket"
+        Me.tabOpen.Tag = "1"
+        Me.tabOpen.Text = "Open Tickets"
         '
         'LayoutControlItem1
         '
@@ -820,7 +1138,8 @@ Partial Class frmMain
         Me.tabCustomer_Reply.ShowInCustomizationForm = False
         Me.tabCustomer_Reply.Size = New System.Drawing.Size(661, 254)
         Me.tabCustomer_Reply.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
-        Me.tabCustomer_Reply.Text = "Cevap Bekleyen Ticket"
+        Me.tabCustomer_Reply.Tag = "2"
+        Me.tabCustomer_Reply.Text = "Customer Replied Tickets"
         '
         'LayoutControlItem4
         '
@@ -846,7 +1165,8 @@ Partial Class frmMain
         Me.tabAnswered.ShowInCustomizationForm = False
         Me.tabAnswered.Size = New System.Drawing.Size(661, 254)
         Me.tabAnswered.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
-        Me.tabAnswered.Text = "Cevaplanan Ticket"
+        Me.tabAnswered.Tag = "3"
+        Me.tabAnswered.Text = "Answered Tickets"
         '
         'LayoutControlItem2
         '
@@ -862,6 +1182,58 @@ Partial Class frmMain
         Me.LayoutControlItem2.TextToControlDistance = 0
         Me.LayoutControlItem2.TextVisible = False
         '
+        'tabInProgress
+        '
+        Me.tabInProgress.CustomizationFormText = "In Progress Tickets"
+        Me.tabInProgress.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem3})
+        Me.tabInProgress.Location = New System.Drawing.Point(0, 0)
+        Me.tabInProgress.Name = "tabInProgress"
+        Me.tabInProgress.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.tabInProgress.Size = New System.Drawing.Size(661, 254)
+        Me.tabInProgress.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
+        Me.tabInProgress.Tag = "8"
+        Me.tabInProgress.Text = "In Progress Tickets"
+        '
+        'LayoutControlItem3
+        '
+        Me.LayoutControlItem3.Control = Me.GridControl5
+        Me.LayoutControlItem3.CustomizationFormText = "LayoutControlItem3"
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem3.Name = "LayoutControlItem3"
+        Me.LayoutControlItem3.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(661, 254)
+        Me.LayoutControlItem3.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.LayoutControlItem3.Text = "LayoutControlItem3"
+        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem3.TextToControlDistance = 0
+        Me.LayoutControlItem3.TextVisible = False
+        '
+        'tabOnHold
+        '
+        Me.tabOnHold.CustomizationFormText = "On Hold Tickets"
+        Me.tabOnHold.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem6})
+        Me.tabOnHold.Location = New System.Drawing.Point(0, 0)
+        Me.tabOnHold.Name = "tabOnHold"
+        Me.tabOnHold.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.tabOnHold.Size = New System.Drawing.Size(661, 254)
+        Me.tabOnHold.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
+        Me.tabOnHold.Tag = "9"
+        Me.tabOnHold.Text = "On Hold Tickets"
+        '
+        'LayoutControlItem6
+        '
+        Me.LayoutControlItem6.Control = Me.GridControl6
+        Me.LayoutControlItem6.CustomizationFormText = "LayoutControlItem6"
+        Me.LayoutControlItem6.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem6.Name = "LayoutControlItem6"
+        Me.LayoutControlItem6.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.LayoutControlItem6.Size = New System.Drawing.Size(661, 254)
+        Me.LayoutControlItem6.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.LayoutControlItem6.Text = "LayoutControlItem6"
+        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem6.TextToControlDistance = 0
+        Me.LayoutControlItem6.TextVisible = False
+        '
         'tabClosed
         '
         Me.tabClosed.CustomizationFormText = "Kapalı Ticket"
@@ -872,7 +1244,8 @@ Partial Class frmMain
         Me.tabClosed.ShowInCustomizationForm = False
         Me.tabClosed.Size = New System.Drawing.Size(661, 254)
         Me.tabClosed.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
-        Me.tabClosed.Text = "Kapalı Ticket"
+        Me.tabClosed.Tag = "4"
+        Me.tabClosed.Text = "Closed Tickets"
         '
         'LayoutControlItem5
         '
@@ -904,13 +1277,16 @@ Partial Class frmMain
         '
         'BarManager1
         '
+        Me.BarManager1.AllowCustomization = False
+        Me.BarManager1.AllowQuickCustomization = False
+        Me.BarManager1.AllowShowToolbarsPopup = False
         Me.BarManager1.Bars.AddRange(New DevExpress.XtraBars.Bar() {Me.Bar1, Me.Bar3})
         Me.BarManager1.DockControls.Add(Me.barDockControlTop)
         Me.BarManager1.DockControls.Add(Me.barDockControlBottom)
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.cmdAc, Me.cmdAyarlar, Me.cmdKapat, Me.cmdGizle, Me.cmdYenile, Me.cmdAbout, Me.lbStatus, Me.lbRefreshTime})
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.cmdAc, Me.cmdAyarlar, Me.cmdKapat, Me.cmdGizle, Me.cmdYenile, Me.cmdAbout, Me.lbStatus})
         Me.BarManager1.MaxItemId = 15
         Me.BarManager1.StatusBar = Me.Bar3
         '
@@ -930,7 +1306,7 @@ Partial Class frmMain
         '
         'cmdAc
         '
-        Me.cmdAc.Caption = "Ticket'i Aç"
+        Me.cmdAc.Caption = "Open Ticket"
         Me.cmdAc.Glyph = Global.QWHMCS.My.Resources.Resources.ntwrk_16
         Me.cmdAc.Id = 0
         Me.cmdAc.Name = "cmdAc"
@@ -938,7 +1314,7 @@ Partial Class frmMain
         'cmdAyarlar
         '
         Me.cmdAyarlar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.cmdAyarlar.Caption = "Ayarlar"
+        Me.cmdAyarlar.Caption = "Settings"
         Me.cmdAyarlar.Glyph = Global.QWHMCS.My.Resources.Resources.confg_16
         Me.cmdAyarlar.Id = 1
         Me.cmdAyarlar.Name = "cmdAyarlar"
@@ -946,22 +1322,22 @@ Partial Class frmMain
         'cmdGizle
         '
         Me.cmdGizle.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.cmdGizle.Caption = "Gizle"
-        Me.cmdGizle.Glyph = Global.QWHMCS.My.Resources.Resources.confg_16
+        Me.cmdGizle.Caption = "Hide"
+        Me.cmdGizle.Glyph = Global.QWHMCS.My.Resources.Resources.exp_16
         Me.cmdGizle.Id = 5
         Me.cmdGizle.Name = "cmdGizle"
         '
         'cmdKapat
         '
         Me.cmdKapat.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.cmdKapat.Caption = "Kapat"
+        Me.cmdKapat.Caption = "Close"
         Me.cmdKapat.Glyph = Global.QWHMCS.My.Resources.Resources.close_16
         Me.cmdKapat.Id = 4
         Me.cmdKapat.Name = "cmdKapat"
         '
         'cmdAbout
         '
-        Me.cmdAbout.Caption = "Hakkında"
+        Me.cmdAbout.Caption = "About"
         Me.cmdAbout.Glyph = Global.QWHMCS.My.Resources.Resources.about_16
         Me.cmdAbout.Id = 8
         Me.cmdAbout.Name = "cmdAbout"
@@ -973,7 +1349,7 @@ Partial Class frmMain
         Me.Bar3.DockCol = 0
         Me.Bar3.DockRow = 0
         Me.Bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Bottom
-        Me.Bar3.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.lbStatus, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(Me.lbRefreshTime), New DevExpress.XtraBars.LinkPersistInfo(Me.cmdYenile)})
+        Me.Bar3.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.lbStatus, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.cmdYenile, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
         Me.Bar3.OptionsBar.AllowQuickCustomization = False
         Me.Bar3.OptionsBar.DrawDragBorder = False
         Me.Bar3.OptionsBar.UseWholeRow = True
@@ -986,16 +1362,10 @@ Partial Class frmMain
         Me.lbStatus.Name = "lbStatus"
         Me.lbStatus.TextAlignment = System.Drawing.StringAlignment.Near
         '
-        'lbRefreshTime
-        '
-        Me.lbRefreshTime.Id = 14
-        Me.lbRefreshTime.Name = "lbRefreshTime"
-        Me.lbRefreshTime.TextAlignment = System.Drawing.StringAlignment.Near
-        '
         'cmdYenile
         '
         Me.cmdYenile.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.cmdYenile.Caption = "Yenile"
+        Me.cmdYenile.Caption = "Refresh"
         Me.cmdYenile.Glyph = Global.QWHMCS.My.Resources.Resources.ref_16
         Me.cmdYenile.Id = 7
         Me.cmdYenile.Name = "cmdYenile"
@@ -1020,11 +1390,13 @@ Partial Class frmMain
         Me.Opacity = 0.9
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "QWHMCS - WHMCS Ticket Track System"
-        CType(Me.Ds1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.GridControl6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView6, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridControl5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GridView5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridControl4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.Ds1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridControl3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GridView3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1040,13 +1412,17 @@ Partial Class frmMain
         CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tabAnswered, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tabInProgress, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tabOnHold, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tabClosed, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.Ds1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents Ds1 As QWHMCS.ds1
     Friend WithEvents LayoutControl1 As DevExpress.XtraLayout.LayoutControl
     Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
@@ -1149,6 +1525,45 @@ Partial Class frmMain
     Friend WithEvents cmdYenile As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents cmdAbout As DevExpress.XtraBars.BarButtonItem
     Public WithEvents lbStatus As DevExpress.XtraBars.BarStaticItem
-    Friend WithEvents lbRefreshTime As DevExpress.XtraBars.BarStaticItem
+    Friend WithEvents tabOnHold As DevExpress.XtraLayout.LayoutControlGroup
+    Friend WithEvents tabInProgress As DevExpress.XtraLayout.LayoutControlGroup
+    Friend WithEvents GridControl6 As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView6 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn42 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn43 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn44 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn46 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn47 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn49 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn50 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents coldate6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cold_name6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colu_name6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colu_subname6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents coltitle6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn56 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colstatus6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colurgency6 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn59 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridControl5 As DevExpress.XtraGrid.GridControl
+    Friend WithEvents GridView5 As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents GridColumn8 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn9 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn10 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn11 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn12 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn14 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn15 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents coldate5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents cold_name5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colu_name5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colu_subname5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents coltitle5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn30 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colstatus5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents colurgency5 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents GridColumn41 As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents LayoutControlItem6 As DevExpress.XtraLayout.LayoutControlItem
 
 End Class

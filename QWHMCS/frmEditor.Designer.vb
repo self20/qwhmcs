@@ -46,6 +46,7 @@ Partial Class frmEditor
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar
         Me.cmdReply = New DevExpress.XtraBars.BarButtonItem
+        Me.cmdSendClose = New DevExpress.XtraBars.BarButtonItem
         Me.cmdCloseTicket = New DevExpress.XtraBars.BarButtonItem
         Me.cmdOpenWHMCS = New DevExpress.XtraBars.BarButtonItem
         Me.cmdCloseViewer = New DevExpress.XtraBars.BarButtonItem
@@ -55,6 +56,7 @@ Partial Class frmEditor
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl
+        Me.cmdSendTicket = New DevExpress.XtraBars.BarButtonItem
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.txtMessage.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -93,26 +95,25 @@ Partial Class frmEditor
         Me.LayoutControl1.Location = New System.Drawing.Point(0, 26)
         Me.LayoutControl1.Name = "LayoutControl1"
         Me.LayoutControl1.Root = Me.LayoutControlGroup1
-        Me.LayoutControl1.Size = New System.Drawing.Size(708, 405)
+        Me.LayoutControl1.Size = New System.Drawing.Size(799, 451)
         Me.LayoutControl1.TabIndex = 1
         Me.LayoutControl1.Text = "LayoutControl1"
         '
         'txtMessage
         '
-        Me.txtMessage.Location = New System.Drawing.Point(7, 267)
+        Me.txtMessage.Location = New System.Drawing.Point(7, 264)
         Me.txtMessage.Name = "txtMessage"
-        Me.txtMessage.Size = New System.Drawing.Size(695, 132)
+        Me.txtMessage.Size = New System.Drawing.Size(786, 181)
         Me.txtMessage.StyleController = Me.LayoutControl1
         Me.txtMessage.TabIndex = 15
         '
         'GridControl1
         '
-        Me.GridControl1.DataMember = "tbltickets"
         Me.GridControl1.EmbeddedNavigator.Name = ""
-        Me.GridControl1.Location = New System.Drawing.Point(7, 124)
+        Me.GridControl1.Location = New System.Drawing.Point(10, 121)
         Me.GridControl1.MainView = Me.GridView1
         Me.GridControl1.Name = "GridControl1"
-        Me.GridControl1.Size = New System.Drawing.Size(695, 132)
+        Me.GridControl1.Size = New System.Drawing.Size(780, 129)
         Me.GridControl1.TabIndex = 14
         Me.GridControl1.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.GridView1})
         '
@@ -157,12 +158,12 @@ Partial Class frmEditor
         '
         'txtLastReply
         '
-        Me.txtLastReply.Location = New System.Drawing.Point(434, 90)
+        Me.txtLastReply.Location = New System.Drawing.Point(480, 90)
         Me.txtLastReply.Name = "txtLastReply"
         Me.txtLastReply.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtLastReply.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtLastReply.Properties.ReadOnly = True
-        Me.txtLastReply.Size = New System.Drawing.Size(265, 20)
+        Me.txtLastReply.Size = New System.Drawing.Size(310, 20)
         Me.txtLastReply.StyleController = Me.LayoutControl1
         Me.txtLastReply.TabIndex = 13
         '
@@ -173,18 +174,18 @@ Partial Class frmEditor
         Me.txtSubject.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtSubject.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtSubject.Properties.ReadOnly = True
-        Me.txtSubject.Size = New System.Drawing.Size(265, 20)
+        Me.txtSubject.Size = New System.Drawing.Size(311, 20)
         Me.txtSubject.StyleController = Me.LayoutControl1
         Me.txtSubject.TabIndex = 12
         '
         'txtStatus
         '
-        Me.txtStatus.Location = New System.Drawing.Point(434, 59)
+        Me.txtStatus.Location = New System.Drawing.Point(480, 59)
         Me.txtStatus.Name = "txtStatus"
         Me.txtStatus.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtStatus.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtStatus.Properties.ReadOnly = True
-        Me.txtStatus.Size = New System.Drawing.Size(265, 20)
+        Me.txtStatus.Size = New System.Drawing.Size(310, 20)
         Me.txtStatus.StyleController = Me.LayoutControl1
         Me.txtStatus.TabIndex = 11
         '
@@ -195,18 +196,18 @@ Partial Class frmEditor
         Me.txtDepartment.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtDepartment.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtDepartment.Properties.ReadOnly = True
-        Me.txtDepartment.Size = New System.Drawing.Size(265, 20)
+        Me.txtDepartment.Size = New System.Drawing.Size(311, 20)
         Me.txtDepartment.StyleController = Me.LayoutControl1
         Me.txtDepartment.TabIndex = 10
         '
         'txtClient
         '
-        Me.txtClient.Location = New System.Drawing.Point(434, 28)
+        Me.txtClient.Location = New System.Drawing.Point(480, 28)
         Me.txtClient.Name = "txtClient"
         Me.txtClient.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtClient.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtClient.Properties.ReadOnly = True
-        Me.txtClient.Size = New System.Drawing.Size(265, 20)
+        Me.txtClient.Size = New System.Drawing.Size(310, 20)
         Me.txtClient.StyleController = Me.LayoutControl1
         Me.txtClient.TabIndex = 8
         '
@@ -217,18 +218,18 @@ Partial Class frmEditor
         Me.txtTicketID.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtTicketID.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtTicketID.Properties.ReadOnly = True
-        Me.txtTicketID.Size = New System.Drawing.Size(265, 20)
+        Me.txtTicketID.Size = New System.Drawing.Size(311, 20)
         Me.txtTicketID.StyleController = Me.LayoutControl1
         Me.txtTicketID.TabIndex = 7
         '
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.CustomizationFormText = "LayoutControlGroup1"
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2, Me.LayoutControlItem11, Me.LayoutControlItem1})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2, Me.LayoutControlItem1})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
         Me.LayoutControlGroup1.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlGroup1.Size = New System.Drawing.Size(708, 405)
+        Me.LayoutControlGroup1.Size = New System.Drawing.Size(799, 451)
         Me.LayoutControlGroup1.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlGroup1.Text = "LayoutControlGroup1"
         Me.LayoutControlGroup1.TextVisible = False
@@ -240,11 +241,11 @@ Partial Class frmEditor
         Me.LayoutControlGroup2.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
         Me.LayoutControlGroup2.AppearanceItemCaption.Options.UseFont = True
         Me.LayoutControlGroup2.CustomizationFormText = "Ticket Information"
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem4, Me.LayoutControlItem7, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem8, Me.LayoutControlItem5})
+        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem4, Me.LayoutControlItem7, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem8, Me.LayoutControlItem5, Me.LayoutControlItem11})
         Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
         Me.LayoutControlGroup2.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(706, 117)
+        Me.LayoutControlGroup2.Size = New System.Drawing.Size(797, 257)
         Me.LayoutControlGroup2.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
         Me.LayoutControlGroup2.Text = "Ticket Information"
         '
@@ -255,7 +256,7 @@ Partial Class frmEditor
         Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlItem4.Name = "LayoutControlItem4"
         Me.LayoutControlItem4.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(350, 31)
+        Me.LayoutControlItem4.Size = New System.Drawing.Size(396, 31)
         Me.LayoutControlItem4.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem4.Text = "Ticket ID"
         Me.LayoutControlItem4.TextSize = New System.Drawing.Size(69, 20)
@@ -267,7 +268,7 @@ Partial Class frmEditor
         Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 31)
         Me.LayoutControlItem7.Name = "LayoutControlItem7"
         Me.LayoutControlItem7.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(350, 31)
+        Me.LayoutControlItem7.Size = New System.Drawing.Size(396, 31)
         Me.LayoutControlItem7.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem7.Text = "Department"
         Me.LayoutControlItem7.TextSize = New System.Drawing.Size(69, 20)
@@ -279,7 +280,7 @@ Partial Class frmEditor
         Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 62)
         Me.LayoutControlItem9.Name = "LayoutControlItem9"
         Me.LayoutControlItem9.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(350, 31)
+        Me.LayoutControlItem9.Size = New System.Drawing.Size(396, 31)
         Me.LayoutControlItem9.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem9.Text = "Subject"
         Me.LayoutControlItem9.TextSize = New System.Drawing.Size(69, 20)
@@ -288,10 +289,10 @@ Partial Class frmEditor
         '
         Me.LayoutControlItem10.Control = Me.txtLastReply
         Me.LayoutControlItem10.CustomizationFormText = "Last Reply"
-        Me.LayoutControlItem10.Location = New System.Drawing.Point(350, 62)
+        Me.LayoutControlItem10.Location = New System.Drawing.Point(396, 62)
         Me.LayoutControlItem10.Name = "LayoutControlItem10"
         Me.LayoutControlItem10.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(350, 31)
+        Me.LayoutControlItem10.Size = New System.Drawing.Size(395, 31)
         Me.LayoutControlItem10.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem10.Text = "Last Reply"
         Me.LayoutControlItem10.TextSize = New System.Drawing.Size(69, 20)
@@ -300,10 +301,10 @@ Partial Class frmEditor
         '
         Me.LayoutControlItem8.Control = Me.txtStatus
         Me.LayoutControlItem8.CustomizationFormText = "Status"
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(350, 31)
+        Me.LayoutControlItem8.Location = New System.Drawing.Point(396, 31)
         Me.LayoutControlItem8.Name = "LayoutControlItem8"
         Me.LayoutControlItem8.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(350, 31)
+        Me.LayoutControlItem8.Size = New System.Drawing.Size(395, 31)
         Me.LayoutControlItem8.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem8.Text = "Status"
         Me.LayoutControlItem8.TextSize = New System.Drawing.Size(69, 20)
@@ -312,10 +313,10 @@ Partial Class frmEditor
         '
         Me.LayoutControlItem5.Control = Me.txtClient
         Me.LayoutControlItem5.CustomizationFormText = "Client"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(350, 0)
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(396, 0)
         Me.LayoutControlItem5.Name = "LayoutControlItem5"
         Me.LayoutControlItem5.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(350, 31)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(395, 31)
         Me.LayoutControlItem5.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem5.Text = "Client"
         Me.LayoutControlItem5.TextSize = New System.Drawing.Size(69, 20)
@@ -324,10 +325,10 @@ Partial Class frmEditor
         '
         Me.LayoutControlItem11.Control = Me.GridControl1
         Me.LayoutControlItem11.CustomizationFormText = "LayoutControlItem11"
-        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 117)
+        Me.LayoutControlItem11.Location = New System.Drawing.Point(0, 93)
         Me.LayoutControlItem11.Name = "LayoutControlItem11"
         Me.LayoutControlItem11.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem11.Size = New System.Drawing.Size(706, 143)
+        Me.LayoutControlItem11.Size = New System.Drawing.Size(791, 140)
         Me.LayoutControlItem11.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem11.Text = "LayoutControlItem11"
         Me.LayoutControlItem11.TextSize = New System.Drawing.Size(0, 0)
@@ -338,10 +339,10 @@ Partial Class frmEditor
         '
         Me.LayoutControlItem1.Control = Me.txtMessage
         Me.LayoutControlItem1.CustomizationFormText = "LayoutControlItem1"
-        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 260)
+        Me.LayoutControlItem1.Location = New System.Drawing.Point(0, 257)
         Me.LayoutControlItem1.Name = "LayoutControlItem1"
         Me.LayoutControlItem1.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem1.Size = New System.Drawing.Size(706, 143)
+        Me.LayoutControlItem1.Size = New System.Drawing.Size(797, 192)
         Me.LayoutControlItem1.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem1.Text = "LayoutControlItem1"
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(0, 0)
@@ -356,8 +357,8 @@ Partial Class frmEditor
         Me.BarManager1.DockControls.Add(Me.barDockControlLeft)
         Me.BarManager1.DockControls.Add(Me.barDockControlRight)
         Me.BarManager1.Form = Me
-        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.cmdReply, Me.lbStatus, Me.cmdCloseTicket, Me.cmdCloseViewer, Me.cmdOpenWHMCS})
-        Me.BarManager1.MaxItemId = 18
+        Me.BarManager1.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.cmdReply, Me.lbStatus, Me.cmdCloseTicket, Me.cmdCloseViewer, Me.cmdOpenWHMCS, Me.cmdSendClose, Me.cmdSendTicket})
+        Me.BarManager1.MaxItemId = 21
         Me.BarManager1.StatusBar = Me.Bar3
         '
         'Bar1
@@ -366,7 +367,7 @@ Partial Class frmEditor
         Me.Bar1.DockCol = 0
         Me.Bar1.DockRow = 0
         Me.Bar1.DockStyle = DevExpress.XtraBars.BarDockStyle.Top
-        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.cmdReply, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.cmdCloseTicket, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.cmdOpenWHMCS, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.cmdCloseViewer, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
+        Me.Bar1.LinksPersistInfo.AddRange(New DevExpress.XtraBars.LinkPersistInfo() {New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.cmdReply, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.cmdSendTicket, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.cmdSendClose, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.cmdCloseTicket, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.cmdOpenWHMCS, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph), New DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, Me.cmdCloseViewer, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)})
         Me.Bar1.OptionsBar.AllowQuickCustomization = False
         Me.Bar1.OptionsBar.DisableClose = True
         Me.Bar1.OptionsBar.DisableCustomization = True
@@ -380,6 +381,14 @@ Partial Class frmEditor
         Me.cmdReply.Glyph = Global.QWHMCS.My.Resources.Resources.ntwrk_16
         Me.cmdReply.Id = 0
         Me.cmdReply.Name = "cmdReply"
+        '
+        'cmdSendClose
+        '
+        Me.cmdSendClose.Caption = "Send && Close Ticket"
+        Me.cmdSendClose.Glyph = Global.QWHMCS.My.Resources.Resources.lgicn_16
+        Me.cmdSendClose.Id = 19
+        Me.cmdSendClose.Name = "cmdSendClose"
+        Me.cmdSendClose.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         '
         'cmdCloseTicket
         '
@@ -424,11 +433,19 @@ Partial Class frmEditor
         Me.lbStatus.Name = "lbStatus"
         Me.lbStatus.TextAlignment = System.Drawing.StringAlignment.Near
         '
+        'cmdSendTicket
+        '
+        Me.cmdSendTicket.Caption = "Send Ticket"
+        Me.cmdSendTicket.Glyph = Global.QWHMCS.My.Resources.Resources.mail_16
+        Me.cmdSendTicket.Id = 20
+        Me.cmdSendTicket.Name = "cmdSendTicket"
+        Me.cmdSendTicket.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
+        '
         'frmEditor
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(708, 454)
+        Me.ClientSize = New System.Drawing.Size(799, 500)
         Me.ControlBox = False
         Me.Controls.Add(Me.LayoutControl1)
         Me.Controls.Add(Me.barDockControlLeft)
@@ -498,4 +515,6 @@ Partial Class frmEditor
     Friend WithEvents cmdOpenWHMCS As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents txtMessage As DevExpress.XtraEditors.MemoEdit
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents cmdSendClose As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents cmdSendTicket As DevExpress.XtraBars.BarButtonItem
 End Class
