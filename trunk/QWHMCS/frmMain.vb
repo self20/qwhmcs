@@ -1,4 +1,7 @@
-﻿Public Class frmMain
+﻿Imports System.Net
+Imports System.IO
+Imports System.Text
+Public Class frmMain
     Dim AcikTicketSayisi As Long
     Dim KapaliTicketSayisi As Long
     Dim CevaplananTicketSayisi As Long
@@ -25,6 +28,7 @@
     End Sub
     Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         System.Net.ServicePointManager.Expect100Continue = False
+        Me.Text = "QWHMCS - WHMCS Ticket Track System - " & Application.ProductVersion
         frmEditor.Show()
         frmEditor.Hide()
         Dim objIniFile As IniFile
@@ -43,17 +47,10 @@
         APIAddress = objIniFile.GetString("WHMCS", "APIAddress", "")
         APIUsername = objIniFile.GetString("WHMCS", "APIUsername", "")
         APIPassword = objIniFile.GetString("WHMCS", "APIPassword", "")
-        ConStrSirket = String.Format("DRIVER={{MySQL ODBC 3.51 Driver}};SERVER={0};UID={1};PWD={2};DATABASE={3};OPTION=16427", objIniFile.GetString("Server", "Hostname", ""), objIniFile.GetString("Server", "Username", ""), objIniFile.GetString("Server", "Password", ""), objIniFile.GetString("Server", "Database", ""))
-        BaglantiSirket = New Odbc.OdbcConnection
-        BaglantiSirket.ConnectionString = ConStrSirket
-        If objIniFile.GetString("Settings", "AboutBox", "true") = "true" Then
-            Dim frmabout As New frmAbout
-            frmabout.ShowDialog()
-        End If
-        LOpenTicket = objIniFile.GetString("Language", "LOpenTicket", "Open Ticket")
-        LClosedTicket = objIniFile.GetString("Language", "LClosedTicket", "Closed Ticket")
-        LAnswered = objIniFile.GetString("Language", "LAnswered", "Answered Ticket")
-        LCusAnswered = objIniFile.GetString("Language", "LCusAnswered", "Customer-Answered")
+        LOpenTicket = objIniFile.GetString("Language", "LOpenTicket", "Open Tickets")
+        LClosedTicket = objIniFile.GetString("Language", "LClosedTicket", "Closed Tickets")
+        LAnswered = objIniFile.GetString("Language", "LAnswered", "Answered Tickets")
+        LCusAnswered = objIniFile.GetString("Language", "LCusAnswered", "Customer Replied")
         LcmdOpen = objIniFile.GetString("Language", "LcmdOpen", "Open Ticket")
         LcmdClose = objIniFile.GetString("Language", "LcmdClose", "Close")
         LcmdHide = objIniFile.GetString("Language", "LcmdHide", "Hide")
@@ -69,9 +66,10 @@
         LBaloonCaption = objIniFile.GetString("Language", "LBaloonCaption", "New Ticket/Answer")
         LBaloonNewTicket = objIniFile.GetString("Language", "LBaloonNewTicket", "A new support ticket has been opened.")
         LBaloonNewAnswer = objIniFile.GetString("Language", "LBaloonNewAnswer", "A new support ticket response has been made.")
-        LErrorDatabase = objIniFile.GetString("Language", "LBaloonNewAnswer", "Database Connection Problem !")
+        LErrorDatabase = objIniFile.GetString("Language", "LErrorDatabase", "Database Connection Problem !")
         RefreshRate = objIniFile.GetString("Settings", "RefreshRate", 30)
         Transparency = objIniFile.GetString("Settings", "Transparency", 90)
+        DefaultLookAndFeel1.LookAndFeel.SkinName = objIniFile.GetString("Settings", "Skin", "Blue")
         cmdAc.Caption = LcmdOpen
         cmdKapat.Caption = LcmdClose
         cmdYenile.Caption = LcmdRefresh
@@ -82,30 +80,46 @@
         coldate2.Caption = LColDate
         coldate3.Caption = LColDate
         coldate4.Caption = LColDate
+        coldate5.Caption = LColDate
+        coldate6.Caption = LColDate
         cold_name1.Caption = LColDepartment
         cold_name2.Caption = LColDepartment
         cold_name3.Caption = LColDepartment
         cold_name4.Caption = LColDepartment
+        cold_name5.Caption = LColDepartment
+        cold_name6.Caption = LColDepartment
         colu_name1.Caption = LColName
         colu_name2.Caption = LColName
         colu_name3.Caption = LColName
         colu_name4.Caption = LColName
+        colu_name5.Caption = LColName
+        colu_name6.Caption = LColName
         colu_subname1.Caption = LColSubName
         colu_subname2.Caption = LColSubName
         colu_subname3.Caption = LColSubName
         colu_subname4.Caption = LColSubName
+        colu_subname5.Caption = LColSubName
+        colu_subname6.Caption = LColSubName
         coltitle1.Caption = LColTitle
         coltitle2.Caption = LColTitle
         coltitle3.Caption = LColTitle
         coltitle4.Caption = LColTitle
+        coltitle5.Caption = LColTitle
+        coltitle6.Caption = LColTitle
         colstatus1.Caption = LColStatus
         colstatus2.Caption = LColStatus
         colstatus3.Caption = LColStatus
         colstatus4.Caption = LColStatus
+        colstatus5.Caption = LColStatus
+        colstatus6.Caption = LColStatus
         colurgency1.Caption = LColUrgency
         colurgency2.Caption = LColUrgency
         colurgency3.Caption = LColUrgency
         colurgency4.Caption = LColUrgency
+        colurgency5.Caption = LColUrgency
+        colurgency6.Caption = LColUrgency
+        frmEditor.coldate1.Caption = LColDate
+        frmEditor.cold_name1.Caption = LColName
         tabOpen.Text = LOpenTicket
         tabCustomer_Reply.Text = LCusAnswered
         tabAnswered.Text = LAnswered
@@ -115,51 +129,35 @@
     End Sub
     Public Function Doldur(Optional ByVal Ilk As Boolean = False) As Boolean
         Application.DoEvents()
-        lbStatus.Caption = "Connecting Database..."
+        lbStatus.Caption = "Connecting QWHMCS API..."
         lbStatus.Glyph = My.Resources.hist_16
         Application.DoEvents()
         Try
-            Dim Wherestr As String
-            Wherestr = String.Format(" WHERE tbltickets.`status` LIKE '{0}' ", TabbedControlGroup1.SelectedTabPage.Name.Substring(3).Replace("_", "-"))
-            Dim kayitset As New DataTable
-            kayitset = SorguMySQL(SorguSekli.Tablo, BaglantiSirket, "SELECT " & _
-    "tbltickets.id, " & _
-    "tbltickets.tid, " & _
-    "tbltickets.did, " & _
-    "tbltickets.userid, " & _
-    "tbltickets.name, " & _
-    "tbltickets.email, " & _
-    "tbltickets.c, " & _
-    "tbltickets.`date`, " & _
-    "tbltickets.title, " & _
-    "tbltickets.message, " & _
-    "tbltickets.`status`, " & _
-    "tbltickets.urgency, " & _
-    "tbltickets.admin, " & _
-    "tbltickets.attachment, " & _
-    "tbltickets.lastreply, " & _
-    "tbltickets.flag, " & _
-    "tbltickets.clientunread, " & _
-    "tbltickets.adminunread, " & _
-    "tbltickets.replyingadmin, " & _
-    "tbltickets.replyingtime, " & _
-    "tbltickets.service, " & _
-    "tblticketdepartments.name AS d_name, " & _
-    "tblclients.firstname AS u_name, " & _
-    "tblclients.lastname AS u_subname " & _
-    "        FROM " & _
-    "        tbltickets " & _
-    "Inner Join tblticketdepartments ON tblticketdepartments.id = tbltickets.did " & _
-    "Inner Join tblclients ON tblclients.id = tbltickets.userid " & Wherestr & _
-    "ORDER BY DATE DESC,ID DESC")
-            Ds1.tbltickets.Clear()
-            Ds1.tbltickets.Merge(kayitset)
+            Dim Ds2 As New DataSet
+            Dim readXML As String
+            readXML = XMLDownload(TabbedControlGroup1.SelectedTabPage.Tag)
+            If readXML = "No Record" Then
+                If Ilk = True Then
+                    AcikTicketSayisi = Int(XMLDownload(5))
+                    CevapBekleyenTicketSayisi = Int(XMLDownload(6))
+                End If
+                GridControl1.DataSource = Nothing
+                GridControl2.DataSource = Nothing
+                GridControl3.DataSource = Nothing
+                GridControl4.DataSource = Nothing
+                GridControl5.DataSource = Nothing
+                GridControl6.DataSource = Nothing
+                lbStatus.Caption = "Ready"
+                lbStatus.Glyph = My.Resources.play_16
+                Exit Function
+            End If
+            Ds2 = XmlString2DataSet(readXML)
             If Ilk = True Then
-                AcikTicketSayisi = SorguMySQL(SorguSekli.Tek, BaglantiSirket, "Select COUNT(ID) FROM tblticketlog WHERE action = 'New Support Ticket Opened'")
-                CevapBekleyenTicketSayisi = SorguMySQL(SorguSekli.Tek, BaglantiSirket, "Select COUNT(ID) FROM tblticketlog WHERE action = 'New Ticket Response made by User'")
+                AcikTicketSayisi = Int(XMLDownload(5))
+                CevapBekleyenTicketSayisi = Int(XMLDownload(6))
             Else
-                tAcikTicketSayisi = SorguMySQL(SorguSekli.Tek, BaglantiSirket, "Select COUNT(ID) FROM tblticketlog WHERE action = 'New Support Ticket Opened'")
-                tCevapBekleyenTicketSayisi = SorguMySQL(SorguSekli.Tek, BaglantiSirket, "Select COUNT(ID) FROM tblticketlog WHERE action = 'New Ticket Response made by User'")
+                tAcikTicketSayisi = Int(XMLDownload(5))
+                tCevapBekleyenTicketSayisi = Int(XMLDownload(6))
                 If tAcikTicketSayisi > AcikTicketSayisi Then
                     My.Computer.Audio.Play(aPath & "\alarm.wav", AudioPlayMode.BackgroundLoop)
                     ni1.ShowBalloonTip(0, LBaloonCaption, LBaloonNewTicket, ToolTipIcon.Info)
@@ -173,25 +171,43 @@
             End If
             Select Case TabbedControlGroup1.SelectedTabPage.Name
                 Case "tabOpen"
+                    GridControl1.DataSource = Ds2.Tables(0)
                     If GridView1.DataRowCount <> 0 Then
                         cmdAc.Enabled = True
                     Else
                         cmdAc.Enabled = False
                     End If
                 Case "tabCustomer_Reply"
+                    GridControl3.DataSource = Ds2.Tables(0)
                     If GridView3.DataRowCount <> 0 Then
                         cmdAc.Enabled = True
                     Else
                         cmdAc.Enabled = False
                     End If
                 Case "tabAnswered"
+                    GridControl2.DataSource = Ds2.Tables(0)
                     If GridView2.DataRowCount <> 0 Then
                         cmdAc.Enabled = True
                     Else
                         cmdAc.Enabled = False
                     End If
                 Case "tabClosed"
+                    GridControl4.DataSource = Ds2.Tables(0)
                     If GridView4.DataRowCount <> 0 Then
+                        cmdAc.Enabled = True
+                    Else
+                        cmdAc.Enabled = False
+                    End If
+                Case "tabInProgress"
+                    GridControl5.DataSource = Ds2.Tables(0)
+                    If GridView5.DataRowCount <> 0 Then
+                        cmdAc.Enabled = True
+                    Else
+                        cmdAc.Enabled = False
+                    End If
+                Case "tabOnHold"
+                    GridControl6.DataSource = Ds2.Tables(0)
+                    If GridView6.DataRowCount <> 0 Then
                         cmdAc.Enabled = True
                     Else
                         cmdAc.Enabled = False
@@ -206,7 +222,7 @@
             lbStatus.Caption = "Ready"
             lbStatus.Glyph = My.Resources.play_16
         Catch ex As Exception
-            lbStatus.Caption = "Database Error!"
+            lbStatus.Caption = LErrorDatabase
             lbStatus.Glyph = My.Resources.cancl_16
             Exit Function
         End Try
@@ -223,7 +239,7 @@
 
     Private Sub Timer2_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer2.Tick
         Zaman = Zaman - 1
-        lbRefreshTime.Caption = "(" & Zaman & ")"
+        cmdYenile.Caption = Zaman
     End Sub
 
     Private Sub ni1_BalloonTipClicked(ByVal sender As Object, ByVal e As System.EventArgs) Handles ni1.BalloonTipClicked
@@ -270,6 +286,10 @@
                 DRow = GridView2.GetDataRow(GridView2.FocusedRowHandle)
             Case "tabClosed"
                 DRow = GridView4.GetDataRow(GridView4.FocusedRowHandle)
+            Case "tabInProgress"
+                DRow = GridView5.GetDataRow(GridView5.FocusedRowHandle)
+            Case "tabOnHold"
+                DRow = GridView6.GetDataRow(GridView6.FocusedRowHandle)
             Case Else
                 DRow = GridView1.GetDataRow(GridView1.FocusedRowHandle)
         End Select
@@ -334,6 +354,10 @@
                     DRow = GridView2.GetDataRow(GridView2.FocusedRowHandle)
                 Case "tabClosed"
                     DRow = GridView4.GetDataRow(GridView4.FocusedRowHandle)
+                Case "tabInProgress"
+                    DRow = GridView5.GetDataRow(GridView5.FocusedRowHandle)
+                Case "tabOnHold"
+                    DRow = GridView6.GetDataRow(GridView6.FocusedRowHandle)
                 Case Else
                     DRow = GridView1.GetDataRow(GridView1.FocusedRowHandle)
             End Select

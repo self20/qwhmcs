@@ -4,13 +4,6 @@ Imports System.IO
 Imports System.Text
 Imports System.Security.Cryptography
 Module Genel
-    Public Enum SorguSekli
-        Tek = 0
-        Tablo = 1
-        Cevapsız = 2
-    End Enum
-    Public ConStrSirket As String
-    Public BaglantiSirket As Odbc.OdbcConnection
     Public SetupDurumu As Boolean = False
     Public WHMCSAddress As String
     Public APIAddress As String
@@ -39,68 +32,13 @@ Module Genel
     Public LErrorDatabase As String
     Public RefreshRate As Long
     Public Transparency As Long
-    Public Function SorguMySQL(ByVal SorguSekli As SorguSekli, ByVal Baglanti As Odbc.OdbcConnection, ByRef SQL As String, Optional ByRef Alan As String = "0") As Object
-        Select Case SorguSekli
-            Case 0
-                Dim MyAdp As New Odbc.OdbcDataAdapter
-                Dim Kayitset As New DataSet
-                Dim MyTable As New DataTable
-                Dim MyRow As DataRow
-                Try
-                    Dim SSQL As New Odbc.OdbcCommand(SQL, Baglanti)
-                    MyAdp = New Odbc.OdbcDataAdapter(SSQL)
-                    MyAdp.Fill(Kayitset)
-                    MyTable = Kayitset.Tables(0)
-                    If MyTable.Rows.Count <> 0 Then
-                        MyRow = MyTable.Rows(0)
-                        If Alan = "0" Then
-                            SorguMySQL = MyRow(0)
-                        Else
-                            SorguMySQL = MyRow(Alan)
-                        End If
-                    Else
-                        SorguMySQL = "Veri Yok"
-                    End If
-                Catch ex As Exception
-                    SorguMySQL = ""
-                    Exit Function
-                End Try
-                MyRow = Nothing
-                MyTable = Nothing
-                Kayitset = Nothing
-                MyAdp = Nothing
-            Case 1
-                Dim MyAdp As New Odbc.OdbcDataAdapter
-                Dim Kayitset As New DataSet
-                Try
-                    Dim SSQL As New Odbc.OdbcCommand(SQL, Baglanti)
-                    MyAdp = New Odbc.OdbcDataAdapter(SSQL)
-                    MyAdp.Fill(Kayitset)
-                    SorguMySQL = Kayitset.Tables(0)
-                Catch ex As Exception
-                    SorguMySQL = New DataTable
-                    Exit Function
-                End Try
-            Case 2
-                Try
-                    Dim SSQL As New Odbc.OdbcCommand(SQL, Baglanti)
-                    SSQL.ExecuteNonQuery()
-                    SorguMySQL = True
-                Catch ex As Exception
-                    SorguMySQL = False
-                    Exit Function
-                End Try
-            Case Else
-                SorguMySQL = Nothing
-        End Select
-    End Function
     Function ConvertStringToMD5(ByVal ClearText As String) As String
         Dim ByteData As Byte() = Encoding.ASCII.GetBytes(ClearText)
         Dim oMd5 As MD5 = MD5.Create()
         Dim HashData As Byte() = oMd5.ComputeHash(ByteData)
         Dim oSb As StringBuilder = New StringBuilder()
         Dim x As Integer = 0
-        Do While x < HashData.Length
+         Do While x < HashData.Length
             oSb.Append(HashData(x).ToString("x2"))
             x += 1
         Loop
@@ -139,33 +77,10 @@ Module Genel
             End If
             postBuffer = Nothing
         Catch ex As Exception
-            MsgBox("API Error" & vbCrLf & ex.Message, MsgBoxStyle.Critical, "QWHMCS")
+            MsgBox(LErrorDatabase & vbCrLf & ex.Message, MsgBoxStyle.Critical, "QWHMCS")
             Curl = ""
         End Try
     End Function
-    Public Function SorguGridMySQL(ByRef Tip As Integer, ByRef Baglanti As Odbc.OdbcConnection, ByRef SQL As String, ByRef Grid As DevExpress.XtraGrid.GridControl) As Boolean
-        Dim nMysqlCommand As New Odbc.OdbcCommand
-        nMysqlCommand.Connection = Baglanti
-        Select Case Tip
-            Case 1
-                nMysqlCommand.CommandType = CommandType.Text
-            Case 2
-                nMysqlCommand.CommandType = CommandType.TableDirect
-            Case 3
-                nMysqlCommand.CommandType = CommandType.StoredProcedure
-        End Select
-        nMysqlCommand.CommandText = SQL
-        Try
-            Dim Dates As New Odbc.OdbcDataAdapter
-            Dim Datass As New DataSet
-            Dates = New Odbc.OdbcDataAdapter(nMysqlCommand)
-            Dates.Fill(Datass)
-            Grid.DataSource = Datass.Tables(0).DefaultView
-        Catch ex As Exception
-            SorguGridMySQL = False
-        End Try
-    End Function
-
     Public Declare Auto Function PlaySound Lib "winmm.dll" (ByVal lpszSoundName As String, ByVal hModule As Integer, ByVal dwFlags As Integer) As Integer
     Const SND_FILENAME As Integer = &H20000
     Const SND_ALIAS As Integer = &H10000
@@ -184,56 +99,44 @@ Module Genel
         Try
             Dim result As String
             result = System.Text.RegularExpressions.Regex.Replace(source, "<[^>]*>", String.Empty)
-            'result = source.Replace(vbCr, " ")
-            'result = result.Replace(vbLf, " ")
-            'result = result.Replace(vbTab, String.Empty)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "( )+", " ")
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "<( )*head([^>])*>", "<head>", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "(<( )*(/)( )*head( )*>)", "</head>", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "(<head>).*(</head>)", String.Empty, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "<( )*script([^>])*>", "<script>", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "(<( )*(/)( )*script( )*>)", "</script>", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "(<script>).*(</script>)", String.Empty, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "<( )*style([^>])*>", "<style>", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "(<( )*(/)( )*style( )*>)", "</style>", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "(<style>).*(</style>)", String.Empty, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "<( )*td([^>])*>", vbTab, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "<( )*br( )*>", vbCr, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "<( )*li( )*>", vbCr, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "<( )*div([^>])*>", vbCr & vbCr, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "<( )*tr([^>])*>", vbCr & vbCr, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "<( )*p([^>])*>", vbCr & vbCr, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "<[^>]*>", String.Empty, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, " ", " ", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "•", " * ", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "‹", "<", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "›", ">", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "™", "(tm)", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "⁄", "/", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "<", "<", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, ">", ">", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "©", "(c)", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "®", "(r)", System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "&(.{2,6});", String.Empty, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = result.Replace(vbLf, vbCr)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "(" & vbCr & ")( )+(" & vbCr & ")", vbCr & vbCr, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "(" & vbTab & ")( )+(" & vbTab & ")", vbTab & vbTab, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "(" & vbTab & ")( )+(" & vbCr & ")", vbTab & vbCr, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "(" & vbCr & ")( )+(" & vbTab & ")", vbCr & vbTab, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "(" & vbCr & ")(" & vbTab & ")+(" & vbCr & ")", vbCr & vbCr, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'result = System.Text.RegularExpressions.Regex.Replace(result, "(" & vbCr & ")(" & vbTab & ")+", vbCr & vbTab, System.Text.RegularExpressions.RegexOptions.IgnoreCase)
-            'Dim breaks As String = vbCr & vbCr & vbCr
-            'Dim tabs As String = vbTab & vbTab & vbTab & vbTab & vbTab
-            'For index As Integer = 0 To result.Length - 1
-            '    result = result.Replace(breaks, vbCr & vbCr)
-            '    result = result.Replace(tabs, vbTab & vbTab & vbTab & vbTab)
-            '    breaks = breaks & vbCr
-            '    tabs = tabs & vbTab
-            'Next
             Return result
         Catch
             Return source
         End Try
     End Function
-
+    Public Function XmlString2DataSet(ByVal xmlString As String) As DataSet
+        Cursor.Current = Cursors.WaitCursor
+        Dim quoteDataSet As DataSet = Nothing
+        If [String].IsNullOrEmpty(xmlString) Then
+            Return quoteDataSet
+        End If
+        Try
+            Using stringReader As New StringReader(xmlString)
+                quoteDataSet = New DataSet()
+                quoteDataSet.ReadXml(stringReader)
+            End Using
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            quoteDataSet = Nothing
+        End Try
+        Return quoteDataSet
+        Cursor.Current = Cursors.Default
+    End Function
+    Public Function XMLDownload(ByVal Action As String, Optional ByVal Id As Long = 0) As String
+        Cursor.Current = Cursors.WaitCursor
+        Dim ms As String = ""
+        Dim a As New Random()
+        Try
+            Dim req As WebRequest = WebRequest.Create(APIAddress & "/qapi.php?action=" & Action & "&user=" & APIUsername & "&passwd=" & ConvertStringToMD5(APIPassword) & "&id=" & Id & "&rand=" & a.Next(10000, 30000))
+            Dim result As WebResponse = req.GetResponse()
+            Dim ReceiveStream As Stream = result.GetResponseStream()
+            Dim enc As Encoding = System.Text.Encoding.Default
+            Dim sr As StreamReader = New StreamReader(ReceiveStream, enc)
+            ms = sr.ReadToEnd()
+        Catch ex As Exception
+            ms = "QWHMCSError:XML Download Problem"
+        End Try
+        Return ms
+        Cursor.Current = Cursors.Default
+    End Function
 End Module

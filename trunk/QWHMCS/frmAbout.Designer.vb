@@ -1,6 +1,6 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
 Partial Class frmAbout
-    Inherits System.Windows.Forms.Form
+    Inherits DevExpress.XtraEditors.XtraForm
 
     'Form overrides dispose to clean up the component list.
     <System.Diagnostics.DebuggerNonUserCode()> _
@@ -19,7 +19,7 @@ Partial Class frmAbout
     Friend WithEvents LabelVersion As System.Windows.Forms.Label
     Friend WithEvents LabelCompanyName As System.Windows.Forms.Label
     Friend WithEvents TextBoxDescription As System.Windows.Forms.TextBox
-    Friend WithEvents OKButton As System.Windows.Forms.Button
+    Friend WithEvents OKButton As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents LabelCopyright As System.Windows.Forms.Label
 
     'Required by the Windows Form Designer
@@ -37,7 +37,7 @@ Partial Class frmAbout
         Me.LabelCopyright = New System.Windows.Forms.Label
         Me.LabelCompanyName = New System.Windows.Forms.Label
         Me.TextBoxDescription = New System.Windows.Forms.TextBox
-        Me.OKButton = New System.Windows.Forms.Button
+        Me.OKButton = New DevExpress.XtraEditors.SimpleButton
         Me.TableLayoutPanel.SuspendLayout()
         Me.SuspendLayout()
         '

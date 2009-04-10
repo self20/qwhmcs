@@ -42,8 +42,11 @@
         Dim objResult As New System.Text.StringBuilder(256)
         intCharCount = GetPrivateProfileString(Section, Key, _
            [Default], objResult, objResult.Capacity, strFilename)
-        If intCharCount > 0 Then GetString = _
-           Left(objResult.ToString, intCharCount)
+        If intCharCount > 0 Then
+            GetString = Left(objResult.ToString, intCharCount)
+        Else
+            GetString = Nothing
+        End If
     End Function
 
     Public Function GetInteger(ByVal Section As String, _
