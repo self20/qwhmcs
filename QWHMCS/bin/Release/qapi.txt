@@ -1,0 +1,166 @@
+<?php 
+// qapi.php: QWHMCS API - QWHMCS to WHMCS bridge,v1.6.221.18
+
+/**
+* @qapi.php
+* Coder Muzaffer AKYIL (muzaffer@elitbir.net)
+* QTechnics.Net Software Solutions
+* Detail : http://www.qtechnics.net/qwhmcs/
+* Descrition :
+* Enables the exchange of information between QWHMCS with WHMCS api module.
+* Installation :
+* Please uplaod this file to WHMCS includes folder.
+*/
+
+// To change the date format, use the $dateformat variable.
+// etc. $dateformat = "m/d/Y H:i:s";
+
+$dateformat = "d/m/Y H:i:s";
+
+// Do not make any changes after this line.
+
+include("../dbconnect.php");
+include("../includes/functions.php");
+if(!isset($_GET['user']) or !isset($_GET['passwd'])) {die("Authorization Error");}
+$quser = mysql_real_escape_string($_GET['user']);
+$qpasswd = mysql_real_escape_string($_GET['passwd']);
+$query = "Select COUNT(id) FROM tbladmins WHERE username='$quser' and password='$qpasswd'";
+$result = mysql_query($query) or die("Data not found.");
+$result = mysql_fetch_row($result);
+$login = $result[0];
+if($login!="1") {die("Authorization Error");}
+$query = "Select value from tblconfiguration where setting = 'Charset'";
+$result = mysql_query($query) or die("Data not found.");
+$result = mysql_fetch_row($result);
+$charset = $result[0];
+$query = "Select value from tblconfiguration where setting = 'Version'";
+$result = mysql_query($query) or die("Data not found."); 
+$result = mysql_fetch_row($result);
+$version = $result[0];
+$version = explode(".",$version);
+$major = $version[0];
+$minor = $version[1];
+$revision = $version[2];
+if($major<3) { die("If your version of WHMCS old. Minumum version 3.8.2 is required."); }
+if($major==3 && $minor<8) { die("If your version of WHMCS old. Minumum version 3.8.2 is required."); }
+if($major==3 && $minor==8 && $revision<2) { die("If your version of WHMCS old. Minumum version 3.8.2 is required."); }
+$gets = array('1','2','3','4','5','6','7','8','9','closeticket');
+
+// LIMIT Update 1.6.221.18 Begin
+if(is_numeric($_GET['limit'])) {
+if($_GET['limit']==0) {
+$limitstr = "";
+} else {
+$limitstr = "LIMIT 0,".$_GET['limit'];
+}
+} else {
+$limitstr = "";
+}
+//  LIMIT Update 1.6.221.18 End
+
+if (!in_array($_GET['action'], $gets)) {die();}
+switch($_GET['action']) {
+case "closeticket": // Close Ticket
+if(isset($_GET['id'])) {
+$id = intval($_GET['id']);
+$query123 =  "Update tbltickets SET status = 'Closed' Where id=$id";
+$result123 = mysql_query($query123) or die("error");
+die('success');
+} else {
+die('error');
+}
+break;
+case "1": // Open Tickets
+$wherestr  = "WHERE tbltickets.`status` LIKE 'Open'";
+break;
+case "2": // Customer-Replys
+$wherestr  = "WHERE tbltickets.`status` LIKE 'Customer-Reply'";
+break;
+case "3": // Answered Tickets
+$wherestr  = "WHERE tbltickets.`status` LIKE 'Answered'";
+break;
+case "4": // Closed Tickets
+$wherestr  = "WHERE tbltickets.`status` LIKE 'Closed'";
+break;
+case "8": // In Progress Tickets
+$wherestr  = "WHERE tbltickets.`status` LIKE 'In Progress'";
+break;
+case "9": // On Hold Tickets
+$wherestr  = "WHERE tbltickets.`status` LIKE 'On Hold'";
+break;
+case "5": // #OpenTickets
+$query =  "Select COUNT(ID) FROM tblticketlog WHERE action = 'New Support Ticket Opened'";
+$result = mysql_query($query) or die("Data not found."); 
+$result = mysql_fetch_row($result);
+die($result[0]);
+break;
+case "6": // #CustomerReplyTickets
+$query =  "Select COUNT(ID) FROM tblticketlog WHERE action = 'New Ticket Response made by User'";
+$result = mysql_query($query) or die("Data not found."); 
+$result = mysql_fetch_row($result);
+die($result[0]);
+break;
+case "7": // Ticket Viewer
+if(isset($_GET['id'])) {
+$id = intval($_GET['id']);
+$query = "select tbltickets.id as tid,IF(LENGTH(admin)=0,IF(userid=0,CONCAT(name,' (',tbltickets.email,')'),CONCAT(tblclients.firstname,' ',tblclients.lastname)),admin) as kim,date,message from tbltickets left join tblclients on tblclients.id = tbltickets.userid where tbltickets.id=$id \n";
+$query.="union \n";
+$query.="select tid,IF(LENGTH(admin)=0,IF(userid=0,CONCAT(name,' (',tblticketreplies.email,')'),CONCAT(tblclients.firstname,' ',tblclients.lastname)),admin) as kim,date,message from tblticketreplies left join tblclients on tblclients.id = tblticketreplies.userid where tblticketreplies.tid=$id";
+header("Content-Type: text/xml; charset=$charset");
+$xml_output = "<?xml version=\"1.0\" encoding=\"$charset\"?>\n";  
+$xml_output .= "<entries>\n"; 
+$resultID = mysql_query($query) or die("Data not found."); 
+for($x = 0 ; $x < mysql_num_rows($resultID) ; $x++){ 
+    $row = mysql_fetch_assoc($resultID); 
+    $xml_output .= "\t<entry>\n"; 
+	$fields = array('tid','kim','date','message');
+	while (list($key, $val) = each($fields)) {
+		if($val=='date') {
+			$xml_output .= "\t\t<$val>".date($dateformat,strtotime($row[$val]))."</$val>\n"; 
+		} else {
+			$xml_output .= "\t\t<$val>".clearHTML($row[$val])."</$val>\n"; 
+		}
+	}
+    $xml_output .= "\t</entry>\n"; 
+} 
+$xml_output .= "</entries>"; 
+echo $xml_output; 
+}
+exit();
+break;
+}
+header("Content-Type: text/xml; charset=$charset");
+
+// LIMIT Update 1.6.221.18 Begin
+$query = "Select tbltickets.*,tblticketdepartments.name AS d_name,tblclients.firstname AS u_name,tblclients.lastname AS u_subname FROM tbltickets Left Join tblticketdepartments ON tblticketdepartments.id = tbltickets.did Left Join tblclients ON tblclients.id = tbltickets.userid $wherestr ORDER BY DATE DESC $limitstr";
+// LIMIT Update 1.6.221.18 End
+
+$result = mysql_query($query) or die("Data not found."); 
+if(mysql_num_rows($result)==0) {
+die("No Record");
+}
+$xml_output = "<?xml version=\"1.0\" encoding=\"$charset\"?>\n";  
+$xml_output .= "<entries>\n"; 
+for($x = 0 ; $x < mysql_num_rows($result) ; $x++){ 
+    $row = mysql_fetch_assoc($result); 
+    $xml_output .= "\t<entry>\n"; 
+	$qfields = array('id','tid','did','userid','name','email','c','date','d_name','u_name','u_subname','title','message','status','urgency','lastreply');
+	while (list($key, $val) = each($qfields)) {
+		if($val=='date' || $val=='lastreply') {
+			$xml_output .= "\t\t<$val>".date($dateformat,strtotime($row[$val]))."</$val>\n"; 
+		} else {
+			$xml_output .= "\t\t<$val>".clearHTML($row[$val])."</$val>\n"; 
+		}
+	}
+    $xml_output .= "\t</entry>\n"; 
+} 
+$xml_output .= "</entries>"; 
+echo $xml_output;
+function clearHTML($html) {
+  $html = str_replace("&", "&amp;", $html); 
+  $html = str_replace("<", "&lt;", $html); 
+  $html = str_replace(">", "&gt;", $html); 
+  $html = str_replace("\"", "&quot;", $html); 
+  return $html;
+}
+?> 

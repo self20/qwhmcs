@@ -21,6 +21,8 @@ Partial Class frmSetup
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmSetup))
         Me.LayoutControl1 = New DevExpress.XtraLayout.LayoutControl
+        Me.txtSign = New DevExpress.XtraEditors.MemoEdit
+        Me.txtMaxTicket = New DevExpress.XtraEditors.SpinEdit
         Me.ComboBoxEdit1 = New DevExpress.XtraEditors.ComboBoxEdit
         Me.txtAPIPassword = New DevExpress.XtraEditors.TextEdit
         Me.txtAPIUsername = New DevExpress.XtraEditors.TextEdit
@@ -54,12 +56,15 @@ Partial Class frmSetup
         Me.TabbedControlGroup1 = New DevExpress.XtraLayout.TabbedControlGroup
         Me.LayoutControlGroup5 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LayoutControlItem21 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem31 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem32 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem33 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem20 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.LayoutControlItem21 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.LayoutControlItem2 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.EmptySpaceItem3 = New DevExpress.XtraLayout.EmptySpaceItem
+        Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlGroup4 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem26 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem24 = New DevExpress.XtraLayout.LayoutControlItem
@@ -87,6 +92,8 @@ Partial Class frmSetup
         Me.EmptySpaceItem2 = New DevExpress.XtraLayout.EmptySpaceItem
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
+        CType(Me.txtSign.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.txtMaxTicket.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAPIPassword.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtAPIUsername.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -118,12 +125,15 @@ Partial Class frmSetup
         CType(Me.TabbedControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem21, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem31, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem32, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem33, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem20, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem21, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup4, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem26, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem24, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -153,6 +163,8 @@ Partial Class frmSetup
         '
         'LayoutControl1
         '
+        Me.LayoutControl1.Controls.Add(Me.txtSign)
+        Me.LayoutControl1.Controls.Add(Me.txtMaxTicket)
         Me.LayoutControl1.Controls.Add(Me.ComboBoxEdit1)
         Me.LayoutControl1.Controls.Add(Me.txtAPIPassword)
         Me.LayoutControl1.Controls.Add(Me.txtAPIUsername)
@@ -190,6 +202,24 @@ Partial Class frmSetup
         Me.LayoutControl1.TabIndex = 0
         Me.LayoutControl1.Text = "LayoutControl1"
         '
+        'txtSign
+        '
+        Me.txtSign.Location = New System.Drawing.Point(16, 263)
+        Me.txtSign.Name = "txtSign"
+        Me.txtSign.Size = New System.Drawing.Size(233, 90)
+        Me.txtSign.StyleController = Me.LayoutControl1
+        Me.txtSign.TabIndex = 39
+        '
+        'txtMaxTicket
+        '
+        Me.txtMaxTicket.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
+        Me.txtMaxTicket.Location = New System.Drawing.Point(199, 207)
+        Me.txtMaxTicket.Name = "txtMaxTicket"
+        Me.txtMaxTicket.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
+        Me.txtMaxTicket.Size = New System.Drawing.Size(50, 20)
+        Me.txtMaxTicket.StyleController = Me.LayoutControl1
+        Me.txtMaxTicket.TabIndex = 38
+        '
         'ComboBoxEdit1
         '
         Me.ComboBoxEdit1.Location = New System.Drawing.Point(525, 182)
@@ -203,26 +233,26 @@ Partial Class frmSetup
         '
         'txtAPIPassword
         '
-        Me.txtAPIPassword.Location = New System.Drawing.Point(135, 151)
+        Me.txtAPIPassword.Location = New System.Drawing.Point(199, 151)
         Me.txtAPIPassword.Name = "txtAPIPassword"
         Me.txtAPIPassword.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtAPIPassword.Size = New System.Drawing.Size(489, 20)
+        Me.txtAPIPassword.Size = New System.Drawing.Size(425, 20)
         Me.txtAPIPassword.StyleController = Me.LayoutControl1
         Me.txtAPIPassword.TabIndex = 36
         '
         'txtAPIUsername
         '
-        Me.txtAPIUsername.Location = New System.Drawing.Point(135, 120)
+        Me.txtAPIUsername.Location = New System.Drawing.Point(199, 120)
         Me.txtAPIUsername.Name = "txtAPIUsername"
-        Me.txtAPIUsername.Size = New System.Drawing.Size(489, 20)
+        Me.txtAPIUsername.Size = New System.Drawing.Size(425, 20)
         Me.txtAPIUsername.StyleController = Me.LayoutControl1
         Me.txtAPIUsername.TabIndex = 35
         '
         'txtAPIAddress
         '
-        Me.txtAPIAddress.Location = New System.Drawing.Point(135, 89)
+        Me.txtAPIAddress.Location = New System.Drawing.Point(199, 89)
         Me.txtAPIAddress.Name = "txtAPIAddress"
-        Me.txtAPIAddress.Size = New System.Drawing.Size(489, 20)
+        Me.txtAPIAddress.Size = New System.Drawing.Size(425, 20)
         Me.txtAPIAddress.StyleController = Me.LayoutControl1
         Me.txtAPIAddress.TabIndex = 34
         '
@@ -247,12 +277,12 @@ Partial Class frmSetup
         'txtTransparent
         '
         Me.txtTransparent.EditValue = 30
-        Me.txtTransparent.Location = New System.Drawing.Point(236, 179)
+        Me.txtTransparent.Location = New System.Drawing.Point(350, 179)
         Me.txtTransparent.Name = "txtTransparent"
         Me.txtTransparent.Properties.Maximum = 100
         Me.txtTransparent.Properties.Minimum = 30
         Me.txtTransparent.Properties.TickFrequency = 5
-        Me.txtTransparent.Size = New System.Drawing.Size(254, 45)
+        Me.txtTransparent.Size = New System.Drawing.Size(140, 45)
         Me.txtTransparent.StyleController = Me.LayoutControl1
         Me.txtTransparent.TabIndex = 24
         Me.txtTransparent.Value = 30
@@ -260,7 +290,7 @@ Partial Class frmSetup
         'txtRefreshRate
         '
         Me.txtRefreshRate.EditValue = New Decimal(New Integer() {0, 0, 0, 0})
-        Me.txtRefreshRate.Location = New System.Drawing.Point(85, 179)
+        Me.txtRefreshRate.Location = New System.Drawing.Point(199, 179)
         Me.txtRefreshRate.Name = "txtRefreshRate"
         Me.txtRefreshRate.Properties.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton})
         Me.txtRefreshRate.Size = New System.Drawing.Size(50, 20)
@@ -269,9 +299,9 @@ Partial Class frmSetup
         '
         'txtWHMCSAddress
         '
-        Me.txtWHMCSAddress.Location = New System.Drawing.Point(135, 61)
+        Me.txtWHMCSAddress.Location = New System.Drawing.Point(199, 61)
         Me.txtWHMCSAddress.Name = "txtWHMCSAddress"
-        Me.txtWHMCSAddress.Size = New System.Drawing.Size(489, 20)
+        Me.txtWHMCSAddress.Size = New System.Drawing.Size(425, 20)
         Me.txtWHMCSAddress.StyleController = Me.LayoutControl1
         Me.txtWHMCSAddress.TabIndex = 8
         '
@@ -463,7 +493,7 @@ Partial Class frmSetup
         'LayoutControlGroup5
         '
         Me.LayoutControlGroup5.CustomizationFormText = "General Settings"
-        Me.LayoutControlGroup5.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem5, Me.LayoutControlItem31, Me.LayoutControlItem32, Me.LayoutControlItem33, Me.LayoutControlItem20, Me.LayoutControlItem1, Me.LayoutControlItem21})
+        Me.LayoutControlGroup5.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem5, Me.LayoutControlItem31, Me.LayoutControlItem32, Me.LayoutControlItem33, Me.LayoutControlItem20, Me.LayoutControlItem1, Me.LayoutControlItem21, Me.LayoutControlItem2, Me.EmptySpaceItem3, Me.LayoutControlItem3})
         Me.LayoutControlGroup5.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup5.Name = "LayoutControlGroup5"
         Me.LayoutControlGroup5.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
@@ -481,20 +511,7 @@ Partial Class frmSetup
         Me.LayoutControlItem5.Size = New System.Drawing.Size(619, 25)
         Me.LayoutControlItem5.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem5.Text = "WHMCS Admin Address"
-        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(114, 20)
-        '
-        'LayoutControlItem21
-        '
-        Me.LayoutControlItem21.Control = Me.txtTransparent
-        Me.LayoutControlItem21.CustomizationFormText = "Transparent Rate"
-        Me.LayoutControlItem21.Location = New System.Drawing.Point(130, 118)
-        Me.LayoutControlItem21.Name = "LayoutControlItem21"
-        Me.LayoutControlItem21.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 2, 2)
-        Me.LayoutControlItem21.Size = New System.Drawing.Size(355, 309)
-        Me.LayoutControlItem21.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlItem21.Text = "Transparent Rate"
-        Me.LayoutControlItem21.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
-        Me.LayoutControlItem21.TextSize = New System.Drawing.Size(85, 20)
+        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem31
         '
@@ -506,7 +523,7 @@ Partial Class frmSetup
         Me.LayoutControlItem31.Size = New System.Drawing.Size(619, 31)
         Me.LayoutControlItem31.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem31.Text = "WHMCS API Address"
-        Me.LayoutControlItem31.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem31.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem32
         '
@@ -518,7 +535,7 @@ Partial Class frmSetup
         Me.LayoutControlItem32.Size = New System.Drawing.Size(619, 31)
         Me.LayoutControlItem32.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem32.Text = "API Username"
-        Me.LayoutControlItem32.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem32.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem33
         '
@@ -530,7 +547,7 @@ Partial Class frmSetup
         Me.LayoutControlItem33.Size = New System.Drawing.Size(619, 31)
         Me.LayoutControlItem33.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem33.Text = "API Password"
-        Me.LayoutControlItem33.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem33.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem20
         '
@@ -539,11 +556,10 @@ Partial Class frmSetup
         Me.LayoutControlItem20.Location = New System.Drawing.Point(0, 118)
         Me.LayoutControlItem20.Name = "LayoutControlItem20"
         Me.LayoutControlItem20.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 2, 2)
-        Me.LayoutControlItem20.Size = New System.Drawing.Size(130, 309)
+        Me.LayoutControlItem20.Size = New System.Drawing.Size(244, 25)
         Me.LayoutControlItem20.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem20.Text = "Refresh Rate"
-        Me.LayoutControlItem20.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
-        Me.LayoutControlItem20.TextSize = New System.Drawing.Size(64, 20)
+        Me.LayoutControlItem20.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem1
         '
@@ -557,6 +573,55 @@ Partial Class frmSetup
         Me.LayoutControlItem1.Text = "Skin"
         Me.LayoutControlItem1.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
         Me.LayoutControlItem1.TextSize = New System.Drawing.Size(19, 20)
+        '
+        'LayoutControlItem21
+        '
+        Me.LayoutControlItem21.Control = Me.txtTransparent
+        Me.LayoutControlItem21.CustomizationFormText = "Transparent Rate"
+        Me.LayoutControlItem21.Location = New System.Drawing.Point(244, 118)
+        Me.LayoutControlItem21.Name = "LayoutControlItem21"
+        Me.LayoutControlItem21.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 2, 2)
+        Me.LayoutControlItem21.Size = New System.Drawing.Size(241, 309)
+        Me.LayoutControlItem21.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.LayoutControlItem21.Text = "Transparent Rate"
+        Me.LayoutControlItem21.TextAlignMode = DevExpress.XtraLayout.TextAlignModeItem.AutoSize
+        Me.LayoutControlItem21.TextSize = New System.Drawing.Size(85, 20)
+        '
+        'LayoutControlItem2
+        '
+        Me.LayoutControlItem2.Control = Me.txtMaxTicket
+        Me.LayoutControlItem2.CustomizationFormText = "Max. Ticket View (If zero is unlimited)"
+        Me.LayoutControlItem2.Location = New System.Drawing.Point(0, 143)
+        Me.LayoutControlItem2.Name = "LayoutControlItem2"
+        Me.LayoutControlItem2.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LayoutControlItem2.Size = New System.Drawing.Size(244, 31)
+        Me.LayoutControlItem2.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.LayoutControlItem2.Text = "Max. Ticket View (If zero is unlimited)"
+        Me.LayoutControlItem2.TextSize = New System.Drawing.Size(178, 20)
+        '
+        'EmptySpaceItem3
+        '
+        Me.EmptySpaceItem3.CustomizationFormText = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Location = New System.Drawing.Point(0, 300)
+        Me.EmptySpaceItem3.Name = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.EmptySpaceItem3.Size = New System.Drawing.Size(244, 127)
+        Me.EmptySpaceItem3.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.EmptySpaceItem3.Text = "EmptySpaceItem3"
+        Me.EmptySpaceItem3.TextSize = New System.Drawing.Size(0, 0)
+        '
+        'LayoutControlItem3
+        '
+        Me.LayoutControlItem3.Control = Me.txtSign
+        Me.LayoutControlItem3.CustomizationFormText = "Your Sign"
+        Me.LayoutControlItem3.Location = New System.Drawing.Point(0, 174)
+        Me.LayoutControlItem3.Name = "LayoutControlItem3"
+        Me.LayoutControlItem3.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.LayoutControlItem3.Size = New System.Drawing.Size(244, 126)
+        Me.LayoutControlItem3.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.LayoutControlItem3.Text = "Your Sign"
+        Me.LayoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top
+        Me.LayoutControlItem3.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlGroup4
         '
@@ -583,7 +648,7 @@ Partial Class frmSetup
         Me.LayoutControlItem26.Size = New System.Drawing.Size(324, 25)
         Me.LayoutControlItem26.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem26.Text = "Baloon New Answer"
-        Me.LayoutControlItem26.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem26.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem24
         '
@@ -595,7 +660,7 @@ Partial Class frmSetup
         Me.LayoutControlItem24.Size = New System.Drawing.Size(324, 25)
         Me.LayoutControlItem24.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem24.Text = "Baloon Caption"
-        Me.LayoutControlItem24.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem24.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem19
         '
@@ -607,7 +672,7 @@ Partial Class frmSetup
         Me.LayoutControlItem19.Size = New System.Drawing.Size(324, 25)
         Me.LayoutControlItem19.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem19.Text = "Column Urgency"
-        Me.LayoutControlItem19.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem19.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem6
         '
@@ -619,7 +684,7 @@ Partial Class frmSetup
         Me.LayoutControlItem6.Size = New System.Drawing.Size(295, 25)
         Me.LayoutControlItem6.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem6.Text = "Open Tickets"
-        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem6.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem12
         '
@@ -631,7 +696,7 @@ Partial Class frmSetup
         Me.LayoutControlItem12.Size = New System.Drawing.Size(324, 25)
         Me.LayoutControlItem12.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem12.Text = "Column Date"
-        Me.LayoutControlItem12.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem12.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem13
         '
@@ -643,7 +708,7 @@ Partial Class frmSetup
         Me.LayoutControlItem13.Size = New System.Drawing.Size(324, 25)
         Me.LayoutControlItem13.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem13.Text = "Column Department"
-        Me.LayoutControlItem13.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem13.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem7
         '
@@ -655,7 +720,7 @@ Partial Class frmSetup
         Me.LayoutControlItem7.Size = New System.Drawing.Size(295, 25)
         Me.LayoutControlItem7.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem7.Text = "Closed Tickets"
-        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem8
         '
@@ -667,7 +732,7 @@ Partial Class frmSetup
         Me.LayoutControlItem8.Size = New System.Drawing.Size(295, 25)
         Me.LayoutControlItem8.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem8.Text = "Answered Tickets"
-        Me.LayoutControlItem8.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem8.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem23
         '
@@ -679,7 +744,7 @@ Partial Class frmSetup
         Me.LayoutControlItem23.Size = New System.Drawing.Size(295, 25)
         Me.LayoutControlItem23.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem23.Text = "Customer Replied"
-        Me.LayoutControlItem23.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem23.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem11
         '
@@ -691,7 +756,7 @@ Partial Class frmSetup
         Me.LayoutControlItem11.Size = New System.Drawing.Size(324, 25)
         Me.LayoutControlItem11.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem11.Text = "Column Name"
-        Me.LayoutControlItem11.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem11.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem14
         '
@@ -703,7 +768,7 @@ Partial Class frmSetup
         Me.LayoutControlItem14.Size = New System.Drawing.Size(324, 25)
         Me.LayoutControlItem14.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem14.Text = "Column Surname"
-        Me.LayoutControlItem14.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem14.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem17
         '
@@ -715,7 +780,7 @@ Partial Class frmSetup
         Me.LayoutControlItem17.Size = New System.Drawing.Size(324, 25)
         Me.LayoutControlItem17.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem17.Text = "Column Status"
-        Me.LayoutControlItem17.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem17.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem15
         '
@@ -727,7 +792,7 @@ Partial Class frmSetup
         Me.LayoutControlItem15.Size = New System.Drawing.Size(324, 25)
         Me.LayoutControlItem15.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem15.Text = "Column Title"
-        Me.LayoutControlItem15.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem15.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem9
         '
@@ -739,7 +804,7 @@ Partial Class frmSetup
         Me.LayoutControlItem9.Size = New System.Drawing.Size(295, 25)
         Me.LayoutControlItem9.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem9.Text = "Open Button"
-        Me.LayoutControlItem9.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem9.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem10
         '
@@ -751,7 +816,7 @@ Partial Class frmSetup
         Me.LayoutControlItem10.Size = New System.Drawing.Size(295, 25)
         Me.LayoutControlItem10.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem10.Text = "Close Button"
-        Me.LayoutControlItem10.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem10.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem16
         '
@@ -763,7 +828,7 @@ Partial Class frmSetup
         Me.LayoutControlItem16.Size = New System.Drawing.Size(295, 25)
         Me.LayoutControlItem16.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem16.Text = "Hide Button"
-        Me.LayoutControlItem16.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem16.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem18
         '
@@ -775,7 +840,7 @@ Partial Class frmSetup
         Me.LayoutControlItem18.Size = New System.Drawing.Size(295, 25)
         Me.LayoutControlItem18.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem18.Text = "Refresh Button"
-        Me.LayoutControlItem18.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem18.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem27
         '
@@ -787,7 +852,7 @@ Partial Class frmSetup
         Me.LayoutControlItem27.Size = New System.Drawing.Size(295, 25)
         Me.LayoutControlItem27.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem27.Text = "API Error Message"
-        Me.LayoutControlItem27.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem27.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem30
         '
@@ -799,7 +864,7 @@ Partial Class frmSetup
         Me.LayoutControlItem30.Size = New System.Drawing.Size(295, 31)
         Me.LayoutControlItem30.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem30.Text = "Settings Button"
-        Me.LayoutControlItem30.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem30.TextSize = New System.Drawing.Size(178, 20)
         '
         'LayoutControlItem25
         '
@@ -811,7 +876,7 @@ Partial Class frmSetup
         Me.LayoutControlItem25.Size = New System.Drawing.Size(324, 31)
         Me.LayoutControlItem25.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
         Me.LayoutControlItem25.Text = "Baloon New Ticket"
-        Me.LayoutControlItem25.TextSize = New System.Drawing.Size(114, 20)
+        Me.LayoutControlItem25.TextSize = New System.Drawing.Size(178, 20)
         '
         'EmptySpaceItem1
         '
@@ -878,6 +943,8 @@ Partial Class frmSetup
         Me.Text = "Settings"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
+        CType(Me.txtSign.Properties, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.txtMaxTicket.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ComboBoxEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtAPIPassword.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtAPIUsername.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -909,12 +976,15 @@ Partial Class frmSetup
         CType(Me.TabbedControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem21, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem31, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem32, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem33, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem20, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem21, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.EmptySpaceItem3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup4, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem26, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem24, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1008,4 +1078,9 @@ Partial Class frmSetup
     Friend WithEvents EmptySpaceItem2 As DevExpress.XtraLayout.EmptySpaceItem
     Friend WithEvents ComboBoxEdit1 As DevExpress.XtraEditors.ComboBoxEdit
     Friend WithEvents LayoutControlItem1 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents txtMaxTicket As DevExpress.XtraEditors.SpinEdit
+    Friend WithEvents LayoutControlItem2 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents txtSign As DevExpress.XtraEditors.MemoEdit
+    Friend WithEvents EmptySpaceItem3 As DevExpress.XtraLayout.EmptySpaceItem
+    Friend WithEvents LayoutControlItem3 As DevExpress.XtraLayout.LayoutControlItem
 End Class

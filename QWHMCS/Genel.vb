@@ -32,6 +32,8 @@ Module Genel
     Public LErrorDatabase As String
     Public RefreshRate As Long
     Public Transparency As Long
+    Public MaxTicket As Long
+    Public YourSign As String
     Function ConvertStringToMD5(ByVal ClearText As String) As String
         Dim ByteData As Byte() = Encoding.ASCII.GetBytes(ClearText)
         Dim oMd5 As MD5 = MD5.Create()
@@ -127,7 +129,7 @@ Module Genel
         Dim ms As String = ""
         Dim a As New Random()
         Try
-            Dim req As WebRequest = WebRequest.Create(APIAddress & "/qapi.php?action=" & Action & "&user=" & APIUsername & "&passwd=" & ConvertStringToMD5(APIPassword) & "&id=" & Id & "&rand=" & a.Next(10000, 30000))
+            Dim req As WebRequest = WebRequest.Create(APIAddress & "/qapi.php?action=" & Action & "&user=" & APIUsername & "&passwd=" & ConvertStringToMD5(APIPassword) & "&id=" & Id & "&limit=" & MaxTicket & "&rand=" & a.Next(10000, 30000))
             Dim result As WebResponse = req.GetResponse()
             Dim ReceiveStream As Stream = result.GetResponseStream()
             Dim enc As Encoding = System.Text.Encoding.Default

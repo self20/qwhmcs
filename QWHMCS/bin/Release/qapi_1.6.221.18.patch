@@ -1,0 +1,26 @@
+2c2
+< // qapi.php: QWHMCS API - QWHMCS to WHMCS bridge,v1.4.123.64
+---
+> // qapi.php: QWHMCS API - QWHMCS to WHMCS bridge,v1.6.221.18
+47a48,60
+> 
+> // LIMIT Update 1.6.221.18 Begin
+> if(is_numeric($_GET['limit'])) {
+> if($_GET['limit']==0) {
+> $limitstr = "";
+> } else {
+> $limitstr = "LIMIT 0,".$_GET['limit'];
+> }
+> } else {
+> $limitstr = "";
+> }
+> //  LIMIT Update 1.6.221.18 End
+> 
+120c133,137
+< $query = "Select tbltickets.*,tblticketdepartments.name AS d_name,tblclients.firstname AS u_name,tblclients.lastname AS u_subname FROM tbltickets Left Join tblticketdepartments ON tblticketdepartments.id = tbltickets.did Left Join tblclients ON tblclients.id = tbltickets.userid $wherestr ORDER BY DATE DESC";
+---
+> 
+> // LIMIT Update 1.6.221.18 Begin
+> $query = "Select tbltickets.*,tblticketdepartments.name AS d_name,tblclients.firstname AS u_name,tblclients.lastname AS u_subname FROM tbltickets Left Join tblticketdepartments ON tblticketdepartments.id = tbltickets.did Left Join tblclients ON tblclients.id = tbltickets.userid $wherestr ORDER BY DATE DESC $limitstr";
+> // LIMIT Update 1.6.221.18 End
+> 
