@@ -69,6 +69,8 @@ Public Class frmMain
         LErrorDatabase = objIniFile.GetString("Language", "LErrorDatabase", "Database Connection Problem !")
         RefreshRate = objIniFile.GetString("Settings", "RefreshRate", 30)
         Transparency = objIniFile.GetString("Settings", "Transparency", 90)
+        YourSign = objIniFile.GetString("Settings", "YourSign", "")
+        MaxTicket = objIniFile.GetString("Settings", "MaxTicket", 0)
         DefaultLookAndFeel1.LookAndFeel.SkinName = objIniFile.GetString("Settings", "Skin", "Blue")
         cmdAc.Caption = LcmdOpen
         cmdKapat.Caption = LcmdClose

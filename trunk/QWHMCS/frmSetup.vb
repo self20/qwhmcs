@@ -8,6 +8,7 @@
         End If
     End Sub
     Private Sub frmSetup_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        Dim YourSignStr As String
         aPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location)
         objIniFile = New IniFile(aPath & "\settings.ini")
         If objIniFile.GetString("Settings", "Setup", "0") = "0" Then
@@ -40,6 +41,11 @@
             txtRefreshRate.EditValue = objIniFile.GetString("Settings", "RefreshRate", 30)
             txtTransparent.Value = objIniFile.GetString("Settings", "Transparency", 90)
             ComboBoxEdit1.Text = objIniFile.GetString("Settings", "Skin", "Blue")
+            txtMaxTicket.EditValue = objIniFile.GetString("Settings", "MaxTicket", 0)
+            YourSignStr = objIniFile.GetString("Settings", "YourSign", "")
+            If Len(YourSignStr) <> 0 Then
+                txtSign.EditValue = YourSignStr.ToString.Replace("|", vbCrLf)
+            End If
             txtWHMCSAddress.EditValue = objIniFile.GetString("WHMCS", "Address", "")
             txtAPIAddress.EditValue = objIniFile.GetString("WHMCS", "APIAddress", "")
             txtAPIUsername.EditValue = objIniFile.GetString("WHMCS", "APIUsername", "")
@@ -116,6 +122,8 @@
         objIniFile.WriteString("Settings", "RefreshRate", txtRefreshRate.EditValue)
         objIniFile.WriteString("Settings", "Transparency", txtTransparent.Value)
         objIniFile.WriteString("Settings", "Skin", ComboBoxEdit1.Text)
+        objIniFile.WriteString("Settings", "YourSign", txtSign.EditValue.ToString.Replace(vbCrLf, "|"))
+        objIniFile.WriteString("Settings", "MaxTicket", txtMaxTicket.EditValue)
         objIniFile.WriteString("WHMCS", "Address", txtWHMCSAddress.EditValue)
         objIniFile.WriteString("WHMCS", "APIAddress", txtAPIAddress.EditValue)
         objIniFile.WriteString("WHMCS", "APIUsername", txtAPIUsername.EditValue)

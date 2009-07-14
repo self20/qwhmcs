@@ -46,6 +46,7 @@ Partial Class frmEditor
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
         Me.Bar1 = New DevExpress.XtraBars.Bar
         Me.cmdReply = New DevExpress.XtraBars.BarButtonItem
+        Me.cmdSendTicket = New DevExpress.XtraBars.BarButtonItem
         Me.cmdSendClose = New DevExpress.XtraBars.BarButtonItem
         Me.cmdCloseTicket = New DevExpress.XtraBars.BarButtonItem
         Me.cmdOpenWHMCS = New DevExpress.XtraBars.BarButtonItem
@@ -56,7 +57,6 @@ Partial Class frmEditor
         Me.barDockControlBottom = New DevExpress.XtraBars.BarDockControl
         Me.barDockControlLeft = New DevExpress.XtraBars.BarDockControl
         Me.barDockControlRight = New DevExpress.XtraBars.BarDockControl
-        Me.cmdSendTicket = New DevExpress.XtraBars.BarButtonItem
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.LayoutControl1.SuspendLayout()
         CType(Me.txtMessage.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -382,6 +382,14 @@ Partial Class frmEditor
         Me.cmdReply.Id = 0
         Me.cmdReply.Name = "cmdReply"
         '
+        'cmdSendTicket
+        '
+        Me.cmdSendTicket.Caption = "Send Ticket"
+        Me.cmdSendTicket.Glyph = Global.QWHMCS.My.Resources.Resources.mail_16
+        Me.cmdSendTicket.Id = 20
+        Me.cmdSendTicket.Name = "cmdSendTicket"
+        Me.cmdSendTicket.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
+        '
         'cmdSendClose
         '
         Me.cmdSendClose.Caption = "Send && Close Ticket"
@@ -432,14 +440,6 @@ Partial Class frmEditor
         Me.lbStatus.Id = 10
         Me.lbStatus.Name = "lbStatus"
         Me.lbStatus.TextAlignment = System.Drawing.StringAlignment.Near
-        '
-        'cmdSendTicket
-        '
-        Me.cmdSendTicket.Caption = "Send Ticket"
-        Me.cmdSendTicket.Glyph = Global.QWHMCS.My.Resources.Resources.mail_16
-        Me.cmdSendTicket.Id = 20
-        Me.cmdSendTicket.Name = "cmdSendTicket"
-        Me.cmdSendTicket.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
         '
         'frmEditor
         '

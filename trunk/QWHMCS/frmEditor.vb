@@ -106,7 +106,7 @@
         lbStatus.Caption = "Ticket Sending. Please Wait."
         lbStatus.Glyph = My.Resources.hist_16
         Application.DoEvents()
-        If Curl(APIAddress & "/api.php", String.Format("&action=addticketreply&username={0}&password={1}&ticketid={2}&adminusername={0}&message={3}", APIUsername, ConvertStringToMD5(APIPassword), TicketID, txtMessage.EditValue())) = True Then
+        If Curl(APIAddress & "/api.php", String.Format("&action=addticketreply&username={0}&password={1}&ticketid={2}&adminusername={0}&message={3}", APIUsername, ConvertStringToMD5(APIPassword), TicketID, txtMessage.EditValue() & vbCrLf & vbCrLf & YourSign.Replace("|", vbCrLf))) = True Then
             lbStatus.Caption = "Ticket Sended."
             lbStatus.Glyph = My.Resources.play_16
             cmdSendTicket.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
@@ -123,7 +123,7 @@
         lbStatus.Caption = "Ticket Sending. Please Wait."
         lbStatus.Glyph = My.Resources.hist_16
         Application.DoEvents()
-        If Curl(APIAddress & "/api.php", String.Format("&action=addticketreply&username={0}&password={1}&ticketid={2}&adminusername={0}&message={3}", APIUsername, ConvertStringToMD5(APIPassword), TicketID, txtMessage.EditValue())) = True Then
+        If Curl(APIAddress & "/api.php", String.Format("&action=addticketreply&username={0}&password={1}&ticketid={2}&adminusername={0}&message={3}", APIUsername, ConvertStringToMD5(APIPassword), TicketID, txtMessage.EditValue() & vbCrLf & vbCrLf & YourSign.Replace("|", vbCrLf))) = True Then
             lbStatus.Caption = "Ticket Sended."
             lbStatus.Glyph = My.Resources.play_16
             cmdSendTicket.Visibility = DevExpress.XtraBars.BarItemVisibility.Never
