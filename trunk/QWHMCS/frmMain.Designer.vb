@@ -135,6 +135,8 @@ Partial Class frmMain
         Me.collastreply = New DevExpress.XtraGrid.Columns.GridColumn
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
         Me.TabbedControlGroup1 = New DevExpress.XtraLayout.TabbedControlGroup
+        Me.tabClosed = New DevExpress.XtraLayout.LayoutControlGroup
+        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
         Me.tabOpen = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.tabCustomer_Reply = New DevExpress.XtraLayout.LayoutControlGroup
@@ -145,8 +147,6 @@ Partial Class frmMain
         Me.LayoutControlItem3 = New DevExpress.XtraLayout.LayoutControlItem
         Me.tabOnHold = New DevExpress.XtraLayout.LayoutControlGroup
         Me.LayoutControlItem6 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.tabClosed = New DevExpress.XtraLayout.LayoutControlGroup
-        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
         Me.Ds1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Timer2 = New System.Windows.Forms.Timer(Me.components)
@@ -182,6 +182,8 @@ Partial Class frmMain
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TabbedControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.tabClosed, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tabOpen, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tabCustomer_Reply, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -192,8 +194,6 @@ Partial Class frmMain
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.tabOnHold, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.tabClosed, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Ds1BindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -283,7 +283,7 @@ Partial Class frmMain
         '
         'coldate6
         '
-        Me.coldate6.Caption = "Tarih"
+        Me.coldate6.Caption = "####"
         Me.coldate6.DisplayFormat.FormatString = "d"
         Me.coldate6.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.coldate6.FieldName = "date"
@@ -295,7 +295,7 @@ Partial Class frmMain
         '
         'cold_name6
         '
-        Me.cold_name6.Caption = "Bölüm"
+        Me.cold_name6.Caption = "####"
         Me.cold_name6.FieldName = "d_name"
         Me.cold_name6.Name = "cold_name6"
         Me.cold_name6.Visible = True
@@ -304,7 +304,7 @@ Partial Class frmMain
         '
         'colu_name6
         '
-        Me.colu_name6.Caption = "Adı"
+        Me.colu_name6.Caption = "####"
         Me.colu_name6.FieldName = "u_name"
         Me.colu_name6.Name = "colu_name6"
         Me.colu_name6.Visible = True
@@ -313,7 +313,7 @@ Partial Class frmMain
         '
         'colu_subname6
         '
-        Me.colu_subname6.Caption = "Soyadı"
+        Me.colu_subname6.Caption = "####"
         Me.colu_subname6.FieldName = "u_subname"
         Me.colu_subname6.Name = "colu_subname6"
         Me.colu_subname6.Visible = True
@@ -322,7 +322,7 @@ Partial Class frmMain
         '
         'coltitle6
         '
-        Me.coltitle6.Caption = "Başlık"
+        Me.coltitle6.Caption = "####"
         Me.coltitle6.FieldName = "title"
         Me.coltitle6.Name = "coltitle6"
         Me.coltitle6.Visible = True
@@ -337,7 +337,7 @@ Partial Class frmMain
         '
         'colstatus6
         '
-        Me.colstatus6.Caption = "Durum"
+        Me.colstatus6.Caption = "####"
         Me.colstatus6.FieldName = "status"
         Me.colstatus6.Name = "colstatus6"
         Me.colstatus6.Visible = True
@@ -346,7 +346,7 @@ Partial Class frmMain
         '
         'colurgency6
         '
-        Me.colurgency6.Caption = "Öncelik"
+        Me.colurgency6.Caption = "####"
         Me.colurgency6.FieldName = "urgency"
         Me.colurgency6.Name = "colurgency6"
         Me.colurgency6.Visible = True
@@ -427,7 +427,7 @@ Partial Class frmMain
         '
         'coldate5
         '
-        Me.coldate5.Caption = "Tarih"
+        Me.coldate5.Caption = "####"
         Me.coldate5.DisplayFormat.FormatString = "d"
         Me.coldate5.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.coldate5.FieldName = "date"
@@ -439,7 +439,7 @@ Partial Class frmMain
         '
         'cold_name5
         '
-        Me.cold_name5.Caption = "Bölüm"
+        Me.cold_name5.Caption = "####"
         Me.cold_name5.FieldName = "d_name"
         Me.cold_name5.Name = "cold_name5"
         Me.cold_name5.Visible = True
@@ -448,7 +448,7 @@ Partial Class frmMain
         '
         'colu_name5
         '
-        Me.colu_name5.Caption = "Adı"
+        Me.colu_name5.Caption = "####"
         Me.colu_name5.FieldName = "u_name"
         Me.colu_name5.Name = "colu_name5"
         Me.colu_name5.Visible = True
@@ -457,7 +457,7 @@ Partial Class frmMain
         '
         'colu_subname5
         '
-        Me.colu_subname5.Caption = "Soyadı"
+        Me.colu_subname5.Caption = "####"
         Me.colu_subname5.FieldName = "u_subname"
         Me.colu_subname5.Name = "colu_subname5"
         Me.colu_subname5.Visible = True
@@ -466,7 +466,7 @@ Partial Class frmMain
         '
         'coltitle5
         '
-        Me.coltitle5.Caption = "Başlık"
+        Me.coltitle5.Caption = "####"
         Me.coltitle5.FieldName = "title"
         Me.coltitle5.Name = "coltitle5"
         Me.coltitle5.Visible = True
@@ -481,7 +481,7 @@ Partial Class frmMain
         '
         'colstatus5
         '
-        Me.colstatus5.Caption = "Durum"
+        Me.colstatus5.Caption = "####"
         Me.colstatus5.FieldName = "status"
         Me.colstatus5.Name = "colstatus5"
         Me.colstatus5.Visible = True
@@ -490,7 +490,7 @@ Partial Class frmMain
         '
         'colurgency5
         '
-        Me.colurgency5.Caption = "Öncelik"
+        Me.colurgency5.Caption = "####"
         Me.colurgency5.FieldName = "urgency"
         Me.colurgency5.Name = "colurgency5"
         Me.colurgency5.Visible = True
@@ -570,7 +570,7 @@ Partial Class frmMain
         '
         'coldate4
         '
-        Me.coldate4.Caption = "Tarih"
+        Me.coldate4.Caption = "####"
         Me.coldate4.DisplayFormat.FormatString = "d"
         Me.coldate4.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.coldate4.FieldName = "date"
@@ -582,7 +582,7 @@ Partial Class frmMain
         '
         'cold_name4
         '
-        Me.cold_name4.Caption = "Bölüm"
+        Me.cold_name4.Caption = "####"
         Me.cold_name4.FieldName = "d_name"
         Me.cold_name4.Name = "cold_name4"
         Me.cold_name4.Visible = True
@@ -591,7 +591,7 @@ Partial Class frmMain
         '
         'colu_name4
         '
-        Me.colu_name4.Caption = "Adı"
+        Me.colu_name4.Caption = "####"
         Me.colu_name4.FieldName = "u_name"
         Me.colu_name4.Name = "colu_name4"
         Me.colu_name4.Visible = True
@@ -600,7 +600,7 @@ Partial Class frmMain
         '
         'colu_subname4
         '
-        Me.colu_subname4.Caption = "Soyadı"
+        Me.colu_subname4.Caption = "####"
         Me.colu_subname4.FieldName = "u_subname"
         Me.colu_subname4.Name = "colu_subname4"
         Me.colu_subname4.Visible = True
@@ -609,7 +609,7 @@ Partial Class frmMain
         '
         'coltitle4
         '
-        Me.coltitle4.Caption = "Başlık"
+        Me.coltitle4.Caption = "####"
         Me.coltitle4.FieldName = "title"
         Me.coltitle4.Name = "coltitle4"
         Me.coltitle4.Visible = True
@@ -624,7 +624,7 @@ Partial Class frmMain
         '
         'colstatus4
         '
-        Me.colstatus4.Caption = "Durum"
+        Me.colstatus4.Caption = "####"
         Me.colstatus4.FieldName = "status"
         Me.colstatus4.Name = "colstatus4"
         Me.colstatus4.Visible = True
@@ -633,7 +633,7 @@ Partial Class frmMain
         '
         'colurgency4
         '
-        Me.colurgency4.Caption = "Öncelik"
+        Me.colurgency4.Caption = "####"
         Me.colurgency4.FieldName = "urgency"
         Me.colurgency4.Name = "colurgency4"
         Me.colurgency4.Visible = True
@@ -713,7 +713,7 @@ Partial Class frmMain
         '
         'coldate2
         '
-        Me.coldate2.Caption = "Tarih"
+        Me.coldate2.Caption = "####"
         Me.coldate2.DisplayFormat.FormatString = "d"
         Me.coldate2.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.coldate2.FieldName = "date"
@@ -725,7 +725,7 @@ Partial Class frmMain
         '
         'cold_name2
         '
-        Me.cold_name2.Caption = "Bölüm"
+        Me.cold_name2.Caption = "####"
         Me.cold_name2.FieldName = "d_name"
         Me.cold_name2.Name = "cold_name2"
         Me.cold_name2.Visible = True
@@ -734,7 +734,7 @@ Partial Class frmMain
         '
         'colu_name2
         '
-        Me.colu_name2.Caption = "Adı"
+        Me.colu_name2.Caption = "####"
         Me.colu_name2.FieldName = "u_name"
         Me.colu_name2.Name = "colu_name2"
         Me.colu_name2.Visible = True
@@ -743,7 +743,7 @@ Partial Class frmMain
         '
         'colu_subname2
         '
-        Me.colu_subname2.Caption = "Soyadı"
+        Me.colu_subname2.Caption = "####"
         Me.colu_subname2.FieldName = "u_subname"
         Me.colu_subname2.Name = "colu_subname2"
         Me.colu_subname2.Visible = True
@@ -752,7 +752,7 @@ Partial Class frmMain
         '
         'coltitle2
         '
-        Me.coltitle2.Caption = "Başlık"
+        Me.coltitle2.Caption = "####"
         Me.coltitle2.FieldName = "title"
         Me.coltitle2.Name = "coltitle2"
         Me.coltitle2.Visible = True
@@ -767,7 +767,7 @@ Partial Class frmMain
         '
         'colstatus2
         '
-        Me.colstatus2.Caption = "Durum"
+        Me.colstatus2.Caption = "####"
         Me.colstatus2.FieldName = "status"
         Me.colstatus2.Name = "colstatus2"
         Me.colstatus2.Visible = True
@@ -776,7 +776,7 @@ Partial Class frmMain
         '
         'colurgency2
         '
-        Me.colurgency2.Caption = "Öncelik"
+        Me.colurgency2.Caption = "####"
         Me.colurgency2.FieldName = "urgency"
         Me.colurgency2.Name = "colurgency2"
         Me.colurgency2.Visible = True
@@ -856,7 +856,7 @@ Partial Class frmMain
         '
         'coldate3
         '
-        Me.coldate3.Caption = "Tarih"
+        Me.coldate3.Caption = "####"
         Me.coldate3.DisplayFormat.FormatString = "d"
         Me.coldate3.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.coldate3.FieldName = "date"
@@ -868,7 +868,7 @@ Partial Class frmMain
         '
         'cold_name3
         '
-        Me.cold_name3.Caption = "Bölüm"
+        Me.cold_name3.Caption = "####"
         Me.cold_name3.FieldName = "d_name"
         Me.cold_name3.Name = "cold_name3"
         Me.cold_name3.Visible = True
@@ -877,7 +877,7 @@ Partial Class frmMain
         '
         'colu_name3
         '
-        Me.colu_name3.Caption = "Adı"
+        Me.colu_name3.Caption = "####"
         Me.colu_name3.FieldName = "u_name"
         Me.colu_name3.Name = "colu_name3"
         Me.colu_name3.Visible = True
@@ -886,7 +886,7 @@ Partial Class frmMain
         '
         'colu_subname3
         '
-        Me.colu_subname3.Caption = "Soyadı"
+        Me.colu_subname3.Caption = "####"
         Me.colu_subname3.FieldName = "u_subname"
         Me.colu_subname3.Name = "colu_subname3"
         Me.colu_subname3.Visible = True
@@ -895,7 +895,7 @@ Partial Class frmMain
         '
         'coltitle3
         '
-        Me.coltitle3.Caption = "Başlık"
+        Me.coltitle3.Caption = "####"
         Me.coltitle3.FieldName = "title"
         Me.coltitle3.Name = "coltitle3"
         Me.coltitle3.Visible = True
@@ -910,7 +910,7 @@ Partial Class frmMain
         '
         'colstatus3
         '
-        Me.colstatus3.Caption = "Durum"
+        Me.colstatus3.Caption = "####"
         Me.colstatus3.FieldName = "status"
         Me.colstatus3.Name = "colstatus3"
         Me.colstatus3.Visible = True
@@ -919,7 +919,7 @@ Partial Class frmMain
         '
         'colurgency3
         '
-        Me.colurgency3.Caption = "Öncelik"
+        Me.colurgency3.Caption = "####"
         Me.colurgency3.FieldName = "urgency"
         Me.colurgency3.Name = "colurgency3"
         Me.colurgency3.Visible = True
@@ -999,7 +999,7 @@ Partial Class frmMain
         '
         'coldate1
         '
-        Me.coldate1.Caption = "Tarih"
+        Me.coldate1.Caption = "####"
         Me.coldate1.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss"
         Me.coldate1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.coldate1.FieldName = "date"
@@ -1011,7 +1011,7 @@ Partial Class frmMain
         '
         'cold_name1
         '
-        Me.cold_name1.Caption = "Bölüm"
+        Me.cold_name1.Caption = "####"
         Me.cold_name1.FieldName = "d_name"
         Me.cold_name1.Name = "cold_name1"
         Me.cold_name1.Visible = True
@@ -1020,7 +1020,7 @@ Partial Class frmMain
         '
         'colu_name1
         '
-        Me.colu_name1.Caption = "Adı"
+        Me.colu_name1.Caption = "####"
         Me.colu_name1.FieldName = "u_name"
         Me.colu_name1.Name = "colu_name1"
         Me.colu_name1.Visible = True
@@ -1029,7 +1029,7 @@ Partial Class frmMain
         '
         'colu_subname1
         '
-        Me.colu_subname1.Caption = "Soyadı"
+        Me.colu_subname1.Caption = "####"
         Me.colu_subname1.FieldName = "u_subname"
         Me.colu_subname1.Name = "colu_subname1"
         Me.colu_subname1.Visible = True
@@ -1038,7 +1038,7 @@ Partial Class frmMain
         '
         'coltitle1
         '
-        Me.coltitle1.Caption = "Başlık"
+        Me.coltitle1.Caption = "####"
         Me.coltitle1.FieldName = "title"
         Me.coltitle1.Name = "coltitle1"
         Me.coltitle1.Visible = True
@@ -1053,7 +1053,7 @@ Partial Class frmMain
         '
         'colstatus1
         '
-        Me.colstatus1.Caption = "Durum"
+        Me.colstatus1.Caption = "####"
         Me.colstatus1.FieldName = "status"
         Me.colstatus1.Name = "colstatus1"
         Me.colstatus1.Visible = True
@@ -1062,7 +1062,7 @@ Partial Class frmMain
         '
         'colurgency1
         '
-        Me.colurgency1.Caption = "Öncelik"
+        Me.colurgency1.Caption = "####"
         Me.colurgency1.FieldName = "urgency"
         Me.colurgency1.Name = "colurgency1"
         Me.colurgency1.Visible = True
@@ -1101,6 +1101,33 @@ Partial Class frmMain
         Me.TabbedControlGroup1.TabPages.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.tabOpen, Me.tabCustomer_Reply, Me.tabAnswered, Me.tabInProgress, Me.tabOnHold, Me.tabClosed})
         Me.TabbedControlGroup1.Text = "TabbedControlGroup1"
         '
+        'tabClosed
+        '
+        Me.tabClosed.CustomizationFormText = "Kapalı Ticket"
+        Me.tabClosed.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem5})
+        Me.tabClosed.Location = New System.Drawing.Point(0, 0)
+        Me.tabClosed.Name = "tabClosed"
+        Me.tabClosed.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.tabClosed.ShowInCustomizationForm = False
+        Me.tabClosed.Size = New System.Drawing.Size(661, 254)
+        Me.tabClosed.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
+        Me.tabClosed.Tag = "4"
+        Me.tabClosed.Text = "####"
+        '
+        'LayoutControlItem5
+        '
+        Me.LayoutControlItem5.Control = Me.GridControl4
+        Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
+        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 0)
+        Me.LayoutControlItem5.Name = "LayoutControlItem5"
+        Me.LayoutControlItem5.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.LayoutControlItem5.Size = New System.Drawing.Size(661, 254)
+        Me.LayoutControlItem5.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.LayoutControlItem5.Text = "LayoutControlItem5"
+        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
+        Me.LayoutControlItem5.TextToControlDistance = 0
+        Me.LayoutControlItem5.TextVisible = False
+        '
         'tabOpen
         '
         Me.tabOpen.CustomizationFormText = "Açık Ticket"
@@ -1112,7 +1139,7 @@ Partial Class frmMain
         Me.tabOpen.Size = New System.Drawing.Size(661, 254)
         Me.tabOpen.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
         Me.tabOpen.Tag = "1"
-        Me.tabOpen.Text = "Open Tickets"
+        Me.tabOpen.Text = "####"
         '
         'LayoutControlItem1
         '
@@ -1139,7 +1166,7 @@ Partial Class frmMain
         Me.tabCustomer_Reply.Size = New System.Drawing.Size(661, 254)
         Me.tabCustomer_Reply.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
         Me.tabCustomer_Reply.Tag = "2"
-        Me.tabCustomer_Reply.Text = "Customer Replied Tickets"
+        Me.tabCustomer_Reply.Text = "####"
         '
         'LayoutControlItem4
         '
@@ -1166,7 +1193,7 @@ Partial Class frmMain
         Me.tabAnswered.Size = New System.Drawing.Size(661, 254)
         Me.tabAnswered.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
         Me.tabAnswered.Tag = "3"
-        Me.tabAnswered.Text = "Answered Tickets"
+        Me.tabAnswered.Text = "####"
         '
         'LayoutControlItem2
         '
@@ -1192,7 +1219,7 @@ Partial Class frmMain
         Me.tabInProgress.Size = New System.Drawing.Size(661, 254)
         Me.tabInProgress.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
         Me.tabInProgress.Tag = "8"
-        Me.tabInProgress.Text = "In Progress Tickets"
+        Me.tabInProgress.Text = "####"
         '
         'LayoutControlItem3
         '
@@ -1218,7 +1245,7 @@ Partial Class frmMain
         Me.tabOnHold.Size = New System.Drawing.Size(661, 254)
         Me.tabOnHold.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
         Me.tabOnHold.Tag = "9"
-        Me.tabOnHold.Text = "On Hold Tickets"
+        Me.tabOnHold.Text = "####"
         '
         'LayoutControlItem6
         '
@@ -1233,33 +1260,6 @@ Partial Class frmMain
         Me.LayoutControlItem6.TextSize = New System.Drawing.Size(0, 0)
         Me.LayoutControlItem6.TextToControlDistance = 0
         Me.LayoutControlItem6.TextVisible = False
-        '
-        'tabClosed
-        '
-        Me.tabClosed.CustomizationFormText = "Kapalı Ticket"
-        Me.tabClosed.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem5})
-        Me.tabClosed.Location = New System.Drawing.Point(0, 0)
-        Me.tabClosed.Name = "tabClosed"
-        Me.tabClosed.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.tabClosed.ShowInCustomizationForm = False
-        Me.tabClosed.Size = New System.Drawing.Size(661, 254)
-        Me.tabClosed.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
-        Me.tabClosed.Tag = "4"
-        Me.tabClosed.Text = "Closed Tickets"
-        '
-        'LayoutControlItem5
-        '
-        Me.LayoutControlItem5.Control = Me.GridControl4
-        Me.LayoutControlItem5.CustomizationFormText = "LayoutControlItem5"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(661, 254)
-        Me.LayoutControlItem5.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlItem5.Text = "LayoutControlItem5"
-        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(0, 0)
-        Me.LayoutControlItem5.TextToControlDistance = 0
-        Me.LayoutControlItem5.TextVisible = False
         '
         'Timer1
         '
@@ -1306,15 +1306,16 @@ Partial Class frmMain
         '
         'cmdAc
         '
-        Me.cmdAc.Caption = "Open Ticket"
+        Me.cmdAc.Caption = "####"
         Me.cmdAc.Glyph = Global.QWHMCS.My.Resources.Resources.ntwrk_16
         Me.cmdAc.Id = 0
         Me.cmdAc.Name = "cmdAc"
+        Me.cmdAc.Tag = "17"
         '
         'cmdAyarlar
         '
         Me.cmdAyarlar.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.cmdAyarlar.Caption = "Settings"
+        Me.cmdAyarlar.Caption = "####"
         Me.cmdAyarlar.Glyph = Global.QWHMCS.My.Resources.Resources.confg_16
         Me.cmdAyarlar.Id = 1
         Me.cmdAyarlar.Name = "cmdAyarlar"
@@ -1322,7 +1323,7 @@ Partial Class frmMain
         'cmdGizle
         '
         Me.cmdGizle.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.cmdGizle.Caption = "Hide"
+        Me.cmdGizle.Caption = "####"
         Me.cmdGizle.Glyph = Global.QWHMCS.My.Resources.Resources.exp_16
         Me.cmdGizle.Id = 5
         Me.cmdGizle.Name = "cmdGizle"
@@ -1330,7 +1331,7 @@ Partial Class frmMain
         'cmdKapat
         '
         Me.cmdKapat.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.cmdKapat.Caption = "Close"
+        Me.cmdKapat.Caption = "####"
         Me.cmdKapat.Glyph = Global.QWHMCS.My.Resources.Resources.close_16
         Me.cmdKapat.Id = 4
         Me.cmdKapat.Name = "cmdKapat"
@@ -1365,7 +1366,7 @@ Partial Class frmMain
         'cmdYenile
         '
         Me.cmdYenile.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.cmdYenile.Caption = "Refresh"
+        Me.cmdYenile.Caption = "####"
         Me.cmdYenile.Glyph = Global.QWHMCS.My.Resources.Resources.ref_16
         Me.cmdYenile.Id = 7
         Me.cmdYenile.Name = "cmdYenile"
@@ -1406,6 +1407,8 @@ Partial Class frmMain
         CType(Me.GridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TabbedControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.tabClosed, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tabOpen, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tabCustomer_Reply, System.ComponentModel.ISupportInitialize).EndInit()
@@ -1416,8 +1419,6 @@ Partial Class frmMain
         CType(Me.LayoutControlItem3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.tabOnHold, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem6, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.tabClosed, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Ds1BindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

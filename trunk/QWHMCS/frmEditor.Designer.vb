@@ -34,13 +34,13 @@ Partial Class frmEditor
         Me.txtClient = New DevExpress.XtraEditors.TextEdit
         Me.txtTicketID = New DevExpress.XtraEditors.TextEdit
         Me.LayoutControlGroup1 = New DevExpress.XtraLayout.LayoutControlGroup
-        Me.LayoutControlGroup2 = New DevExpress.XtraLayout.LayoutControlGroup
-        Me.LayoutControlItem4 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LayoutControlItem7 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LayoutControlItem9 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LayoutControlItem10 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LayoutControlItem8 = New DevExpress.XtraLayout.LayoutControlItem
-        Me.LayoutControlItem5 = New DevExpress.XtraLayout.LayoutControlItem
+        Me.lblGroupTicketInfo = New DevExpress.XtraLayout.LayoutControlGroup
+        Me.lblTicketID = New DevExpress.XtraLayout.LayoutControlItem
+        Me.lblDepartment = New DevExpress.XtraLayout.LayoutControlItem
+        Me.lblTitle = New DevExpress.XtraLayout.LayoutControlItem
+        Me.lblLastReply = New DevExpress.XtraLayout.LayoutControlItem
+        Me.lblStatus = New DevExpress.XtraLayout.LayoutControlItem
+        Me.lblName = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem11 = New DevExpress.XtraLayout.LayoutControlItem
         Me.LayoutControlItem1 = New DevExpress.XtraLayout.LayoutControlItem
         Me.BarManager1 = New DevExpress.XtraBars.BarManager(Me.components)
@@ -69,13 +69,13 @@ Partial Class frmEditor
         CType(Me.txtClient.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtTicketID.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lblGroupTicketInfo, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lblTicketID, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lblDepartment, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lblTitle, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lblLastReply, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lblStatus, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.lblName, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -132,7 +132,7 @@ Partial Class frmEditor
         '
         'coldate1
         '
-        Me.coldate1.Caption = "Tarih"
+        Me.coldate1.Caption = "####"
         Me.coldate1.DisplayFormat.FormatString = "dd/MM/yyyy HH:mm:ss"
         Me.coldate1.DisplayFormat.FormatType = DevExpress.Utils.FormatType.DateTime
         Me.coldate1.FieldName = "date"
@@ -143,7 +143,7 @@ Partial Class frmEditor
         '
         'cold_name1
         '
-        Me.cold_name1.Caption = "Kimden"
+        Me.cold_name1.Caption = "####"
         Me.cold_name1.FieldName = "kim"
         Me.cold_name1.Name = "cold_name1"
         Me.cold_name1.Visible = True
@@ -158,74 +158,74 @@ Partial Class frmEditor
         '
         'txtLastReply
         '
-        Me.txtLastReply.Location = New System.Drawing.Point(480, 90)
+        Me.txtLastReply.Location = New System.Drawing.Point(447, 90)
         Me.txtLastReply.Name = "txtLastReply"
         Me.txtLastReply.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtLastReply.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtLastReply.Properties.ReadOnly = True
-        Me.txtLastReply.Size = New System.Drawing.Size(310, 20)
+        Me.txtLastReply.Size = New System.Drawing.Size(343, 20)
         Me.txtLastReply.StyleController = Me.LayoutControl1
         Me.txtLastReply.TabIndex = 13
         '
         'txtSubject
         '
-        Me.txtSubject.Location = New System.Drawing.Point(84, 90)
+        Me.txtSubject.Location = New System.Drawing.Point(51, 90)
         Me.txtSubject.Name = "txtSubject"
         Me.txtSubject.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtSubject.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtSubject.Properties.ReadOnly = True
-        Me.txtSubject.Size = New System.Drawing.Size(311, 20)
+        Me.txtSubject.Size = New System.Drawing.Size(344, 20)
         Me.txtSubject.StyleController = Me.LayoutControl1
         Me.txtSubject.TabIndex = 12
         '
         'txtStatus
         '
-        Me.txtStatus.Location = New System.Drawing.Point(480, 59)
+        Me.txtStatus.Location = New System.Drawing.Point(447, 59)
         Me.txtStatus.Name = "txtStatus"
         Me.txtStatus.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtStatus.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtStatus.Properties.ReadOnly = True
-        Me.txtStatus.Size = New System.Drawing.Size(310, 20)
+        Me.txtStatus.Size = New System.Drawing.Size(343, 20)
         Me.txtStatus.StyleController = Me.LayoutControl1
         Me.txtStatus.TabIndex = 11
         '
         'txtDepartment
         '
-        Me.txtDepartment.Location = New System.Drawing.Point(84, 59)
+        Me.txtDepartment.Location = New System.Drawing.Point(51, 59)
         Me.txtDepartment.Name = "txtDepartment"
         Me.txtDepartment.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtDepartment.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtDepartment.Properties.ReadOnly = True
-        Me.txtDepartment.Size = New System.Drawing.Size(311, 20)
+        Me.txtDepartment.Size = New System.Drawing.Size(344, 20)
         Me.txtDepartment.StyleController = Me.LayoutControl1
         Me.txtDepartment.TabIndex = 10
         '
         'txtClient
         '
-        Me.txtClient.Location = New System.Drawing.Point(480, 28)
+        Me.txtClient.Location = New System.Drawing.Point(447, 28)
         Me.txtClient.Name = "txtClient"
         Me.txtClient.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtClient.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtClient.Properties.ReadOnly = True
-        Me.txtClient.Size = New System.Drawing.Size(310, 20)
+        Me.txtClient.Size = New System.Drawing.Size(343, 20)
         Me.txtClient.StyleController = Me.LayoutControl1
         Me.txtClient.TabIndex = 8
         '
         'txtTicketID
         '
-        Me.txtTicketID.Location = New System.Drawing.Point(84, 28)
+        Me.txtTicketID.Location = New System.Drawing.Point(51, 28)
         Me.txtTicketID.Name = "txtTicketID"
         Me.txtTicketID.Properties.AppearanceReadOnly.BackColor = System.Drawing.Color.White
         Me.txtTicketID.Properties.AppearanceReadOnly.Options.UseBackColor = True
         Me.txtTicketID.Properties.ReadOnly = True
-        Me.txtTicketID.Size = New System.Drawing.Size(311, 20)
+        Me.txtTicketID.Size = New System.Drawing.Size(344, 20)
         Me.txtTicketID.StyleController = Me.LayoutControl1
         Me.txtTicketID.TabIndex = 7
         '
         'LayoutControlGroup1
         '
         Me.LayoutControlGroup1.CustomizationFormText = "LayoutControlGroup1"
-        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlGroup2, Me.LayoutControlItem1})
+        Me.LayoutControlGroup1.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lblGroupTicketInfo, Me.LayoutControlItem1})
         Me.LayoutControlGroup1.Location = New System.Drawing.Point(0, 0)
         Me.LayoutControlGroup1.Name = "LayoutControlGroup1"
         Me.LayoutControlGroup1.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
@@ -234,92 +234,92 @@ Partial Class frmEditor
         Me.LayoutControlGroup1.Text = "LayoutControlGroup1"
         Me.LayoutControlGroup1.TextVisible = False
         '
-        'LayoutControlGroup2
+        'lblGroupTicketInfo
         '
-        Me.LayoutControlGroup2.AppearanceGroup.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.LayoutControlGroup2.AppearanceGroup.Options.UseFont = True
-        Me.LayoutControlGroup2.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
-        Me.LayoutControlGroup2.AppearanceItemCaption.Options.UseFont = True
-        Me.LayoutControlGroup2.CustomizationFormText = "Ticket Information"
-        Me.LayoutControlGroup2.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.LayoutControlItem4, Me.LayoutControlItem7, Me.LayoutControlItem9, Me.LayoutControlItem10, Me.LayoutControlItem8, Me.LayoutControlItem5, Me.LayoutControlItem11})
-        Me.LayoutControlGroup2.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlGroup2.Name = "LayoutControlGroup2"
-        Me.LayoutControlGroup2.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlGroup2.Size = New System.Drawing.Size(797, 257)
-        Me.LayoutControlGroup2.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
-        Me.LayoutControlGroup2.Text = "Ticket Information"
+        Me.lblGroupTicketInfo.AppearanceGroup.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.lblGroupTicketInfo.AppearanceGroup.Options.UseFont = True
+        Me.lblGroupTicketInfo.AppearanceItemCaption.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold)
+        Me.lblGroupTicketInfo.AppearanceItemCaption.Options.UseFont = True
+        Me.lblGroupTicketInfo.CustomizationFormText = "Ticket Information"
+        Me.lblGroupTicketInfo.Items.AddRange(New DevExpress.XtraLayout.BaseLayoutItem() {Me.lblTicketID, Me.lblDepartment, Me.lblTitle, Me.lblLastReply, Me.lblStatus, Me.lblName, Me.LayoutControlItem11})
+        Me.lblGroupTicketInfo.Location = New System.Drawing.Point(0, 0)
+        Me.lblGroupTicketInfo.Name = "lblGroupTicketInfo"
+        Me.lblGroupTicketInfo.Padding = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.lblGroupTicketInfo.Size = New System.Drawing.Size(797, 257)
+        Me.lblGroupTicketInfo.Spacing = New DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 2)
+        Me.lblGroupTicketInfo.Text = "####"
         '
-        'LayoutControlItem4
+        'lblTicketID
         '
-        Me.LayoutControlItem4.Control = Me.txtTicketID
-        Me.LayoutControlItem4.CustomizationFormText = "Ticket ID"
-        Me.LayoutControlItem4.Location = New System.Drawing.Point(0, 0)
-        Me.LayoutControlItem4.Name = "LayoutControlItem4"
-        Me.LayoutControlItem4.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem4.Size = New System.Drawing.Size(396, 31)
-        Me.LayoutControlItem4.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlItem4.Text = "Ticket ID"
-        Me.LayoutControlItem4.TextSize = New System.Drawing.Size(69, 20)
+        Me.lblTicketID.Control = Me.txtTicketID
+        Me.lblTicketID.CustomizationFormText = "Ticket ID"
+        Me.lblTicketID.Location = New System.Drawing.Point(0, 0)
+        Me.lblTicketID.Name = "lblTicketID"
+        Me.lblTicketID.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.lblTicketID.Size = New System.Drawing.Size(396, 31)
+        Me.lblTicketID.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.lblTicketID.Text = "####"
+        Me.lblTicketID.TextSize = New System.Drawing.Size(36, 20)
         '
-        'LayoutControlItem7
+        'lblDepartment
         '
-        Me.LayoutControlItem7.Control = Me.txtDepartment
-        Me.LayoutControlItem7.CustomizationFormText = "Department"
-        Me.LayoutControlItem7.Location = New System.Drawing.Point(0, 31)
-        Me.LayoutControlItem7.Name = "LayoutControlItem7"
-        Me.LayoutControlItem7.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem7.Size = New System.Drawing.Size(396, 31)
-        Me.LayoutControlItem7.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlItem7.Text = "Department"
-        Me.LayoutControlItem7.TextSize = New System.Drawing.Size(69, 20)
+        Me.lblDepartment.Control = Me.txtDepartment
+        Me.lblDepartment.CustomizationFormText = "Department"
+        Me.lblDepartment.Location = New System.Drawing.Point(0, 31)
+        Me.lblDepartment.Name = "lblDepartment"
+        Me.lblDepartment.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.lblDepartment.Size = New System.Drawing.Size(396, 31)
+        Me.lblDepartment.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.lblDepartment.Text = "####"
+        Me.lblDepartment.TextSize = New System.Drawing.Size(36, 20)
         '
-        'LayoutControlItem9
+        'lblTitle
         '
-        Me.LayoutControlItem9.Control = Me.txtSubject
-        Me.LayoutControlItem9.CustomizationFormText = "Subject"
-        Me.LayoutControlItem9.Location = New System.Drawing.Point(0, 62)
-        Me.LayoutControlItem9.Name = "LayoutControlItem9"
-        Me.LayoutControlItem9.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem9.Size = New System.Drawing.Size(396, 31)
-        Me.LayoutControlItem9.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlItem9.Text = "Subject"
-        Me.LayoutControlItem9.TextSize = New System.Drawing.Size(69, 20)
+        Me.lblTitle.Control = Me.txtSubject
+        Me.lblTitle.CustomizationFormText = "Subject"
+        Me.lblTitle.Location = New System.Drawing.Point(0, 62)
+        Me.lblTitle.Name = "lblTitle"
+        Me.lblTitle.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.lblTitle.Size = New System.Drawing.Size(396, 31)
+        Me.lblTitle.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.lblTitle.Text = "####"
+        Me.lblTitle.TextSize = New System.Drawing.Size(36, 20)
         '
-        'LayoutControlItem10
+        'lblLastReply
         '
-        Me.LayoutControlItem10.Control = Me.txtLastReply
-        Me.LayoutControlItem10.CustomizationFormText = "Last Reply"
-        Me.LayoutControlItem10.Location = New System.Drawing.Point(396, 62)
-        Me.LayoutControlItem10.Name = "LayoutControlItem10"
-        Me.LayoutControlItem10.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem10.Size = New System.Drawing.Size(395, 31)
-        Me.LayoutControlItem10.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlItem10.Text = "Last Reply"
-        Me.LayoutControlItem10.TextSize = New System.Drawing.Size(69, 20)
+        Me.lblLastReply.Control = Me.txtLastReply
+        Me.lblLastReply.CustomizationFormText = "Last Reply"
+        Me.lblLastReply.Location = New System.Drawing.Point(396, 62)
+        Me.lblLastReply.Name = "lblLastReply"
+        Me.lblLastReply.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.lblLastReply.Size = New System.Drawing.Size(395, 31)
+        Me.lblLastReply.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.lblLastReply.Text = "####"
+        Me.lblLastReply.TextSize = New System.Drawing.Size(36, 20)
         '
-        'LayoutControlItem8
+        'lblStatus
         '
-        Me.LayoutControlItem8.Control = Me.txtStatus
-        Me.LayoutControlItem8.CustomizationFormText = "Status"
-        Me.LayoutControlItem8.Location = New System.Drawing.Point(396, 31)
-        Me.LayoutControlItem8.Name = "LayoutControlItem8"
-        Me.LayoutControlItem8.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem8.Size = New System.Drawing.Size(395, 31)
-        Me.LayoutControlItem8.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlItem8.Text = "Status"
-        Me.LayoutControlItem8.TextSize = New System.Drawing.Size(69, 20)
+        Me.lblStatus.Control = Me.txtStatus
+        Me.lblStatus.CustomizationFormText = "Status"
+        Me.lblStatus.Location = New System.Drawing.Point(396, 31)
+        Me.lblStatus.Name = "lblStatus"
+        Me.lblStatus.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.lblStatus.Size = New System.Drawing.Size(395, 31)
+        Me.lblStatus.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.lblStatus.Text = "####"
+        Me.lblStatus.TextSize = New System.Drawing.Size(36, 20)
         '
-        'LayoutControlItem5
+        'lblName
         '
-        Me.LayoutControlItem5.Control = Me.txtClient
-        Me.LayoutControlItem5.CustomizationFormText = "Client"
-        Me.LayoutControlItem5.Location = New System.Drawing.Point(396, 0)
-        Me.LayoutControlItem5.Name = "LayoutControlItem5"
-        Me.LayoutControlItem5.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
-        Me.LayoutControlItem5.Size = New System.Drawing.Size(395, 31)
-        Me.LayoutControlItem5.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
-        Me.LayoutControlItem5.Text = "Client"
-        Me.LayoutControlItem5.TextSize = New System.Drawing.Size(69, 20)
+        Me.lblName.Control = Me.txtClient
+        Me.lblName.CustomizationFormText = "Client"
+        Me.lblName.Location = New System.Drawing.Point(396, 0)
+        Me.lblName.Name = "lblName"
+        Me.lblName.Padding = New DevExpress.XtraLayout.Utils.Padding(5, 5, 5, 5)
+        Me.lblName.Size = New System.Drawing.Size(395, 31)
+        Me.lblName.Spacing = New DevExpress.XtraLayout.Utils.Padding(0, 0, 0, 0)
+        Me.lblName.Text = "####"
+        Me.lblName.TextSize = New System.Drawing.Size(36, 20)
         '
         'LayoutControlItem11
         '
@@ -377,14 +377,14 @@ Partial Class frmEditor
         '
         'cmdReply
         '
-        Me.cmdReply.Caption = "Reply Ticket"
+        Me.cmdReply.Caption = "####"
         Me.cmdReply.Glyph = Global.QWHMCS.My.Resources.Resources.ntwrk_16
         Me.cmdReply.Id = 0
         Me.cmdReply.Name = "cmdReply"
         '
         'cmdSendTicket
         '
-        Me.cmdSendTicket.Caption = "Send Ticket"
+        Me.cmdSendTicket.Caption = "####"
         Me.cmdSendTicket.Glyph = Global.QWHMCS.My.Resources.Resources.mail_16
         Me.cmdSendTicket.Id = 20
         Me.cmdSendTicket.Name = "cmdSendTicket"
@@ -392,7 +392,7 @@ Partial Class frmEditor
         '
         'cmdSendClose
         '
-        Me.cmdSendClose.Caption = "Send && Close Ticket"
+        Me.cmdSendClose.Caption = "####"
         Me.cmdSendClose.Glyph = Global.QWHMCS.My.Resources.Resources.lgicn_16
         Me.cmdSendClose.Id = 19
         Me.cmdSendClose.Name = "cmdSendClose"
@@ -400,7 +400,7 @@ Partial Class frmEditor
         '
         'cmdCloseTicket
         '
-        Me.cmdCloseTicket.Caption = "Close Ticket"
+        Me.cmdCloseTicket.Caption = "####"
         Me.cmdCloseTicket.Glyph = Global.QWHMCS.My.Resources.Resources.lock_16
         Me.cmdCloseTicket.Id = 15
         Me.cmdCloseTicket.Name = "cmdCloseTicket"
@@ -408,7 +408,7 @@ Partial Class frmEditor
         'cmdOpenWHMCS
         '
         Me.cmdOpenWHMCS.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Left
-        Me.cmdOpenWHMCS.Caption = "Open in WHMCS"
+        Me.cmdOpenWHMCS.Caption = "####"
         Me.cmdOpenWHMCS.Glyph = Global.QWHMCS.My.Resources.Resources.exp_16
         Me.cmdOpenWHMCS.Id = 17
         Me.cmdOpenWHMCS.Name = "cmdOpenWHMCS"
@@ -416,7 +416,7 @@ Partial Class frmEditor
         'cmdCloseViewer
         '
         Me.cmdCloseViewer.Alignment = DevExpress.XtraBars.BarItemLinkAlignment.Right
-        Me.cmdCloseViewer.Caption = "Close Viewer"
+        Me.cmdCloseViewer.Caption = "####"
         Me.cmdCloseViewer.Glyph = Global.QWHMCS.My.Resources.Resources.close_16
         Me.cmdCloseViewer.Id = 16
         Me.cmdCloseViewer.Name = "cmdCloseViewer"
@@ -454,7 +454,7 @@ Partial Class frmEditor
         Me.Controls.Add(Me.barDockControlTop)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.Name = "frmEditor"
-        Me.Text = "Ticket Viewer"
+        Me.Text = "####"
         CType(Me.LayoutControl1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.LayoutControl1.ResumeLayout(False)
         CType(Me.txtMessage.Properties, System.ComponentModel.ISupportInitialize).EndInit()
@@ -467,13 +467,13 @@ Partial Class frmEditor
         CType(Me.txtClient.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtTicketID.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlGroup1, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlGroup2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem4, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem7, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem9, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem10, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem8, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.LayoutControlItem5, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lblGroupTicketInfo, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lblTicketID, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lblDepartment, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lblTitle, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lblLastReply, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lblStatus, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.lblName, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem11, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.LayoutControlItem1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.BarManager1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -488,13 +488,13 @@ Partial Class frmEditor
     Friend WithEvents txtDepartment As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtClient As DevExpress.XtraEditors.TextEdit
     Friend WithEvents txtTicketID As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents LayoutControlGroup2 As DevExpress.XtraLayout.LayoutControlGroup
-    Friend WithEvents LayoutControlItem4 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem7 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem9 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem10 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem8 As DevExpress.XtraLayout.LayoutControlItem
-    Friend WithEvents LayoutControlItem5 As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lblGroupTicketInfo As DevExpress.XtraLayout.LayoutControlGroup
+    Friend WithEvents lblTicketID As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lblDepartment As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lblTitle As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lblLastReply As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lblStatus As DevExpress.XtraLayout.LayoutControlItem
+    Friend WithEvents lblName As DevExpress.XtraLayout.LayoutControlItem
     Friend WithEvents GridControl1 As DevExpress.XtraGrid.GridControl
     Friend WithEvents GridView1 As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents coldate1 As DevExpress.XtraGrid.Columns.GridColumn

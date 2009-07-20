@@ -9,27 +9,7 @@ Module Genel
     Public APIAddress As String
     Public APIUsername As String
     Public APIPassword As String
-    'Language
-    Public LOpenTicket As String
-    Public LClosedTicket As String
-    Public LAnswered As String
-    Public LCusAnswered As String
-    Public LcmdOpen As String
-    Public LcmdClose As String
-    Public LcmdHide As String
-    Public LcmdRefresh As String
-    Public LcmdSettings As String
-    Public LColDate As String
-    Public LColDepartment As String
-    Public LColName As String
-    Public LColSubName As String
-    Public LColTitle As String
-    Public LColStatus As String
-    Public LColUrgency As String
-    Public LBaloonCaption As String
-    Public LBaloonNewTicket As String
-    Public LBaloonNewAnswer As String
-    Public LErrorDatabase As String
+    Public DS As New DataSet
     Public RefreshRate As Long
     Public Transparency As Long
     Public MaxTicket As Long
@@ -79,7 +59,7 @@ Module Genel
             End If
             postBuffer = Nothing
         Catch ex As Exception
-            MsgBox(LErrorDatabase & vbCrLf & ex.Message, MsgBoxStyle.Critical, "QWHMCS")
+            MsgBox(LName(45) & vbCrLf & ex.Message, MsgBoxStyle.Critical, "QWHMCS")
             Curl = ""
         End Try
     End Function
@@ -118,7 +98,8 @@ Module Genel
                 quoteDataSet.ReadXml(stringReader)
             End Using
         Catch ex As Exception
-            MsgBox(ex.Message)
+            frmMain.lbStatus.Caption = LName(45)
+            frmMain.lbStatus.Glyph = My.Resources.cancl_16
             quoteDataSet = Nothing
         End Try
         Return quoteDataSet
@@ -137,8 +118,25 @@ Module Genel
             ms = sr.ReadToEnd()
         Catch ex As Exception
             ms = "QWHMCSError:XML Download Problem"
+            frmMain.lbStatus.Caption = LName(45)
+            frmMain.lbStatus.Glyph = My.Resources.cancl_16
         End Try
         Return ms
         Cursor.Current = Cursors.Default
+    End Function
+    Public Function LName(ByVal LID As Integer) As String
+        Dim aPath As String = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly.Location)
+        DS.ReadXml(aPath & "\Language.xml")
+        Dim DV As New DataView(DS.Tables(0))
+        DV.RowFilter = String.Format("id={0}", LID)
+        If DV.Count <> 0 Then
+            If Len(DV(0)("newvalue")) = 0 Then
+                Return DV(0)("english")
+            Else
+                Return DV(0)("newvalue")
+            End If
+        Else
+            Return "####"
+        End If
     End Function
 End Module
