@@ -1,0 +1,297 @@
+<?xml version="1.0" standalone="yes"?>
+<settings>
+  <language>
+    <id>1</id>
+    <english>Settings</english>
+    <newvalue>Settings</newvalue>
+    <desc>Program Settings</desc>
+  </language>
+  <language>
+    <id>2</id>
+    <english>General Settings</english>
+    <newvalue>General Settings</newvalue>
+    <desc>Program General Settings</desc>
+  </language>
+  <language>
+    <id>3</id>
+    <english>Language Settings</english>
+    <newvalue>Language Settings</newvalue>
+    <desc>Change own language</desc>
+  </language>
+  <language>
+    <id>4</id>
+    <english>Save</english>
+    <newvalue>Save</newvalue>
+    <desc>Save your settings</desc>
+  </language>
+  <language>
+    <id>5</id>
+    <english>Cancel</english>
+    <newvalue>Cancel</newvalue>
+    <desc>Cancel</desc>
+  </language>
+  <language>
+    <id>6</id>
+    <english>WHMCS Admin Address</english>
+    <newvalue>WHMCS Admin Address</newvalue>
+    <desc>Your WHMCS Admin Address</desc>
+  </language>
+  <language>
+    <id>7</id>
+    <english>WHMCS API Address</english>
+    <newvalue>WHMCS API Address</newvalue>
+    <desc>Your WHMCS API Address</desc>
+  </language>
+  <language>
+    <id>8</id>
+    <english>API Username</english>
+    <newvalue>API Username</newvalue>
+    <desc>User name also has authority to WHMCS API</desc>
+  </language>
+  <language>
+    <id>9</id>
+    <english>API Password</english>
+    <newvalue>API Password</newvalue>
+    <desc>Password also has authority to WHMCS API</desc>
+  </language>
+  <language>
+    <id>10</id>
+    <english>Refresh Rate</english>
+    <newvalue>Refresh Rate</newvalue>
+    <desc>Time to refresh data QWHMCS </desc>
+  </language>
+  <language>
+    <id>11</id>
+    <english>Transparent Rate</english>
+    <newvalue>Transparent Rate</newvalue>
+    <desc>QWHMCS degree of transparency</desc>
+  </language>
+  <language>
+    <id>12</id>
+    <english>Skin</english>
+    <newvalue>Skin</newvalue>
+    <desc>QWHMCS Skin</desc>
+  </language>
+  <language>
+    <id>13</id>
+    <english>Max Ticket View (If zero unlimited)</english>
+    <newvalue>Max Ticket View (If zero unlimited)</newvalue>
+    <desc>Maximum number of tickets will be shown. If you all will show zero</desc>
+  </language>
+  <language>
+    <id>14</id>
+    <english>Your Signature</english>
+    <newvalue>Your Signature</newvalue>
+    <desc>Tickets will be displayed at the end of your signature</desc>
+  </language>
+  <language>
+    <id>15</id>
+    <english>Hide</english>
+    <newvalue>Hide</newvalue>
+    <desc>Hide to tray</desc>
+  </language>
+  <language>
+    <id>16</id>
+    <english>Close</english>
+    <newvalue>Close</newvalue>
+    <desc>Close QWHMCS</desc>
+  </language>
+  <language>
+    <id>17</id>
+    <english>Open Ticket</english>
+    <newvalue>Open Ticket</newvalue>
+    <desc>Selected ticket open with ticket viewer</desc>
+  </language>
+  <language>
+    <id>18</id>
+    <english>Open Tickets</english>
+    <newvalue>Open Tickets</newvalue>
+    <desc>WHMCS Open Tickets</desc>
+  </language>
+  <language>
+    <id>19</id>
+    <english>Customer Reply</english>
+    <newvalue>Customer Reply</newvalue>
+    <desc>WHMCS Customer Reply</desc>
+  </language>
+  <language>
+    <id>20</id>
+    <english>Answered Tickets</english>
+    <newvalue>Answered Tickets</newvalue>
+    <desc>WHMCS Answered Tickets</desc>
+  </language>
+  <language>
+    <id>21</id>
+    <english>In Progress Tickets</english>
+    <newvalue>In Progress Tickets</newvalue>
+    <desc>WHMCS In Progress Tickets</desc>
+  </language>
+  <language>
+    <id>22</id>
+    <english>On Hold Tickets</english>
+    <newvalue>On Hold Tickets</newvalue>
+    <desc>WHMCS On Hold Tickets</desc>
+  </language>
+  <language>
+    <id>23</id>
+    <english>Closed Tickets</english>
+    <newvalue>Closed Tickets</newvalue>
+    <desc>WHMCS Closed Tickets</desc>
+  </language>
+  <language>
+    <id>24</id>
+    <english>Date</english>
+    <newvalue>Date</newvalue>
+    <desc>Grid Label Date</desc>
+  </language>
+  <language>
+    <id>25</id>
+    <english>Department</english>
+    <newvalue>Department</newvalue>
+    <desc>Grid Label Department</desc>
+  </language>
+  <language>
+    <id>26</id>
+    <english>Name</english>
+    <newvalue>Name</newvalue>
+    <desc>Grid Label Name</desc>
+  </language>
+  <language>
+    <id>27</id>
+    <english>Surname</english>
+    <newvalue>Surname</newvalue>
+    <desc>Grid Label Surname</desc>
+  </language>
+  <language>
+    <id>28</id>
+    <english>Title</english>
+    <newvalue>Title</newvalue>
+    <desc>Grid Label Title</desc>
+  </language>
+  <language>
+    <id>29</id>
+    <english>Status</english>
+    <newvalue>Status</newvalue>
+    <desc>Grid Label Status</desc>
+  </language>
+  <language>
+    <id>30</id>
+    <english>Urgency</english>
+    <newvalue>Urgency</newvalue>
+    <desc>Grid Label Urgency</desc>
+  </language>
+  <language>
+    <id>31</id>
+    <english>Ticket Viewer</english>
+    <newvalue>Ticket Viewer</newvalue>
+    <desc>Ticket Viewer Caption</desc>
+  </language>
+  <language>
+    <id>32</id>
+    <english>Reply Ticket</english>
+    <newvalue>Reply Ticket</newvalue>
+    <desc>Reply to the ticket on the screen</desc>
+  </language>
+  <language>
+    <id>33</id>
+    <english>Close Ticket</english>
+    <newvalue>Close Ticket</newvalue>
+    <desc>Close the ticket on the screen</desc>
+  </language>
+  <language>
+    <id>34</id>
+    <english>Open in WHMCS</english>
+    <newvalue>Open in WHMCS</newvalue>
+    <desc>WHMCS ticket open on the screen</desc>
+  </language>
+  <language>
+    <id>35</id>
+    <english>Ticket ID</english>
+    <newvalue>Ticket ID</newvalue>
+    <desc>Ticket ID</desc>
+  </language>
+  <language>
+    <id>36</id>
+    <english>Name</english>
+    <newvalue>Name</newvalue>
+    <desc>Viewer Grid Label Name</desc>
+  </language>
+  <language>
+    <id>37</id>
+    <english>Last Reply</english>
+    <newvalue>Last Reply</newvalue>
+    <desc>Last Reply on the screen ticket</desc>
+  </language>
+  <language>
+    <id>38</id>
+    <english>Close Viewer</english>
+    <newvalue>Close Viewer</newvalue>
+    <desc>Ticket Viewer window close</desc>
+  </language>
+  <language>
+    <id>39</id>
+    <english>Send Ticket</english>
+    <newvalue>Send Ticket</newvalue>
+    <desc>Send reply on the screen ticket</desc>
+  </language>
+  <language>
+    <id>40</id>
+    <english>Send &amp; Close Ticket</english>
+    <newvalue>Send &amp; Close Ticket</newvalue>
+    <desc>Send reply and close on the screen ticket</desc>
+  </language>
+  <language>
+    <id>41</id>
+    <english>OK</english>
+    <newvalue>OK</newvalue>
+    <desc>OK</desc>
+  </language>
+  <language>
+    <id>42</id>
+    <english>Ready</english>
+    <newvalue>Ready</newvalue>
+    <desc>Ready</desc>
+  </language>
+  <language>
+    <id>43</id>
+    <english>Connecting QWHMCS API...</english>
+    <newvalue>Connecting QWHMCS API...</newvalue>
+    <desc>Connecting QWHMCS API...</desc>
+  </language>
+  <language>
+    <id>44</id>
+    <english>Ticket Information</english>
+    <newvalue>Ticket Information</newvalue>
+    <desc>Ticket Information</desc>
+  </language>
+  <language>
+    <id>45</id>
+    <english>QWHMCS API Connection Error !</english>
+    <newvalue>QWHMCS API Connection Error !</newvalue>
+    <desc>QWHMCS API Connection Error !</desc>
+  </language>
+  <language>
+    <id>46</id>
+    <english>New Ticket/Answer</english>
+    <newvalue>New Ticket/Answer</newvalue>
+    <desc>The new ticket is opened or when the answer to the title of the alert balloon</desc>
+  </language>
+  <language>
+    <id>47</id>
+    <english>A new support ticket has been opened.</english>
+    <newvalue>A new support ticket has been opened.</newvalue>
+    <desc>The new ticket is opened, the text of the warning balloon</desc>
+  </language>
+  <language>
+    <id>48</id>
+    <english>A new support ticket response has been made.</english>
+    <newvalue>A new support ticket response has been made.</newvalue>
+    <desc>The text of the reply to a ticket when an alert balloon</desc>
+  </language>
+  <language>
+    <id>49</id>
+    <english>About</english>
+    <newvalue>About</newvalue>
+    <desc>About Window Title</desc>
+  </language>
+</settings>

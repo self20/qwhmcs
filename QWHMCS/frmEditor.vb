@@ -150,4 +150,24 @@
         End If
         TicketShow()
     End Sub
+
+    Private Sub frmEditor_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        'Language Settings
+        Me.Text = LName(31)
+        cmdReply.Caption = LName(32)
+        cmdSendTicket.Caption = LName(39)
+        cmdSendClose.Caption = LName(40)
+        cmdCloseTicket.Caption = LName(33)
+        cmdOpenWHMCS.Caption = LName(34)
+        lblTicketID.Text = LName(35)
+        lblDepartment.Text = LName(25)
+        lblTitle.Text = LName(28)
+        lblName.Text = LName(26)
+        lblStatus.Text = LName(29)
+        lblLastReply.Text = LName(37)
+        coldate1.Caption = LName(24)
+        cold_name1.Caption = LName(26)
+        cmdCloseViewer.Caption = LName(38)
+        lblGroupTicketInfo.Text = LName(44)
+    End Sub
 End Class

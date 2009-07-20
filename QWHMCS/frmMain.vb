@@ -47,91 +47,72 @@ Public Class frmMain
         APIAddress = objIniFile.GetString("WHMCS", "APIAddress", "")
         APIUsername = objIniFile.GetString("WHMCS", "APIUsername", "")
         APIPassword = objIniFile.GetString("WHMCS", "APIPassword", "")
-        LOpenTicket = objIniFile.GetString("Language", "LOpenTicket", "Open Tickets")
-        LClosedTicket = objIniFile.GetString("Language", "LClosedTicket", "Closed Tickets")
-        LAnswered = objIniFile.GetString("Language", "LAnswered", "Answered Tickets")
-        LCusAnswered = objIniFile.GetString("Language", "LCusAnswered", "Customer Replied")
-        LcmdOpen = objIniFile.GetString("Language", "LcmdOpen", "Open Ticket")
-        LcmdClose = objIniFile.GetString("Language", "LcmdClose", "Close")
-        LcmdHide = objIniFile.GetString("Language", "LcmdHide", "Hide")
-        LcmdRefresh = objIniFile.GetString("Language", "LcmdRefresh", "Refresh")
-        LcmdSettings = objIniFile.GetString("Language", "LcmdSettings", "Settings")
-        LColDate = objIniFile.GetString("Language", "LColDate", "Date")
-        LColDepartment = objIniFile.GetString("Language", "LColDepartment", "Department")
-        LColName = objIniFile.GetString("Language", "LColName", "Name")
-        LColSubName = objIniFile.GetString("Language", "LColSubName", "Subname")
-        LColTitle = objIniFile.GetString("Language", "LColTitle", "Title")
-        LColStatus = objIniFile.GetString("Language", "LColStatus", "Status")
-        LColUrgency = objIniFile.GetString("Language", "LColUrgency", "Urgency")
-        LBaloonCaption = objIniFile.GetString("Language", "LBaloonCaption", "New Ticket/Answer")
-        LBaloonNewTicket = objIniFile.GetString("Language", "LBaloonNewTicket", "A new support ticket has been opened.")
-        LBaloonNewAnswer = objIniFile.GetString("Language", "LBaloonNewAnswer", "A new support ticket response has been made.")
-        LErrorDatabase = objIniFile.GetString("Language", "LErrorDatabase", "Database Connection Problem !")
         RefreshRate = objIniFile.GetString("Settings", "RefreshRate", 30)
         Transparency = objIniFile.GetString("Settings", "Transparency", 90)
         YourSign = objIniFile.GetString("Settings", "YourSign", "")
         MaxTicket = objIniFile.GetString("Settings", "MaxTicket", 0)
         DefaultLookAndFeel1.LookAndFeel.SkinName = objIniFile.GetString("Settings", "Skin", "Blue")
-        cmdAc.Caption = LcmdOpen
-        cmdKapat.Caption = LcmdClose
-        cmdYenile.Caption = LcmdRefresh
-        cmdYenile.Description = LcmdRefresh
-        cmdGizle.Caption = LcmdHide
-        cmdAyarlar.Caption = LcmdSettings
-        coldate1.Caption = LColDate
-        coldate2.Caption = LColDate
-        coldate3.Caption = LColDate
-        coldate4.Caption = LColDate
-        coldate5.Caption = LColDate
-        coldate6.Caption = LColDate
-        cold_name1.Caption = LColDepartment
-        cold_name2.Caption = LColDepartment
-        cold_name3.Caption = LColDepartment
-        cold_name4.Caption = LColDepartment
-        cold_name5.Caption = LColDepartment
-        cold_name6.Caption = LColDepartment
-        colu_name1.Caption = LColName
-        colu_name2.Caption = LColName
-        colu_name3.Caption = LColName
-        colu_name4.Caption = LColName
-        colu_name5.Caption = LColName
-        colu_name6.Caption = LColName
-        colu_subname1.Caption = LColSubName
-        colu_subname2.Caption = LColSubName
-        colu_subname3.Caption = LColSubName
-        colu_subname4.Caption = LColSubName
-        colu_subname5.Caption = LColSubName
-        colu_subname6.Caption = LColSubName
-        coltitle1.Caption = LColTitle
-        coltitle2.Caption = LColTitle
-        coltitle3.Caption = LColTitle
-        coltitle4.Caption = LColTitle
-        coltitle5.Caption = LColTitle
-        coltitle6.Caption = LColTitle
-        colstatus1.Caption = LColStatus
-        colstatus2.Caption = LColStatus
-        colstatus3.Caption = LColStatus
-        colstatus4.Caption = LColStatus
-        colstatus5.Caption = LColStatus
-        colstatus6.Caption = LColStatus
-        colurgency1.Caption = LColUrgency
-        colurgency2.Caption = LColUrgency
-        colurgency3.Caption = LColUrgency
-        colurgency4.Caption = LColUrgency
-        colurgency5.Caption = LColUrgency
-        colurgency6.Caption = LColUrgency
-        frmEditor.coldate1.Caption = LColDate
-        frmEditor.cold_name1.Caption = LColName
-        tabOpen.Text = LOpenTicket
-        tabCustomer_Reply.Text = LCusAnswered
-        tabAnswered.Text = LAnswered
-        tabClosed.Text = LClosedTicket
+        'Language Settings
+        frmEditor.coldate1.Caption = LName(24)
+        frmEditor.cold_name1.Caption = LName(36)
+        tabOpen.Text = LName(18)
+        tabCustomer_Reply.Text = LName(19)
+        tabAnswered.Text = LName(20)
+        tabInProgress.Text = LName(21)
+        tabOnHold.Text = LName(22)
+        tabClosed.Text = LName(23)
+        cmdAc.Caption = LName(17)
+        cmdAyarlar.Caption = LName(1)
+        cmdGizle.Caption = LName(15)
+        cmdKapat.Caption = LName(16)
+        coldate1.Caption = LName(24)
+        coldate2.Caption = LName(24)
+        coldate3.Caption = LName(24)
+        coldate4.Caption = LName(24)
+        coldate5.Caption = LName(24)
+        coldate6.Caption = LName(24)
+        cold_name1.Caption = LName(25)
+        cold_name2.Caption = LName(25)
+        cold_name3.Caption = LName(25)
+        cold_name4.Caption = LName(25)
+        cold_name5.Caption = LName(25)
+        cold_name6.Caption = LName(25)
+        colu_name1.Caption = LName(26)
+        colu_name2.Caption = LName(26)
+        colu_name3.Caption = LName(26)
+        colu_name4.Caption = LName(26)
+        colu_name5.Caption = LName(26)
+        colu_name6.Caption = LName(26)
+        colu_subname1.Caption = LName(27)
+        colu_subname2.Caption = LName(27)
+        colu_subname3.Caption = LName(27)
+        colu_subname4.Caption = LName(27)
+        colu_subname5.Caption = LName(27)
+        colu_subname6.Caption = LName(27)
+        coltitle1.Caption = LName(28)
+        coltitle2.Caption = LName(28)
+        coltitle3.Caption = LName(28)
+        coltitle4.Caption = LName(28)
+        coltitle5.Caption = LName(28)
+        coltitle6.Caption = LName(28)
+        colstatus1.Caption = LName(29)
+        colstatus2.Caption = LName(29)
+        colstatus3.Caption = LName(29)
+        colstatus4.Caption = LName(29)
+        colstatus5.Caption = LName(29)
+        colstatus6.Caption = LName(29)
+        colurgency1.Caption = LName(30)
+        colurgency2.Caption = LName(30)
+        colurgency3.Caption = LName(30)
+        colurgency4.Caption = LName(30)
+        colurgency5.Caption = LName(30)
+        colurgency6.Caption = LName(30)
         Me.Opacity = Transparency / 100
         Zaman = RefreshRate
     End Sub
     Public Function Doldur(Optional ByVal Ilk As Boolean = False) As Boolean
         Application.DoEvents()
-        lbStatus.Caption = "Connecting QWHMCS API..."
+        lbStatus.Caption = LName(43)
         lbStatus.Glyph = My.Resources.hist_16
         Application.DoEvents()
         Try
@@ -149,7 +130,7 @@ Public Class frmMain
                 GridControl4.DataSource = Nothing
                 GridControl5.DataSource = Nothing
                 GridControl6.DataSource = Nothing
-                lbStatus.Caption = "Ready"
+                lbStatus.Caption = LName(42)
                 lbStatus.Glyph = My.Resources.play_16
                 Exit Function
             End If
@@ -162,12 +143,12 @@ Public Class frmMain
                 tCevapBekleyenTicketSayisi = Int(XMLDownload(6))
                 If tAcikTicketSayisi > AcikTicketSayisi Then
                     My.Computer.Audio.Play(aPath & "\alarm.wav", AudioPlayMode.BackgroundLoop)
-                    ni1.ShowBalloonTip(0, LBaloonCaption, LBaloonNewTicket, ToolTipIcon.Info)
+                    ni1.ShowBalloonTip(0, LName(46), LName(47), ToolTipIcon.Info)
                     AcikTicketSayisi = tAcikTicketSayisi
                 End If
                 If tCevapBekleyenTicketSayisi > CevapBekleyenTicketSayisi Then
                     My.Computer.Audio.Play(aPath & "\alarm.wav", AudioPlayMode.BackgroundLoop)
-                    ni1.ShowBalloonTip(0, LBaloonCaption, LBaloonNewAnswer, ToolTipIcon.Info)
+                    ni1.ShowBalloonTip(0, LName(46), LName(48), ToolTipIcon.Info)
                     CevapBekleyenTicketSayisi = tCevapBekleyenTicketSayisi
                 End If
             End If
@@ -221,10 +202,10 @@ Public Class frmMain
                         cmdAc.Enabled = False
                     End If
             End Select
-            lbStatus.Caption = "Ready"
+            lbStatus.Caption = LName(42)
             lbStatus.Glyph = My.Resources.play_16
         Catch ex As Exception
-            lbStatus.Caption = LErrorDatabase
+            lbStatus.Caption = LName(45)
             lbStatus.Glyph = My.Resources.cancl_16
             Exit Function
         End Try

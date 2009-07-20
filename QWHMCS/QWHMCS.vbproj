@@ -166,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="bin\Release\alarm.wav" />
+    <Content Include="bin\Release\Language.xml" />
     <Content Include="bin\Release\QUpdate.exe" />
     <Content Include="bin\Release\QWHMCS.exe" />
     <Content Include="bin\Release\QWHMCS.pdb" />
